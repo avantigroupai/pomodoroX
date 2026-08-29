@@ -4,43 +4,43 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://pomodorox.app/</loc>
+    <loc>https://avantigroupai.github.io/pomodoroX/</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://pomodorox.app/#features</loc>
+    <loc>https://avantigroupai.github.io/pomodoroX/#features</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://pomodorox.app/#soundscapes</loc>
+    <loc>https://avantigroupai.github.io/pomodoroX/#soundscapes</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://pomodorox.app/#how-it-works</loc>
+    <loc>https://avantigroupai.github.io/pomodoroX/#how-it-works</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://pomodorox.app/#comparison</loc>
+    <loc>https://avantigroupai.github.io/pomodoroX/#comparison</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://pomodorox.app/#specs</loc>
+    <loc>https://avantigroupai.github.io/pomodoroX/#specs</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://pomodorox.app/#faq</loc>
+    <loc>https://avantigroupai.github.io/pomodoroX/#faq</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>

@@ -1,0 +1,3 @@
+module PomodoroXCore {
+    header "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/release/PomodoroXCore.build/include/PomodoroXCore-Swift.h"
+}

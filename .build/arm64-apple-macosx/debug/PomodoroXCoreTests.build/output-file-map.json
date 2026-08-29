@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXCoreTests.build/primary.swiftdeps"
+  },
+  "/Users/honato/workspace/pomodoroX/Tests/PomodoroXCoreTests/PomodoroModelTests.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXCoreTests.build/PomodoroModelTests.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXCoreTests.build/PomodoroModelTests.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXCoreTests.build/PomodoroModelTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXCoreTests.build/PomodoroModelTests.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXCoreTests.build/PomodoroModelTests.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Tests/PomodoroXCoreTests/TimerServiceTests.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXCoreTests.build/TimerServiceTests.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXCoreTests.build/TimerServiceTests.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXCoreTests.build/TimerServiceTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXCoreTests.build/TimerServiceTests.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXCoreTests.build/TimerServiceTests.dia"
+  }
+}

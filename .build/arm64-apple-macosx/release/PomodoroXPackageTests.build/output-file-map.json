@@ -1,0 +1,13 @@
+{
+  "": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/release/PomodoroXPackageTests.build/PomodoroXPackageTests.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/release/PomodoroXPackageTests.build/PomodoroXPackageTests.o",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/release/PomodoroXPackageTests.build/primary.swiftdeps"
+  },
+  "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/release/PomodoroXPackageTests.derived/runner.swift": {
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/release/PomodoroXPackageTests.build/runner.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/release/PomodoroXPackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/release/PomodoroXPackageTests.build/runner.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/release/PomodoroXPackageTests.build/runner.dia"
+  }
+}

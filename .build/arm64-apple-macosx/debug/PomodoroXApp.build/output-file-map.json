@@ -1,0 +1,117 @@
+{
+  "": {
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/primary.swiftdeps"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/App/AppEnvironment.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/AppEnvironment.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/AppEnvironment.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/AppEnvironment~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/AppEnvironment.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/AppEnvironment.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/App/PomodoroXApp.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/PomodoroXApp.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/PomodoroXApp.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/PomodoroXApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/PomodoroXApp.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/PomodoroXApp.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/Styles/ColorExtensions.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/ColorExtensions.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/ColorExtensions.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/ColorExtensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/ColorExtensions.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/ColorExtensions.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/Styles/GlassCardModifier.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/GlassCardModifier.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/GlassCardModifier.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/GlassCardModifier~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/GlassCardModifier.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/GlassCardModifier.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/Views/Ambient/AmbientSoundBarView.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/AmbientSoundBarView.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/AmbientSoundBarView.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/AmbientSoundBarView~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/AmbientSoundBarView.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/AmbientSoundBarView.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/Views/Settings/SettingsSheetView.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/SettingsSheetView.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/SettingsSheetView.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/SettingsSheetView~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/SettingsSheetView.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/SettingsSheetView.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/Views/Stats/StatsView.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/StatsView.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/StatsView.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/StatsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/StatsView.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/StatsView.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/Views/Stats/StreakBadgeView.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/StreakBadgeView.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/StreakBadgeView.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/StreakBadgeView~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/StreakBadgeView.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/StreakBadgeView.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/Views/Tasks/TaskListView.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TaskListView.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TaskListView.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TaskListView~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TaskListView.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TaskListView.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/Views/Tasks/TaskRowView.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TaskRowView.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TaskRowView.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TaskRowView~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TaskRowView.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TaskRowView.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/Views/Timer/CircularProgressRing.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/CircularProgressRing.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/CircularProgressRing.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/CircularProgressRing~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/CircularProgressRing.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/CircularProgressRing.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/Views/Timer/ControlButtonsView.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/ControlButtonsView.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/ControlButtonsView.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/ControlButtonsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/ControlButtonsView.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/ControlButtonsView.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/Views/Timer/PhaseSelectorView.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/PhaseSelectorView.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/PhaseSelectorView.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/PhaseSelectorView~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/PhaseSelectorView.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/PhaseSelectorView.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/Views/Timer/TimerMainView.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TimerMainView.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TimerMainView.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TimerMainView~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TimerMainView.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/TimerMainView.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/Views/macOS/MenuBarView.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/MenuBarView.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/MenuBarView.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/MenuBarView~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/MenuBarView.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/MenuBarView.dia"
+  },
+  "/Users/honato/workspace/pomodoroX/Sources/PomodoroXApp/Views/macOS/MiniTimerView.swift": {
+    "dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/MiniTimerView.d",
+    "object": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/MiniTimerView.swift.o",
+    "swiftmodule": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/MiniTimerView~partial.swiftmodule",
+    "swift-dependencies": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/MiniTimerView.swiftdeps",
+    "diagnostics": "/Users/honato/workspace/pomodoroX/.build/arm64-apple-macosx/debug/PomodoroXApp.build/MiniTimerView.dia"
+  }
+}

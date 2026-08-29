@@ -1,4 +1,4 @@
-# robots.txt for PomodoroX (https://pomodorox.app)
+# robots.txt for PomodoroX (https://avantigroupai.github.io/pomodoroX/)
 # Optimized for Search Engines (SEO), Generative AI (GEO), and Answer Engines (AEO)
 
 User-agent: *
@@ -64,7 +64,7 @@ User-agent: CCBot
 Allow: /
 
 # Sitemaps and LLM context manifests
-Sitemap: https://pomodorox.app/sitemap.xml
+Sitemap: https://avantigroupai.github.io/pomodoroX/sitemap.xml
 # LLMs Context Standard (llmstxt.org):
-# https://pomodorox.app/llms.txt
-# https://pomodorox.app/llms-full.txt
+# https://avantigroupai.github.io/pomodoroX/llms.txt
+# https://avantigroupai.github.io/pomodoroX/llms-full.txt
