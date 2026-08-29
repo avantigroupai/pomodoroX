@@ -310,15 +310,14 @@ a:active {
 /* Emulator Box & Web Timer Callout */
 .hero-preview {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  justify-content: center;
   width: 100%;
 }
 
 .web-timer-callout {
   width: 100%;
-  max-width: 400px;
+  max-width: 520px;
+  margin-bottom: 24px;
   padding: 14px 18px;
   background: linear-gradient(135deg, rgba(255, 89, 71, 0.12) 0%, rgba(22, 26, 37, 0.85) 60%, rgba(56, 166, 242, 0.08) 100%);
   border: 1px solid rgba(255, 89, 71, 0.35);
@@ -766,11 +765,17 @@ a:active {
   font-weight: 800;
   letter-spacing: -1px;
   margin-bottom: 14px;
+  text-wrap: balance;
 }
 
 .section-subtitle {
   color: var(--text-muted);
   font-size: 16px;
+  max-width: 660px;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .features-grid {
