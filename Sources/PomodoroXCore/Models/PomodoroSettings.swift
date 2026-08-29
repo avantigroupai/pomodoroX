@@ -42,6 +42,7 @@ public enum TimerPreset: String, Codable, CaseIterable, Identifiable, Sendable {
 
 public enum AmbientSoundType: String, Codable, CaseIterable, Identifiable, Sendable {
     case none = "Off"
+    case vibeCoding = "Vibe Coding"
     case oceanWaves = "Ocean Waves"
     case deepFocus = "Deep Pink Noise"
     case brownNoise = "Brown Noise"
@@ -52,6 +53,7 @@ public enum AmbientSoundType: String, Codable, CaseIterable, Identifiable, Senda
     public var iconName: String {
         switch self {
         case .none: return "speaker.slash.fill"
+        case .vibeCoding: return "terminal.fill"
         case .oceanWaves: return "water.waves"
         case .deepFocus: return "waveform.path"
         case .brownNoise: return "wind"

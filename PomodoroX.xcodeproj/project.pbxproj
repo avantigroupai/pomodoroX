@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		03CF2C33158DBA06C4891666 /* PomodoroSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD94DE9C42081B3702FBF34 /* PomodoroSettings.swift */; };
+		0A501772468848A27C77D728 /* StorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF15CB51EA6E7D9902DED01 /* StorageServiceTests.swift */; };
+		0A874D50A691D94B0A50FEC8 /* StatsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E39610DB88625E487419A5 /* StatsViewModelTests.swift */; };
 		0B0481430034424FD03EA6E9 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E63EC5ABE5CDB6D1E7E3E /* AppEnvironment.swift */; };
 		1D31F70EB110EFD01DFEB36F /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6B7248F62AF644463FF3CB /* StorageService.swift */; };
 		20C802522D6EC3D4A0508F2A /* StreakBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EA374143EA74367E001282 /* StreakBadgeView.swift */; };
@@ -19,6 +21,7 @@
 		3C9F1171C2B6F6525E4E4B9D /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC5C148799539597B6A4A4 /* HapticsManager.swift */; };
 		437BC5CBA9477FBE31C14175 /* PomodoroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287D96A49003FBE7B4626E82 /* PomodoroViewModel.swift */; };
 		44734B0E4142045E4023E1DB /* PomodoroXCore-macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B3BC57F2652E07DB0F216E /* PomodoroXCore-macOS.framework */; };
+		4713CE418F06508AA60E965C /* TasksViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E2B0A647499EDE1A5EEEC /* TasksViewModelTests.swift */; };
 		52AA453CCC0E38EA3B10F094 /* PomodoroSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820CC6096B2C744D6E6EA9D2 /* PomodoroSession.swift */; };
 		54194978E1A28B23083C0A70 /* TimerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D3906CBD68C0D1B8210E5A /* TimerServiceTests.swift */; };
 		54874619BEB55444F4D42E1C /* ControlButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA2DB9091B1D3DD29200D3D /* ControlButtonsView.swift */; };
@@ -28,6 +31,7 @@
 		65A45A041D568D24DA149939 /* PomodoroXCore-iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6727B500AFE5193D688BEDB /* PomodoroXCore-iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6798C4737E25D268CCCAD22A /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEEABD92B15D198F381D557 /* ColorExtensions.swift */; };
 		69A47998C7E63C8DE06DA76B /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EA40648408D7A1DCD366B /* StatsViewModel.swift */; };
+		6BC872B96FD9291AC57DCB83 /* AmbientAudioEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84C4B1DF44851FDADB1B550 /* AmbientAudioEngineTests.swift */; };
 		6D6E7B75C27A6F4E073BA6BD /* SettingsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C08552D25463110840E724 /* SettingsSheetView.swift */; };
 		7304D68554B18B6A4B76F739 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B022AD1BBABAF9452B3C47 /* TimerService.swift */; };
 		7561A42E348C9F9625EDF890 /* PomodoroTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7564774AB7BCEEFDB0D9EB30 /* PomodoroTask.swift */; };
@@ -49,6 +53,7 @@
 		95C1A34FE5F2AA5BB2761163 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99418797549B868563606B7B /* MenuBarView.swift */; };
 		9A0828E5233B856F903AF245 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B471B476B3B21A0B6D308564 /* AppIcon.icns */; };
 		9B318AF51A666FC7DAEAA262 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D22ABFAEEBDE8FAFF479BD3 /* TaskRowView.swift */; };
+		9F9929D819450F2154D06624 /* PomodoroViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD3289C9E21F98D332E0DF2 /* PomodoroViewModelTests.swift */; };
 		A51F7C6EC4B0CBE16ACC68F9 /* AmbientSoundBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAB5336B6684C7AEA17E87 /* AmbientSoundBarView.swift */; };
 		A78747C58DEBDCD0C0093658 /* GlassCardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C11650CAC572D2972BE /* GlassCardModifier.swift */; };
 		BF111967FDEDDF5F599F4CBE /* PomodoroXCore-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6727B500AFE5193D688BEDB /* PomodoroXCore-iOS.framework */; };
@@ -147,12 +152,15 @@
 		287D96A49003FBE7B4626E82 /* PomodoroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroViewModel.swift; sourceTree = "<group>"; };
 		3538513BD84060D1B0363128 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		44560417D144AFB08086372E /* PomodoroX-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "PomodoroX-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FD3289C9E21F98D332E0DF2 /* PomodoroViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroViewModelTests.swift; sourceTree = "<group>"; };
+		55E39610DB88625E487419A5 /* StatsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModelTests.swift; sourceTree = "<group>"; };
 		57D3906CBD68C0D1B8210E5A /* TimerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerServiceTests.swift; sourceTree = "<group>"; };
 		63B3BC57F2652E07DB0F216E /* PomodoroXCore-macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "PomodoroXCore-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB2A6449F8EDEB96A8EAAC8 /* PomodoroModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroModelTests.swift; sourceTree = "<group>"; };
 		6B7476B0553CC5749C938CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7564774AB7BCEEFDB0D9EB30 /* PomodoroTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTask.swift; sourceTree = "<group>"; };
 		7605ACA6B7730216D1DBFCEA /* PomodoroXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroXApp.swift; sourceTree = "<group>"; };
+		7E9E2B0A647499EDE1A5EEEC /* TasksViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModelTests.swift; sourceTree = "<group>"; };
 		7EA2DB9091B1D3DD29200D3D /* ControlButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButtonsView.swift; sourceTree = "<group>"; };
 		820CC6096B2C744D6E6EA9D2 /* PomodoroSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroSession.swift; sourceTree = "<group>"; };
 		84FAB5336B6684C7AEA17E87 /* AmbientSoundBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientSoundBarView.swift; sourceTree = "<group>"; };
@@ -161,8 +169,10 @@
 		99418797549B868563606B7B /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		A3EA374143EA74367E001282 /* StreakBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakBadgeView.swift; sourceTree = "<group>"; };
 		A9DC4C11650CAC572D2972BE /* GlassCardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassCardModifier.swift; sourceTree = "<group>"; };
+		ADF15CB51EA6E7D9902DED01 /* StorageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceTests.swift; sourceTree = "<group>"; };
 		B471B476B3B21A0B6D308564 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 		B6727B500AFE5193D688BEDB /* PomodoroXCore-iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "PomodoroXCore-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C84C4B1DF44851FDADB1B550 /* AmbientAudioEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientAudioEngineTests.swift; sourceTree = "<group>"; };
 		D34CB9D0A7BE335E44E647BA /* AmbientAudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientAudioEngine.swift; sourceTree = "<group>"; };
 		D4FF3D1437105CF9E98A7D4F /* PomodoroX-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PomodoroX-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD79F1B3B85C670966C19952 /* CircularProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressRing.swift; sourceTree = "<group>"; };
@@ -224,7 +234,12 @@
 		3517574CFE2FACAA67243F2F /* PomodoroXCoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				C84C4B1DF44851FDADB1B550 /* AmbientAudioEngineTests.swift */,
 				6AB2A6449F8EDEB96A8EAAC8 /* PomodoroModelTests.swift */,
+				4FD3289C9E21F98D332E0DF2 /* PomodoroViewModelTests.swift */,
+				55E39610DB88625E487419A5 /* StatsViewModelTests.swift */,
+				ADF15CB51EA6E7D9902DED01 /* StorageServiceTests.swift */,
+				7E9E2B0A647499EDE1A5EEEC /* TasksViewModelTests.swift */,
 				57D3906CBD68C0D1B8210E5A /* TimerServiceTests.swift */,
 			);
 			name = PomodoroXCoreTests;
@@ -606,7 +621,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BC872B96FD9291AC57DCB83 /* AmbientAudioEngineTests.swift in Sources */,
 				9042B1221C8E2FDFA415F75E /* PomodoroModelTests.swift in Sources */,
+				9F9929D819450F2154D06624 /* PomodoroViewModelTests.swift in Sources */,
+				0A874D50A691D94B0A50FEC8 /* StatsViewModelTests.swift in Sources */,
+				0A501772468848A27C77D728 /* StorageServiceTests.swift in Sources */,
+				4713CE418F06508AA60E965C /* TasksViewModelTests.swift in Sources */,
 				54194978E1A28B23083C0A70 /* TimerServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

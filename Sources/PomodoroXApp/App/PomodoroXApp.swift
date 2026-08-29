@@ -160,12 +160,42 @@ public struct MainContentView: View {
         }
         #if os(macOS)
         .onAppear {
-            if let icon = NSImage(named: "AppIcon") ?? NSImage(contentsOf: Bundle.main.bundleURL.appendingPathComponent("Contents/Resources/AppIcon.icns")) {
-                NSApplication.shared.applicationIconImage = icon
-            }
+            setDockIcon()
         }
         #endif
     }
+
+    #if os(macOS)
+    private func setDockIcon() {
+        if let icon = NSImage(named: "AppIcon") {
+            NSApplication.shared.applicationIconImage = icon
+            return
+        }
+        #if SWIFT_PACKAGE
+        if let url = Bundle.module.url(forResource: "AppIcon", withExtension: "icns"),
+           let icon = NSImage(contentsOf: url) {
+            NSApplication.shared.applicationIconImage = icon
+            return
+        }
+        #endif
+        if let url = Bundle.main.url(forResource: "AppIcon", withExtension: "icns"),
+           let icon = NSImage(contentsOf: url) {
+            NSApplication.shared.applicationIconImage = icon
+            return
+        }
+        let fallbackPaths = [
+            "Sources/PomodoroXApp/Resources/AppIcon.icns",
+            "Resources/AppIcon.icns"
+        ]
+        for path in fallbackPaths {
+            if FileManager.default.fileExists(atPath: path),
+               let icon = NSImage(contentsOfFile: path) {
+                NSApplication.shared.applicationIconImage = icon
+                return
+            }
+        }
+    }
+    #endif
 
     // MARK: - Top Header Bar
     private var topHeaderBar: some View {

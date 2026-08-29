@@ -28,7 +28,11 @@ let package = Package(
         .executableTarget(
             name: "PomodoroXApp",
             dependencies: ["PomodoroXCore"],
-            path: "Sources/PomodoroXApp"
+            path: "Sources/PomodoroXApp",
+            exclude: ["Info-macOS.plist", "Info-iOS.plist"],
+            resources: [
+                .process("Resources")
+            ]
         ),
         .testTarget(
             name: "PomodoroXCoreTests",

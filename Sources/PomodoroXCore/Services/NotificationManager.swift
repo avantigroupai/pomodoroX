@@ -5,8 +5,15 @@ public final class NotificationManager: @unchecked Sendable {
     public static let shared = NotificationManager()
 
     private var isSupported: Bool {
-        // UNUserNotificationCenter requires an application bundle with an identifier
-        Bundle.main.bundleIdentifier != nil
+        // UNUserNotificationCenter requires a running application bundle
+        guard let bundleId = Bundle.main.bundleIdentifier,
+              !bundleId.isEmpty,
+              !bundleId.contains("xctest"),
+              !bundleId.contains("PomodoroXPackageTests"),
+              Bundle.main.bundlePath.hasSuffix(".app") else {
+            return false
+        }
+        return true
     }
 
     public init() {}

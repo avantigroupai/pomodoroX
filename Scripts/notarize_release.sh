@@ -11,8 +11,8 @@ if [[ -f "$ROOT/version.env" ]]; then
 else
   APP_NAME="PomodoroX"
   BUNDLE_ID="com.pomodorox.app"
-  MARKETING_VERSION="1.0.2"
-  BUILD_NUMBER="3"
+  MARKETING_VERSION="1.0.3"
+  BUILD_NUMBER="4"
 fi
 
 DIST_DIR="${DIST_DIR:-$ROOT/dist}"

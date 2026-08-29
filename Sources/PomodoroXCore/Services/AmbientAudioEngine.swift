@@ -16,6 +16,16 @@ public final class AmbientAudioEngine: @unchecked Sendable {
     private var brownLastOut: Float = 0
     private var wavePhase: Float = 0
 
+    // Vibe Coding DSP State
+    private var vibePhaseA: Float = 0
+    private var vibePhaseB: Float = 0
+    private var vibePhaseC: Float = 0
+    private var vibePhaseSub: Float = 0
+    private var vibeGammaPhase: Float = 0
+    private var vibeLfoPhase: Float = 0
+    private var vibeFilterOut: Float = 0
+    private var vibeTapeOut: Float = 0
+
     // Volume Ramping Timer
     private var fadeTimer: Timer?
 
@@ -152,6 +162,57 @@ public final class AmbientAudioEngine: @unchecked Sendable {
         switch type {
         case .none:
             return 0
+
+        case .vibeCoding:
+            // 💻 VIBE CODING: 40Hz Gamma Isochronic Brainwave Entrainment + Warm Lo-Fi Synth Drone Pad + Vinyl Floor
+            // 1. Slow 16s breathing LFO for subtle analog filter & detune motion
+            vibeLfoPhase += (2.0 * Float.pi * 0.0625) / sampleRate
+            if vibeLfoPhase > 2.0 * Float.pi { vibeLfoPhase -= 2.0 * Float.pi }
+            let lfo = (sin(vibeLfoPhase) + 1.0) * 0.5
+
+            // 2. 40Hz Gamma Focus Carrier Pulse (Isochronic brainwave entrainment)
+            vibeGammaPhase += (2.0 * Float.pi * 40.0) / sampleRate
+            if vibeGammaPhase > 2.0 * Float.pi { vibeGammaPhase -= 2.0 * Float.pi }
+            let gammaPulse = 0.82 + (0.18 * sin(vibeGammaPhase))
+
+            // 3. Multi-Oscillator Warm Synth Pad (A2 110Hz, E3 164.81Hz, B3 246.94Hz + Sub 55Hz)
+            let detune = sin(vibeLfoPhase * 3.0) * 0.35
+            let freqA: Float = 110.0 + detune
+            let freqB: Float = 164.81 - detune * 0.5
+            let freqC: Float = 246.94 + detune * 0.75
+            let freqSub: Float = 55.0
+
+            vibePhaseA += (2.0 * Float.pi * freqA) / sampleRate
+            if vibePhaseA > 2.0 * Float.pi { vibePhaseA -= 2.0 * Float.pi }
+
+            vibePhaseB += (2.0 * Float.pi * freqB) / sampleRate
+            if vibePhaseB > 2.0 * Float.pi { vibePhaseB -= 2.0 * Float.pi }
+
+            vibePhaseC += (2.0 * Float.pi * freqC) / sampleRate
+            if vibePhaseC > 2.0 * Float.pi { vibePhaseC -= 2.0 * Float.pi }
+
+            vibePhaseSub += (2.0 * Float.pi * freqSub) / sampleRate
+            if vibePhaseSub > 2.0 * Float.pi { vibePhaseSub -= 2.0 * Float.pi }
+
+            let oscA = (sin(vibePhaseA) * 0.45) + ((abs(vibePhaseA / Float.pi - 1.0) * 2.0 - 1.0) * 0.2)
+            let oscB = sin(vibePhaseB) * 0.35
+            let oscC = sin(vibePhaseC) * 0.22
+            let oscSub = sin(vibePhaseSub) * 0.4
+
+            let synthChord = (oscA + oscB + oscC + oscSub) * gammaPulse
+
+            // 4. Warm Dynamic Lowpass Filter (One-pole smoothing)
+            let filterAlpha = 0.07 + (0.06 * lfo)
+            vibeFilterOut = vibeFilterOut + filterAlpha * (synthChord - vibeFilterOut)
+
+            // 5. Lo-Fi Tape Noise & Micro-Texture
+            vibeTapeOut = (vibeTapeOut + (0.015 * white)) / 1.015
+            let tapeNoise = vibeTapeOut * 0.4
+
+            // Subtle vinyl dust crackle
+            let crackle = (abs(white) > 0.995) ? (white * 0.06) : 0.0
+
+            return (vibeFilterOut * 0.8) + tapeNoise + crackle
 
         case .oceanWaves:
             // 🌊 REAL OCEAN WAVES: Asymmetric 11-second tidal swell + crashing crest surf + receding foam hiss

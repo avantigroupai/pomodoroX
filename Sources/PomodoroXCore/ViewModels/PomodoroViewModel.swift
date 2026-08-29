@@ -168,6 +168,9 @@ public final class PomodoroViewModel {
     public func adjustTime(by deltaMinutes: Int) {
         let deltaSeconds = TimeInterval(deltaMinutes * 60)
         timerService.adjustTime(by: deltaSeconds)
+        self.timeRemaining = timerService.timeRemaining
+        self.totalDuration = timerService.totalDuration
+        self.progress = timerService.progress
         haptics.playSelectionFeedback()
     }
 
