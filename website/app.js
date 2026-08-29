@@ -31,35 +31,49 @@ const phaseConfigs = {
   }
 };
 
-// Canvas Ring Setup
-const canvas = document.getElementById('timerCanvas');
-const ctx = canvas.getContext('2d');
-const size = 280;
-const center = size / 2;
-const radius = 110;
+// Canvas Ring Setup with HiDPI Retina Crispness
+function drawDialOnCanvas(canvasEl, progress) {
+  if (!canvasEl) return;
+  const ctx = canvasEl.getContext('2d');
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  
+  // Set internal resolution for crisp Retina rendering
+  const displayWidth = canvasEl.clientWidth || parseInt(canvasEl.getAttribute('width')) || 280;
+  const displayHeight = canvasEl.clientHeight || parseInt(canvasEl.getAttribute('height')) || 280;
+  
+  if (canvasEl.width !== displayWidth * dpr || canvasEl.height !== displayHeight * dpr) {
+    canvasEl.width = displayWidth * dpr;
+    canvasEl.height = displayHeight * dpr;
+  }
 
-function drawDial(progress) {
-  ctx.clearRect(0, 0, size, size);
+  ctx.save();
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, displayWidth, displayHeight);
+
+  const size = displayWidth;
+  const center = size / 2;
+  const radius = size * 0.39;
 
   const cfg = phaseConfigs[currentPhase];
 
   // 1. Ambient Radial Glow
-  const gradGlow = ctx.createRadialGradient(center, center, 40, center, center, 135);
+  const gradGlow = ctx.createRadialGradient(center, center, center * 0.3, center, center, center * 0.95);
   gradGlow.addColorStop(0, hexToRgba(cfg.colorStart, timerState === 'running' ? 0.25 : 0.08));
   gradGlow.addColorStop(1, 'transparent');
   ctx.fillStyle = gradGlow;
   ctx.beginPath();
-  ctx.arc(center, center, 135, 0, Math.PI * 2);
+  ctx.arc(center, center, center * 0.95, 0, Math.PI * 2);
   ctx.fill();
 
   // 2. 60 Minute Tick Marks
   ctx.save();
   ctx.translate(center, center);
   for (let i = 0; i < 60; i++) {
-    const angle = (i * 6 * Math.PI) / 180;
-    ctx.rotate(6 * Math.PI / 180);
-    ctx.fillStyle = i % 5 === 0 ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.08)';
-    ctx.fillRect(-0.75, -radius - 12, i % 5 === 0 ? 1.5 : 1, i % 5 === 0 ? 7 : 3.5);
+    ctx.fillStyle = i % 5 === 0 ? 'rgba(255, 255, 255, 0.32)' : 'rgba(255, 255, 255, 0.09)';
+    const tickLen = i % 5 === 0 ? 8 : 4;
+    const tickW = i % 5 === 0 ? 1.75 : 1;
+    ctx.fillRect(-tickW / 2, -radius - 14, tickW, tickLen);
+    ctx.rotate((6 * Math.PI) / 180);
   }
   ctx.restore();
 
@@ -67,7 +81,7 @@ function drawDial(progress) {
   ctx.beginPath();
   ctx.arc(center, center, radius, 0, Math.PI * 2);
   ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
-  ctx.lineWidth = 14;
+  ctx.lineWidth = size * 0.05;
   ctx.lineCap = 'round';
   ctx.stroke();
 
@@ -82,10 +96,10 @@ function drawDial(progress) {
   ctx.beginPath();
   ctx.arc(center, center, radius, startAngle, endAngle);
   ctx.strokeStyle = gradStroke;
-  ctx.lineWidth = 14;
+  ctx.lineWidth = size * 0.05;
   ctx.lineCap = 'round';
   ctx.shadowColor = cfg.colorStart;
-  ctx.shadowBlur = timerState === 'running' ? 14 : 6;
+  ctx.shadowBlur = timerState === 'running' ? 16 : 6;
   ctx.stroke();
   ctx.shadowBlur = 0;
 
@@ -95,13 +109,29 @@ function drawDial(progress) {
     const dotY = center + radius * Math.sin(endAngle);
 
     ctx.beginPath();
-    ctx.arc(dotX, dotY, 6, 0, Math.PI * 2);
+    ctx.arc(dotX, dotY, size * 0.022, 0, Math.PI * 2);
     ctx.fillStyle = '#ffffff';
     ctx.shadowColor = cfg.colorStart;
-    ctx.shadowBlur = 10;
+    ctx.shadowBlur = 12;
     ctx.fill();
     ctx.shadowBlur = 0;
   }
+
+  ctx.restore();
+}
+
+function drawDial(progress) {
+  const heroCanvas = document.getElementById('timerCanvas');
+  const focusCanvas = document.getElementById('focusTimerCanvas');
+  if (heroCanvas) drawDialOnCanvas(heroCanvas, progress);
+  if (focusCanvas) drawDialOnCanvas(focusCanvas, progress);
+}
+
+function syncTaskName(newName) {
+  const heroTask = document.getElementById('activeTaskName');
+  const focusTask = document.querySelector('.focus-task-title');
+  if (heroTask && heroTask.textContent !== newName) heroTask.textContent = newName;
+  if (focusTask && focusTask.textContent !== newName) focusTask.textContent = newName;
 }
 
 function updateDisplay() {
@@ -109,8 +139,20 @@ function updateDisplay() {
   const secs = timeRemaining % 60;
   const timeStr = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   
-  document.getElementById('timerTime').textContent = timeStr;
-  document.querySelector('.device-status').textContent = timeStr;
+  const timerTimeEl = document.getElementById('timerTime');
+  const focusTimerTimeEl = document.getElementById('focusTimerTime');
+  const deviceStatusEl = document.querySelector('.device-status');
+  
+  if (timerTimeEl) timerTimeEl.textContent = timeStr;
+  if (focusTimerTimeEl) focusTimerTimeEl.textContent = timeStr;
+  if (deviceStatusEl) deviceStatusEl.textContent = timeStr;
+
+  // Page title dynamic update when running
+  if (timerState === 'running') {
+    document.title = `(${timeStr}) PomodoroX • ${phaseConfigs[currentPhase].name}`;
+  } else {
+    document.title = 'PomodoroX — Minimalist Pomodoro Timer & Ambient Soundscapes for Mac & iOS';
+  }
 
   const progress = totalDuration > 0 ? (totalDuration - timeRemaining) / totalDuration : 0;
   drawDial(progress);
@@ -126,15 +168,31 @@ function setDemoPhase(phase) {
   clearInterval(timerInterval);
   timerInterval = null;
 
-  // Update Buttons
-  document.querySelectorAll('.phase-pill').forEach(pill => pill.classList.remove('active'));
-  const idx = phase === 'focus' ? 0 : (phase === 'shortBreak' ? 1 : 2);
-  document.querySelectorAll('.phase-pill')[idx].classList.add('active');
+  // Update dynamic phase attribute on document and overlay
+  document.documentElement.setAttribute('data-phase', phase);
+  const focusOverlay = document.getElementById('focusOverlay');
+  if (focusOverlay) focusOverlay.setAttribute('data-phase', phase);
 
+  // Update Phase Pills across all scopes
+  document.querySelectorAll('.phase-pill, .focus-phase-pill').forEach(pill => pill.classList.remove('active'));
+  const idx = phase === 'focus' ? 0 : (phase === 'shortBreak' ? 1 : 2);
+  
+  document.querySelectorAll('.phase-selector').forEach(selector => {
+    const pills = selector.querySelectorAll('button');
+    if (pills[idx]) pills[idx].classList.add('active');
+  });
+
+  // Update Phase Tags
   const tag = document.getElementById('phaseTag');
-  tag.textContent = cfg.name;
-  tag.style.color = cfg.colorStart;
-  tag.style.background = hexToRgba(cfg.colorStart, 0.15);
+  const focusTag = document.getElementById('focusPhaseTag');
+  [tag, focusTag].forEach(el => {
+    if (el) {
+      el.textContent = cfg.name;
+      el.style.color = cfg.colorStart;
+      el.style.background = hexToRgba(cfg.colorStart, 0.15);
+      el.style.borderColor = hexToRgba(cfg.colorStart, 0.3);
+    }
+  });
 
   updatePlayIcon();
   updateDisplay();
@@ -160,7 +218,8 @@ function toggleDemoTimer() {
       }
     }, 1000);
 
-    const sound = document.getElementById('ambientSelect').value;
+    const soundSelect = document.getElementById('ambientSelect') || document.getElementById('focusAmbientSelect');
+    const sound = soundSelect ? soundSelect.value : 'none';
     if (sound !== 'none') {
       playWebSound(sound);
     }
@@ -198,7 +257,10 @@ function handleSessionEnd() {
   playBellChime();
   if (currentPhase === 'focus') {
     completedPomodoros += 1;
-    document.getElementById('pomoCount').textContent = completedPomodoros;
+    const countEl = document.getElementById('pomoCount');
+    const focusCountEl = document.getElementById('focusPomoCount');
+    if (countEl) countEl.textContent = completedPomodoros;
+    if (focusCountEl) focusCountEl.textContent = completedPomodoros;
     setDemoPhase('shortBreak');
   } else {
     setDemoPhase('focus');
@@ -207,11 +269,13 @@ function handleSessionEnd() {
 
 function updatePlayIcon() {
   const icon = document.getElementById('playIcon');
-  if (timerState === 'running') {
-    icon.innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
-  } else {
-    icon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
-  }
+  const focusIcon = document.getElementById('focusPlayIcon');
+  const svgContent = timerState === 'running'
+    ? '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>'
+    : '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+  
+  if (icon) icon.innerHTML = svgContent;
+  if (focusIcon) focusIcon.innerHTML = svgContent;
 }
 
 function hexToRgba(hex, alpha) {
@@ -425,6 +489,107 @@ function playBellChime() {
     console.error('Chime audio error:', err);
   }
 }
+
+// Focus Mode Controller
+function openFocusMode() {
+  const overlay = document.getElementById('focusOverlay');
+  if (overlay) {
+    overlay.classList.add('open');
+    overlay.setAttribute('data-phase', currentPhase);
+    document.documentElement.setAttribute('data-phase', currentPhase);
+    document.body.style.overflow = 'hidden';
+    
+    // Sync UI elements
+    updateDisplay();
+    
+    // Update URL hash smoothly if not already on webTimer page
+    if (!window.location.pathname.includes('webTimer')) {
+      history.replaceState(null, '', '#focus');
+    }
+  }
+}
+
+function closeFocusMode() {
+  const overlay = document.getElementById('focusOverlay');
+  if (overlay) {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if (window.location.hash === '#focus' || window.location.hash === '#webTimer') {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  }
+}
+
+function toggleBrowserFullscreen() {
+  if (!document.fullscreenElement) {
+    const docEl = document.documentElement;
+    if (docEl.requestFullscreen) docEl.requestFullscreen();
+    else if (docEl.webkitRequestFullscreen) docEl.webkitRequestFullscreen();
+  } else {
+    if (document.exitFullscreen) document.exitFullscreen();
+    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+  }
+}
+
+async function shareWebTimerLink(e) {
+  const targetUrl = 'https://avantigroupai.github.io/pomodoroX/webTimer';
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(targetUrl);
+  }
+  const btn = e ? e.currentTarget : null;
+  if (btn) {
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+    setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+  }
+}
+
+// Global Keyboard Shortcuts
+window.addEventListener('keydown', (e) => {
+  // Avoid capturing when user is typing in input or select
+  if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+
+  if (e.code === 'Space') {
+    e.preventDefault();
+    toggleDemoTimer();
+  } else if (e.code === 'Escape') {
+    closeFocusMode();
+    closeIOSModal();
+  } else if (e.key === 'f' || e.key === 'F') {
+    // Only toggle fullscreen if in focus mode or standalone
+    if (document.getElementById('focusOverlay')?.classList.contains('open') || document.body.classList.contains('webtimer-standalone-body')) {
+      toggleBrowserFullscreen();
+    }
+  } else if (e.key === 'r' || e.key === 'R') {
+    resetDemoTimer();
+  } else if (e.key === 's' || e.key === 'S') {
+    skipDemoPhase();
+  }
+});
+
+// Sync ambient selectors & volume between hero and focus mode
+function syncAmbientSound(val) {
+  const heroSelect = document.getElementById('ambientSelect');
+  const focusSelect = document.getElementById('focusAmbientSelect');
+  if (heroSelect) heroSelect.value = val;
+  if (focusSelect) focusSelect.value = val;
+  changeAmbientSound(val);
+}
+
+function syncAmbientVolume(val) {
+  const heroVol = document.getElementById('ambientVol');
+  const focusVol = document.getElementById('focusAmbientVol');
+  if (heroVol) heroVol.value = val;
+  if (focusVol) focusVol.value = val;
+  setAmbientVolume(val);
+}
+
+// Hash Detection on Load
+window.addEventListener('DOMContentLoaded', () => {
+  if (window.location.hash === '#focus' || window.location.hash === '#webTimer') {
+    openFocusMode();
+  }
+});
 
 // Modal handling
 function openIOSModal() {
