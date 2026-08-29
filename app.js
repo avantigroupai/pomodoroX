@@ -464,36 +464,3 @@ function closeIOSModal(e) {
 // Initial draw
 drawDial(0);
 
-
-// FAQ Accordion Handler
-function toggleFaq(button) {
-  const item = button.closest('.faq-item');
-  const isExpanded = button.getAttribute('aria-expanded') === 'true';
-  
-  // Close all other FAQ items for a clean single-open accordion behavior
-  document.querySelectorAll('.faq-item').forEach(faq => {
-    if (faq !== item) {
-      faq.classList.remove('active');
-      const btn = faq.querySelector('.faq-question');
-      if (btn) btn.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  if (isExpanded) {
-    item.classList.remove('active');
-    button.setAttribute('aria-expanded', 'false');
-  } else {
-    item.classList.add('active');
-    button.setAttribute('aria-expanded', 'true');
-  }
-}
-
-// Ensure the first FAQ is active on load
-document.addEventListener('DOMContentLoaded', () => {
-  const firstFaq = document.querySelector('.faq-item');
-  if (firstFaq) {
-    firstFaq.classList.add('active');
-    const firstBtn = firstFaq.querySelector('.faq-question');
-    if (firstBtn) firstBtn.setAttribute('aria-expanded', 'true');
-  }
-});
