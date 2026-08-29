@@ -1771,15 +1771,15 @@ a:active {
 /* Center Stage */
 .focus-stage {
   width: 100%;
-  max-width: 520px;
+  max-width: 640px;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   position: relative;
   z-index: 10;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 /* Minimalist Zen Task Badge */
@@ -1822,23 +1822,23 @@ a:active {
   font-weight: 500;
 }
 
-/* Big Timer Dial */
+/* Big Timer Dial (2x Larger in Focus Mode) */
 .focus-dial-wrapper {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: min(480px, 72vmin);
+  height: min(480px, 72vmin);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10px 0;
+  margin: 6px 0;
 }
 
 .focus-dial-canvas {
   position: absolute;
   top: 0;
   left: 0;
-  width: 320px;
-  height: 320px;
+  width: 100%;
+  height: 100%;
 }
 
 .focus-display-overlay {
@@ -1846,32 +1846,32 @@ a:active {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   z-index: 2;
   user-select: none;
 }
 
 .focus-phase-tag {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: 1.8px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--pomo-coral);
   background: rgba(255, 89, 71, 0.14);
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: 20px;
   border: 1px solid rgba(255, 89, 71, 0.25);
   transition: all 0.3s;
 }
 
 .focus-timer-time {
-  font-size: 68px;
+  font-size: clamp(68px, 12vw, 108px);
   font-weight: 800;
   font-family: 'JetBrains Mono', monospace;
-  letter-spacing: -2px;
+  letter-spacing: -3px;
   line-height: 1;
   color: #fff;
-  text-shadow: 0 0 35px rgba(255, 89, 71, 0.35);
+  text-shadow: 0 0 45px rgba(255, 89, 71, 0.4);
   transition: text-shadow 0.3s;
 }
 
@@ -1885,9 +1885,9 @@ a:active {
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid var(--border-glass-bright);
   color: var(--text-muted);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.15s;
@@ -1910,7 +1910,7 @@ a:active {
 .focus-control-row {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 24px;
 }
 
 .focus-ctrl-btn {
@@ -1924,8 +1924,8 @@ a:active {
 }
 
 .focus-sub-btn {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid var(--border-glass-bright);
   color: var(--text-muted);
@@ -1938,8 +1938,8 @@ a:active {
 }
 
 .focus-main-play-btn {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   background: var(--gradient-focus);
   color: #fff;
   box-shadow: 0 10px 30px rgba(255, 89, 71, 0.5), 0 0 50px rgba(255, 89, 71, 0.3);
@@ -1954,18 +1954,64 @@ a:active {
   transform: scale(0.96);
 }
 
-/* Ambient Bar in Focus Mode */
+/* Subtle Minimalist Ambient Bar in Focus Mode */
 .focus-ambient-bar {
-  width: 100%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  background: rgba(22, 26, 37, 0.7);
-  border: 1px solid var(--border-glass-bright);
-  border-radius: 16px;
-  padding: 10px 16px;
-  backdrop-filter: blur(20px);
+  justify-content: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 2px 8px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  margin-top: 2px;
+}
+
+.focus-ambient-bar:hover,
+.focus-ambient-bar:focus-within {
+  opacity: 0.95;
+}
+
+.focus-ambient-bar .ambient-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.focus-ambient-bar select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 11px;
+  padding: 3px 8px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.focus-ambient-bar select:hover,
+.focus-ambient-bar select:focus {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.focus-ambient-bar input[type="range"] {
+  width: 65px;
+  height: 3px;
+  accent-color: var(--pomo-coral);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.focus-ambient-bar input[type="range"]:hover {
+  opacity: 1;
 }
 
 /* Footer & Keyboard Shortcuts */
@@ -2036,15 +2082,15 @@ a:active {
 
 @media (max-width: 600px) {
   .focus-dial-wrapper {
-    width: 270px;
-    height: 270px;
+    width: min(320px, 85vw);
+    height: min(320px, 85vw);
   }
   .focus-dial-canvas {
-    width: 270px;
-    height: 270px;
+    width: 100%;
+    height: 100%;
   }
   .focus-timer-time {
-    font-size: 54px;
+    font-size: 64px;
   }
   .focus-shortcuts-pill {
     display: none;
