@@ -193,7 +193,7 @@
       <nav class="nav-links" role="navigation" aria-label="Main Navigation">
         <a href="#why-choose">At A Glance</a>
         <a href="#demo">Live Demo</a>
-        <a href="webTimer" title="Use PomodoroX in your browser without downloading">Web Timer</a>
+        <a href="#focus" onclick="openFocusMode(); return false;" title="Use PomodoroX Focus Timer in your browser without downloading">Web Timer</a>
         <a href="#soundscapes">Soundscapes</a>
         <a href="#features">Features</a>
         <a href="#comparison">Comparison</a>
@@ -701,7 +701,7 @@
       </div>
       <div class="footer-right">
         <a href="https://github.com/avantigroupai/pomodoroX" target="_blank" rel="noopener">GitHub</a>
-        <a href="webTimer">Web Timer</a>
+        <a href="#focus" onclick="openFocusMode(); return false;">Web Timer</a>
         <a href="#why-choose">At A Glance</a>
         <a href="#demo">Live Demo</a>
         <a href="#soundscapes">Soundscapes</a>
@@ -724,14 +724,14 @@
     <div class="focus-top-bar">
       <a href="#" onclick="closeFocusMode(); return false;" class="focus-brand" aria-label="PomodoroX Focus Mode">
         <img src="assets/app_icon.png" alt="PomodoroX icon" class="focus-brand-img">
-        <span>Pomodoro<span>X</span> <span style="color:var(--text-muted);font-weight:500;font-size:13px;">• Web Focus</span></span>
+        <span>Pomodoro<span>X</span> <span style="color:var(--text-muted);font-weight:500;font-size:13px;">• Focus</span></span>
       </a>
 
       <div class="focus-top-actions">
-        <a href="webTimer" target="_blank" rel="noopener" class="focus-pill-btn" title="Open permanent WebTimer link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          <span>webTimer URL</span>
-        </a>
+        <button type="button" class="focus-pill-btn" onclick="shareWebTimerLink(event)" title="Copy direct link to Focus Timer" aria-label="Share Focus Timer Link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          <span>Share Link</span>
+        </button>
         <button type="button" class="focus-icon-btn" onclick="toggleBrowserFullscreen()" title="Toggle Browser Fullscreen (F)" aria-label="Toggle Fullscreen">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
         </button>
@@ -799,10 +799,8 @@
         </div>
         <input type="range" id="focusAmbientVol" min="0" max="1" step="0.05" value="0.5" oninput="syncAmbientVolume(this.value)" aria-label="Ambient Volume">
       </div>
-    </div>
 
-    <!-- Footer Bar & Shortcuts -->
-    <div class="focus-footer-bar">
+      <!-- Centered Keyboard Shortcuts Pill -->
       <div class="focus-shortcuts-pill">
         <span><kbd>Space</kbd> Play/Pause</span>
         <span><kbd>F</kbd> Fullscreen</span>

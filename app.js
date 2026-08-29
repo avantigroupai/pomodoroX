@@ -515,8 +515,8 @@ function openFocusMode() {
     updateDisplay();
     scheduleShortcutsFade();
     
-    // Update URL hash smoothly if not already on webTimer page
-    if (!window.location.pathname.includes('webTimer')) {
+    // Update URL hash smoothly to #focus
+    if (window.location.hash !== '#focus') {
       history.replaceState(null, '', '#focus');
     }
   }
@@ -546,7 +546,7 @@ function toggleBrowserFullscreen() {
 }
 
 async function shareWebTimerLink(e) {
-  const targetUrl = 'https://avantigroupai.github.io/pomodoroX/webTimer';
+  const targetUrl = 'https://avantigroupai.github.io/pomodoroX/#focus';
   if (navigator.clipboard && window.isSecureContext) {
     await navigator.clipboard.writeText(targetUrl);
   }
@@ -572,8 +572,8 @@ window.addEventListener('keydown', (e) => {
     closeFocusMode();
     closeIOSModal();
   } else if (e.key === 'f' || e.key === 'F') {
-    // Only toggle fullscreen if in focus mode or standalone
-    if (document.getElementById('focusOverlay')?.classList.contains('open') || document.body.classList.contains('webtimer-standalone-body')) {
+    // Only toggle fullscreen if in focus mode
+    if (document.getElementById('focusOverlay')?.classList.contains('open')) {
       toggleBrowserFullscreen();
     }
   } else if (e.key === 'r' || e.key === 'R') {
@@ -583,9 +583,9 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-// Show shortcuts briefly on user mouse movement in focus mode / standalone
+// Show shortcuts briefly on user mouse movement in focus mode
 window.addEventListener('mousemove', () => {
-  if (document.getElementById('focusOverlay')?.classList.contains('open') || document.body.classList.contains('webtimer-standalone-body')) {
+  if (document.getElementById('focusOverlay')?.classList.contains('open')) {
     const pills = document.querySelectorAll('.focus-shortcuts-pill.faded');
     if (pills.length > 0) {
       scheduleShortcutsFade();
@@ -610,13 +610,18 @@ function syncAmbientVolume(val) {
   setAmbientVolume(val);
 }
 
-// Hash Detection on Load
+// Hash Detection on Load & Hash Changes
 window.addEventListener('DOMContentLoaded', () => {
   if (window.location.hash === '#focus' || window.location.hash === '#webTimer') {
     openFocusMode();
   }
-  if (document.body.classList.contains('webtimer-standalone-body')) {
-    scheduleShortcutsFade();
+});
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#focus' || window.location.hash === '#webTimer') {
+    openFocusMode();
+  } else if (document.getElementById('focusOverlay')?.classList.contains('open')) {
+    closeFocusMode();
   }
 });
 

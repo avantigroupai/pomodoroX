@@ -1993,6 +1993,7 @@ a:active {
   color: var(--text-muted);
   opacity: 1;
   transform: translateY(0);
+  margin-top: 4px;
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -2002,7 +2003,8 @@ a:active {
   pointer-events: none;
 }
 
-.focus-footer-bar:hover .focus-shortcuts-pill {
+.focus-stage:hover .focus-shortcuts-pill,
+.focus-shortcuts-pill:hover {
   opacity: 1 !important;
   transform: translateY(0) !important;
   pointer-events: auto !important;
