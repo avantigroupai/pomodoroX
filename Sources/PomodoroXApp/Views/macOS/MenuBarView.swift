@@ -17,19 +17,20 @@ public struct MenuBarView: View {
                         .foregroundStyle(phaseColor)
                     Text(viewModel.currentPhase.rawValue)
                         .font(.system(size: 13, weight: .bold))
+                        .foregroundStyle(.primary)
                 }
                 Spacer()
                 Text(viewModel.formattedTime)
                     .font(.system(size: 17, weight: .bold, design: .rounded))
                     .monospacedDigit()
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.primary)
             }
 
             // Mini Progress Bar
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
                     Capsule()
-                        .fill(Color.white.opacity(0.1))
+                        .fill(Color.primary.opacity(0.08))
                     Capsule()
                         .fill(LinearGradient.phaseGradient(for: viewModel.currentPhase))
                         .frame(width: max(0, geo.size.width * viewModel.progress))
@@ -44,14 +45,14 @@ public struct MenuBarView: View {
                         .font(.system(size: 11))
                         .foregroundStyle(Color.pxFocusPrimary)
                     Text(task.title)
-                        .font(.system(size: 12))
-                        .foregroundStyle(.white.opacity(0.9))
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundStyle(.primary)
                         .lineLimit(1)
                     Spacer()
                 }
                 .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background(Color.white.opacity(0.04))
+                .padding(.vertical, 5)
+                .background(Color.primary.opacity(0.05))
                 .clipShape(RoundedRectangle(cornerRadius: 6))
             }
 
@@ -80,8 +81,9 @@ public struct MenuBarView: View {
                 } label: {
                     Image(systemName: "arrow.counterclockwise")
                         .font(.system(size: 12))
+                        .foregroundStyle(.primary)
                         .padding(8)
-                        .background(Color.white.opacity(0.08))
+                        .background(Color.primary.opacity(0.06))
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                 }
                 .buttonStyle(.plain)
@@ -92,8 +94,9 @@ public struct MenuBarView: View {
                 } label: {
                     Image(systemName: "forward.end.fill")
                         .font(.system(size: 12))
+                        .foregroundStyle(.primary)
                         .padding(8)
-                        .background(Color.white.opacity(0.08))
+                        .background(Color.primary.opacity(0.06))
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                 }
                 .buttonStyle(.plain)
@@ -105,15 +108,17 @@ public struct MenuBarView: View {
             // Phase Quick Switcher
             HStack(spacing: 4) {
                 ForEach(PomodoroPhase.allCases) { phase in
+                    let isSelected = viewModel.currentPhase == phase
+                    let color = phaseColor(for: phase)
                     Button {
                         viewModel.selectPhase(phase)
                     } label: {
                         Text(phase == .focus ? "Focus" : (phase == .shortBreak ? "Short" : "Long"))
-                            .font(.system(size: 11, weight: viewModel.currentPhase == phase ? .bold : .regular))
-                            .foregroundStyle(viewModel.currentPhase == phase ? .white : Color.pxTextSecondary)
-                            .padding(.horizontal, 8)
+                            .font(.system(size: 11, weight: isSelected ? .bold : .medium))
+                            .foregroundStyle(isSelected ? color : .secondary)
+                            .padding(.horizontal, 10)
                             .padding(.vertical, 4)
-                            .background(viewModel.currentPhase == phase ? Color.white.opacity(0.12) : Color.clear)
+                            .background(isSelected ? color.opacity(0.15) : Color.clear)
                             .clipShape(Capsule())
                     }
                     .buttonStyle(.plain)
@@ -125,7 +130,11 @@ public struct MenuBarView: View {
     }
 
     private var phaseColor: Color {
-        switch viewModel.currentPhase {
+        phaseColor(for: viewModel.currentPhase)
+    }
+
+    private func phaseColor(for phase: PomodoroPhase) -> Color {
+        switch phase {
         case .focus: return .pxFocusPrimary
         case .shortBreak: return .pxShortBreakPrimary
         case .longBreak: return .pxLongBreakPrimary
