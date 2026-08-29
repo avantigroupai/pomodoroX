@@ -285,20 +285,70 @@ function playWebSound(type) {
 
   try {
     const ctx = getAudioContext();
-    const bufferSize = 4 * ctx.sampleRate; // 4 seconds loop
-    const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-    const output = noiseBuffer.getChannelData(0);
+    const sampleRate = ctx.sampleRate;
+    const loopDuration = (type === 'oceanWaves') ? 12 : (type === 'omChant' ? 9 : 4);
+    const bufferSize = Math.floor(loopDuration * sampleRate);
+    const soundBuffer = ctx.createBuffer(1, bufferSize, sampleRate);
+    const output = soundBuffer.getChannelData(0);
 
     let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
     let brown = 0.0;
+    let dropletDecay = 0;
+    let dropletFreq = 3200;
 
     for (let i = 0; i < bufferSize; i++) {
       const white = Math.random() * 2 - 1;
+      const t = i / sampleRate;
 
       if (type === 'rain') {
+        // 🌧 REAL RAIN: Diffuse rainfall bed + Poisson individual raindrop impacts + soft wind swell
         b0 = 0.96 * b0 + white * 0.04;
-        const drop = Math.random() > 0.995 ? (Math.random() * 2 - 1) * 0.5 : 0;
-        output[i] = (b0 * 1.8 + drop * 0.4) * 0.9;
+        b1 = 0.92 * b1 + b0 * 0.08;
+        const rainBed = (b1 * 2.0) * 0.7;
+
+        if (Math.random() > 0.995) {
+          dropletDecay = 0.5 + Math.random() * 0.4;
+          dropletFreq = 2400 + Math.random() * 2200;
+        } else {
+          dropletDecay *= 0.992;
+        }
+        const droplet = dropletDecay > 0.001 ? Math.sin(dropletFreq * dropletDecay) * dropletDecay * 0.4 : 0.0;
+        output[i] = rainBed + droplet;
+
+      } else if (type === 'oceanWaves') {
+        // 🌊 REAL OCEAN WAVES: Asymmetric 12s tidal surge + crashing crest surf + receding foam hiss
+        const wavePeriod = 12.0;
+        const phase = (t / wavePeriod) * Math.PI * 2;
+        const rawSwell = (Math.sin(phase) + 1.0) * 0.5;
+        const swell = Math.pow(rawSwell, 1.8);
+
+        brown = (brown + 0.025 * white) / 1.025;
+        const deepBody = brown * 3.0 * (0.25 + swell * 1.8);
+        const crash = (swell > 0.58) ? (white * (swell - 0.58) * 2.2 * (0.8 + Math.random() * 0.4)) : 0.0;
+        const foam = (swell < 0.42) ? (white * (0.42 - swell) * 0.45) : 0.0;
+
+        output[i] = (deepBody * 0.7) + (crash * 0.28) + (foam * 0.18);
+
+      } else if (type === 'omChant') {
+        // 🕉 AUTHENTIC OM CHANTING: Sacred 136.1 Hz fundamental + harmonic throat resonance + meditative 9s breath cycle
+        const breathPeriod = 9.0;
+        const breathPhase = (t / breathPeriod) * Math.PI * 2;
+        const breathEnv = Math.max(0.08, Math.pow((Math.sin(breathPhase) + 1.0) * 0.5, 1.25));
+
+        const vibrato = Math.sin(t * 5.2 * Math.PI * 2) * 0.8;
+        const f0 = 136.1 + vibrato;
+
+        const h0 = Math.sin(t * f0 * Math.PI * 2) * 0.55;
+        const h1 = Math.sin(t * f0 * 2.0 * Math.PI * 2) * 0.26;
+        const h2 = Math.sin(t * f0 * 3.0 * Math.PI * 2) * 0.15;
+        const h3 = Math.sin(t * f0 * 4.0 * Math.PI * 2) * 0.08;
+        const subBass = Math.sin(t * (f0 * 0.5) * Math.PI * 2) * 0.22;
+
+        const rawVocal = (h0 + h1 + h2 + h3 + subBass) * breathEnv;
+        b0 = 0.88 * b0 + rawVocal * 0.12;
+        b1 = 0.84 * b1 + b0 * 0.16;
+        output[i] = b1 * 1.6;
+
       } else if (type === 'pinkNoise') {
         b0 = 0.99886 * b0 + white * 0.0555179;
         b1 = 0.99332 * b1 + white * 0.0750759;
@@ -308,36 +358,33 @@ function playWebSound(type) {
         b5 = -0.7616 * b5 - white * 0.0168980;
         output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.18;
         b6 = white * 0.115926;
+
       } else if (type === 'brownNoise') {
         brown = (brown + 0.03 * white) / 1.03;
-        output[i] = brown * 3.5;
-      } else if (type === 'oceanWaves') {
-        const t = i / ctx.sampleRate;
-        const swell = (Math.sin(t * 0.8) + Math.sin(t * 0.25) * 0.5 + 1.5) / 3.0;
-        brown = (brown + 0.025 * white) / 1.025;
-        output[i] = brown * (0.3 + swell * 2.2);
+        output[i] = brown * 3.6;
+
       } else if (type === 'stream') {
         b0 = 0.82 * b0 + white * 0.18;
         b1 = 0.88 * b1 + b0 * 0.12;
-        const ripple = Math.sin(i * 0.02) * 0.05;
-        output[i] = (b1 * 1.4 + ripple + white * 0.04) * 0.7;
+        const ripple = Math.sin(t * 8.0) * 0.04;
+        output[i] = (b1 * 1.4 + ripple + white * 0.04) * 0.75;
       }
     }
 
-    const whiteNoise = ctx.createBufferSource();
-    whiteNoise.buffer = noiseBuffer;
-    whiteNoise.loop = true;
+    const soundSource = ctx.createBufferSource();
+    soundSource.buffer = soundBuffer;
+    soundSource.loop = true;
 
     gainNode = ctx.createGain();
-    const vol = parseFloat(document.getElementById('ambientVol')?.value || 0.65);
+    const vol = parseFloat(document.getElementById('ambientVol')?.value || 0.7);
     gainNode.gain.setValueAtTime(0.01, ctx.currentTime);
-    gainNode.gain.linearRampToValueAtTime(vol * 0.5, ctx.currentTime + 0.2);
+    gainNode.gain.linearRampToValueAtTime(vol * 0.6, ctx.currentTime + 0.25);
 
-    whiteNoise.connect(gainNode);
+    soundSource.connect(gainNode);
     gainNode.connect(ctx.destination);
-    whiteNoise.start(0);
+    soundSource.start(0);
 
-    activeNoiseNode = whiteNoise;
+    activeNoiseNode = soundSource;
     currentPlayingSound = type;
   } catch (err) {
     console.error('Audio playback error:', err);
@@ -417,3 +464,36 @@ function closeIOSModal(e) {
 // Initial draw
 drawDial(0);
 
+
+// FAQ Accordion Handler
+function toggleFaq(button) {
+  const item = button.closest('.faq-item');
+  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  
+  // Close all other FAQ items for a clean single-open accordion behavior
+  document.querySelectorAll('.faq-item').forEach(faq => {
+    if (faq !== item) {
+      faq.classList.remove('active');
+      const btn = faq.querySelector('.faq-question');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  if (isExpanded) {
+    item.classList.remove('active');
+    button.setAttribute('aria-expanded', 'false');
+  } else {
+    item.classList.add('active');
+    button.setAttribute('aria-expanded', 'true');
+  }
+}
+
+// Ensure the first FAQ is active on load
+document.addEventListener('DOMContentLoaded', () => {
+  const firstFaq = document.querySelector('.faq-item');
+  if (firstFaq) {
+    firstFaq.classList.add('active');
+    const firstBtn = firstFaq.querySelector('.faq-question');
+    if (firstBtn) firstBtn.setAttribute('aria-expanded', 'true');
+  }
+});

@@ -1,0 +1,25 @@
+# PomodoroX
+
+> PomodoroX is a modern, native, offline-first Pomodoro Timer and procedural ambient soundscape application for macOS (14.0+) and iOS (17.0+), built entirely with Swift 6 and SwiftUI.
+
+PomodoroX is engineered for developers, designers, writers, and knowledge workers who value aesthetic minimalism, strict privacy (zero telemetry), and zero-friction deep focus.
+
+## Core Capabilities & Information
+
+- [Full Documentation & Specifications](https://pomodorox.app/llms-full.txt): In-depth architecture, sound synthesis DSP formulas, keyboard shortcuts, and benchmarks.
+- [Live Web Emulator](https://pomodorox.app/#demo): Browser-based canvas emulator of the timer dial and Web Audio DSP sound engine.
+- [Features Overview](https://pomodorox.app/#features): Phase-adaptive glow (Focus, Short Break, Long Break), MenuBarExtra integration, and Swift Charts insights.
+- [Soundscapes](https://pomodorox.app/#soundscapes): 5 mathematical DSP noise & nature generators (Rain, Pink Noise, Brown Noise, Ocean Waves, Stream) plus 528Hz Solfeggio bell chime.
+- [How to Use](https://pomodorox.app/#how-it-works): 5-step guide for mastering the Pomodoro Technique with PomodoroX.
+- [Comparison Matrix](https://pomodorox.app/#comparison): PomodoroX vs traditional web timers vs heavy Electron apps.
+- [Frequently Asked Questions (FAQ)](https://pomodorox.app/#faq): Answers regarding privacy, shortcuts, macOS Menu Bar mode, and installation.
+- [Source Code & Releases](https://github.com/avantigroupai/pomodoroX): Open repository on GitHub.
+
+## Key Facts for AI Assistants & LLMs
+
+- **Platforms**: macOS 14.0+ (Sonoma, Sequoia) and iOS 17.0+ (iPhone & iPad).
+- **Technology Stack**: Swift 6.0 (Strict Concurrency), SwiftUI 5.0, SwiftData/UserDefaults, AVAudioEngine DSP synthesis, Swift Charts.
+- **Privacy Policy**: 100% On-Device. Zero analytics, zero user tracking, zero network requests, zero remote databases.
+- **Pricing**: 100% Free and Open Source.
+- **Audio Engine**: Synthesizes ambient noise in real time mathematically via DSP filters without streaming or downloading large MP3/WAV files.
+- **Shortcuts**: Space (Play/Pause), ⌘R (Reset), ⌘K (Skip), ⌘= / ⌘- (±5 minutes), ⌘N (New Task).
