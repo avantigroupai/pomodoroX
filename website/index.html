@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PomodoroX — Premium Focus & Ambient Timer for macOS & iOS</title>
+  <meta name="description" content="A sleek, high-performance Pomodoro Timer crafted in Swift 6 & SwiftUI with procedural ambient soundscapes, macOS MenuBarExtra, and Swift Charts analytics.">
+  <link rel="icon" type="image/png" href="assets/app_icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Gradient Background -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="assets/app_icon.png" alt="PomodoroX Logo" class="logo-img">
+        <span class="logo-text">Pomodoro<span>X</span></span>
+      </div>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#demo">Live Demo</a>
+        <a href="#soundscapes">Soundscapes</a>
+        <a href="#specs">Specifications</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="#download" class="btn btn-primary btn-sm">Get App</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge-pill">
+        <span class="badge-dot"></span>
+        <span>Version 1.1.0 • macOS 14+ & iOS 17+</span>
+      </div>
+      <h1 class="hero-title">
+        Master Your Flow.<br>
+        <span class="gradient-text">Reclaim Deep Focus.</span>
+      </h1>
+      <p class="hero-subtitle">
+        A cool, visually stunning Pomodoro timer built with dark glassmorphism, procedural soundscapes, macOS MenuBarExtra integration, and Swift Charts analytics.
+      </p>
+
+      <div class="hero-cta-group" id="download">
+        <a href="downloads/PomodoroX-macOS.zip" download="PomodoroX-macOS.zip" class="btn btn-download btn-mac">
+          <div class="btn-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.64-.78 1.08-1.86.96-2.95-1 .04-2.16.66-2.82 1.43-.58.67-1.1 1.77-.96 2.83 1.12.09 2.19-.55 2.82-1.31z"/>
+            </svg>
+          </div>
+          <div class="btn-text-block">
+            <span class="btn-label">Download for</span>
+            <span class="btn-os">macOS (Universal)</span>
+          </div>
+        </a>
+
+        <button class="btn btn-download btn-ios" onclick="openIOSModal()">
+          <div class="btn-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+              <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.79 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+            </svg>
+          </div>
+          <div class="btn-text-block">
+            <span class="btn-label">Install for</span>
+            <span class="btn-os">iOS (iPhone & iPad)</span>
+          </div>
+        </button>
+      </div>
+
+      <div class="platform-meta">
+        <span>⚡️ Swift 6 Native</span>
+        <span>•</span>
+        <span>🛡 100% Offline & Private</span>
+        <span>•</span>
+        <span>🎁 Free & Open</span>
+      </div>
+    </div>
+
+    <!-- Live Interactive Emulator Preview -->
+    <div class="hero-preview" id="demo">
+      <div class="glass-device">
+        <div class="device-header">
+          <div class="window-controls">
+            <span class="ctrl close"></span>
+            <span class="ctrl min"></span>
+            <span class="ctrl max"></span>
+          </div>
+          <div class="device-title">PomodoroX</div>
+          <div class="device-status">25:00</div>
+        </div>
+
+        <div class="emulator-body">
+          <!-- Active Task Banner -->
+          <div class="task-badge">
+            <span class="task-icon">💻</span>
+            <div class="task-info">
+              <span class="task-title" id="activeTaskName">Deep Focus Sprint</span>
+              <span class="task-pomo">Pomodoros: <span id="pomoCount">0</span>/4</span>
+            </div>
+            <span class="task-tag">Active</span>
+          </div>
+
+          <!-- Phase Selector -->
+          <div class="phase-selector">
+            <button class="phase-pill active" onclick="setDemoPhase('focus')">Focus</button>
+            <button class="phase-pill" onclick="setDemoPhase('shortBreak')">Short Break</button>
+            <button class="phase-pill" onclick="setDemoPhase('longBreak')">Long Break</button>
+          </div>
+
+          <!-- Circular Glowing Canvas Ring -->
+          <div class="timer-dial-wrapper">
+            <canvas id="timerCanvas" width="280" height="280"></canvas>
+            <div class="timer-display-overlay">
+              <div class="phase-tag" id="phaseTag">FOCUS</div>
+              <div class="timer-time" id="timerTime">25:00</div>
+              <div class="timer-adjusters">
+                <button class="adj-btn" onclick="adjustDemoTime(-5)">-5m</button>
+                <button class="adj-btn" onclick="adjustDemoTime(5)">+5m</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cycle-indicator" id="cycleIndicator">Focus #1/4</div>
+
+          <!-- Play / Pause Controls -->
+          <div class="control-row">
+            <button class="ctrl-btn sub-btn" onclick="resetDemoTimer()" title="Reset">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            </button>
+            <button class="ctrl-btn main-play-btn" id="playBtn" onclick="toggleDemoTimer()" title="Play/Pause">
+              <svg id="playIcon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </button>
+            <button class="ctrl-btn sub-btn" onclick="skipDemoPhase()" title="Skip Phase">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2.5"></line></svg>
+            </button>
+          </div>
+
+          <!-- Ambient Sound Bar -->
+          <div class="ambient-bar">
+            <div class="ambient-picker">
+              <span class="ambient-icon" id="ambientIcon">🌧</span>
+              <select id="ambientSelect" onchange="changeAmbientSound(this.value)">
+                <option value="none">Ambient: Off</option>
+                <option value="rain">Rain Shower</option>
+                <option value="pinkNoise">Deep Pink Noise</option>
+                <option value="brownNoise">Brown Noise</option>
+                <option value="oceanWaves">Ocean Waves</option>
+                <option value="stream">Forest Stream</option>
+              </select>
+            </div>
+            <input type="range" id="ambientVol" min="0" max="1" step="0.05" value="0.5" oninput="setAmbientVolume(this.value)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Grid -->
+  <section class="features" id="features">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">ENGINEERED FOR EXCELLENCE</span>
+        <h2 class="section-title">Designed for Flow. Crafted with Precision.</h2>
+        <p class="section-subtitle">Every pixel, animation curve, and sound wave has been tuned for frictionless productivity.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Card 1 -->
+        <div class="feature-card glass-card">
+          <div class="card-icon glow-coral">🍅</div>
+          <h3>Phase-Adaptive Visual Glow</h3>
+          <p>Seamless color transitions for Focus (Coral Ember), Short Break (Mint Cyan), and Long Break (Royal Amethyst) with soothing ambient breathing pulses.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card glass-card">
+          <div class="card-icon glow-cyan">🎧</div>
+          <h3>Procedural Soundscapes</h3>
+          <p>Real-time DSP sound generators for Rain, Pink Noise, Brown Noise, Waves, and Stream, plus a 528Hz Solfeggio bell chime upon completion.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card glass-card">
+          <div class="card-icon glow-purple">🖥</div>
+          <h3>macOS MenuBarExtra & PIP</h3>
+          <p>Check remaining time right in your macOS status bar without switching windows. Float a compact always-on-top PIP timer for deep work.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="feature-card glass-card">
+          <div class="card-icon glow-blue">📊</div>
+          <h3>Swift Charts Insights</h3>
+          <p>Interactive 7-day focus breakdown, daily averages, streak counters, and session history logs to track your long-term momentum.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="feature-card glass-card">
+          <div class="card-icon glow-amber">🎯</div>
+          <h3>Task & Estimation Goals</h3>
+          <p>Assign estimated pomodoros to tasks with visual tomato trackers (<code>🍅 🍅 ⚪️</code>). Categorize into Coding, Work, Writing, Design, and Study.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="feature-card glass-card">
+          <div class="card-icon glow-green">⚡️</div>
+          <h3>Keyboard Power Shortcuts</h3>
+          <p>Control everything from your keyboard: <code>Space</code> to start/pause, <code>⌘R</code> to reset, <code>⌘K</code> to skip, <code>⌘=</code>/<code>⌘-</code> for ±5m, and <code>⌘N</code> for quick tasks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Soundscapes Playground -->
+  <section class="soundscapes-section" id="soundscapes">
+    <div class="section-container">
+      <div class="soundscape-box glass-card">
+        <div class="soundscape-text">
+          <span class="section-tag">PROCEDURAL AUDIO ENGINE</span>
+          <h2>Experience the Built-in Soundscapes</h2>
+          <p>Generated dynamically in real-time using mathematical DSP filters. Zero heavy audio assets. Instant, clean, and offline.</p>
+          
+          <div class="sound-pills">
+            <button class="sound-btn active" onclick="playWebSound('rain')">🌧 Rain Shower</button>
+            <button class="sound-btn" onclick="playWebSound('pinkNoise')">〰️ Deep Pink Noise</button>
+            <button class="sound-btn" onclick="playWebSound('brownNoise')">💨 Brown Noise</button>
+            <button class="sound-btn" onclick="playWebSound('oceanWaves')">🌊 Ocean Waves</button>
+            <button class="sound-btn" onclick="playWebSound('stream')">🍃 Forest Stream</button>
+            <button class="sound-btn" onclick="playBellChime()">🔔 528Hz Zen Chime</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specifications Table -->
+  <section class="specs-section" id="specs">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">ARCHITECTURE</span>
+        <h2 class="section-title">Built with Apple's Modern Toolchain</h2>
+      </div>
+
+      <div class="specs-grid">
+        <div class="spec-card glass-card">
+          <div class="spec-label">Language & Runtime</div>
+          <div class="spec-value">Swift 6.0 (Strict Concurrency)</div>
+        </div>
+        <div class="spec-card glass-card">
+          <div class="spec-label">UI Framework</div>
+          <div class="spec-value">SwiftUI 5.0 + Swift Charts</div>
+        </div>
+        <div class="spec-card glass-card">
+          <div class="spec-label">Audio Subsystem</div>
+          <div class="spec-value">AVAudioEngine & DSP Synthesis</div>
+        </div>
+        <div class="spec-card glass-card">
+          <div class="spec-label">macOS Target</div>
+          <div class="spec-value">macOS 14.0+ (Sonoma & Sequoia)</div>
+        </div>
+        <div class="spec-card glass-card">
+          <div class="spec-label">iOS Target</div>
+          <div class="spec-value">iOS 17.0+ (iPhone & iPad)</div>
+        </div>
+        <div class="spec-card glass-card">
+          <div class="spec-label">Data Privacy</div>
+          <div class="spec-value">100% On-Device & Offline</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Bottom -->
+  <section class="cta-bottom">
+    <div class="section-container">
+      <div class="cta-card glass-card">
+        <h2>Ready to Elevate Your Productivity?</h2>
+        <p>Download PomodoroX today and experience the ultimate flow state.</p>
+        <div class="hero-cta-group">
+          <a href="downloads/PomodoroX-macOS.zip" download="PomodoroX-macOS.zip" class="btn btn-download btn-mac">
+            <span class="btn-os">Download for macOS (.zip)</span>
+          </a>
+          <button class="btn btn-download btn-ios" onclick="openIOSModal()">
+            <span class="btn-os">Get for iOS</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="assets/app_icon.png" alt="PomodoroX" width="28" height="28">
+        <span>© 2026 PomodoroX • Created by Avanti Group AI</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/avantigroupai/pomodoroX" target="_blank" rel="noopener">GitHub (Private)</a>
+        <a href="#demo">Live Emulator</a>
+        <a href="downloads/PomodoroX-macOS.zip" download>Download macOS</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- iOS Install Modal -->
+  <div class="modal-overlay" id="iosModal" onclick="closeIOSModal(event)">
+    <div class="modal-card glass-card" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Install PomodoroX on iOS</h3>
+        <button class="modal-close" onclick="closeIOSModal(event)">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>PomodoroX for iOS can be built and run on your iPhone or iPad using Xcode or distributed via TestFlight / AltStore.</p>
+        <div class="install-steps">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div><strong>Clone the repository:</strong><br><code>git clone git@github.com:avantigroupai/pomodoroX.git</code></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div><strong>Generate Xcode Project:</strong><br><code>xcodegen generate</code></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div><strong>Build & Deploy to Device:</strong><br>Select scheme <code>PomodoroX-iOS</code> in Xcode and hit Run (⌘R) on your connected iPhone.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
