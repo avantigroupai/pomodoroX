@@ -490,6 +490,18 @@ function playBellChime() {
   }
 }
 
+// Shortcuts Auto-Fadeout (after 5 seconds for distraction-free focus)
+let shortcutsFadeTimeout = null;
+
+function scheduleShortcutsFade() {
+  const pills = document.querySelectorAll('.focus-shortcuts-pill');
+  pills.forEach(p => p.classList.remove('faded'));
+  clearTimeout(shortcutsFadeTimeout);
+  shortcutsFadeTimeout = setTimeout(() => {
+    pills.forEach(p => p.classList.add('faded'));
+  }, 5000);
+}
+
 // Focus Mode Controller
 function openFocusMode() {
   const overlay = document.getElementById('focusOverlay');
@@ -501,6 +513,7 @@ function openFocusMode() {
     
     // Sync UI elements
     updateDisplay();
+    scheduleShortcutsFade();
     
     // Update URL hash smoothly if not already on webTimer page
     if (!window.location.pathname.includes('webTimer')) {
@@ -514,6 +527,7 @@ function closeFocusMode() {
   if (overlay) {
     overlay.classList.remove('open');
     document.body.style.overflow = '';
+    clearTimeout(shortcutsFadeTimeout);
     if (window.location.hash === '#focus' || window.location.hash === '#webTimer') {
       history.replaceState(null, '', window.location.pathname + window.location.search);
     }
@@ -549,6 +563,8 @@ window.addEventListener('keydown', (e) => {
   // Avoid capturing when user is typing in input or select
   if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
 
+  scheduleShortcutsFade();
+
   if (e.code === 'Space') {
     e.preventDefault();
     toggleDemoTimer();
@@ -566,6 +582,16 @@ window.addEventListener('keydown', (e) => {
     skipDemoPhase();
   }
 });
+
+// Show shortcuts briefly on user mouse movement in focus mode / standalone
+window.addEventListener('mousemove', () => {
+  if (document.getElementById('focusOverlay')?.classList.contains('open') || document.body.classList.contains('webtimer-standalone-body')) {
+    const pills = document.querySelectorAll('.focus-shortcuts-pill.faded');
+    if (pills.length > 0) {
+      scheduleShortcutsFade();
+    }
+  }
+}, { passive: true });
 
 // Sync ambient selectors & volume between hero and focus mode
 function syncAmbientSound(val) {
@@ -588,6 +614,9 @@ function syncAmbientVolume(val) {
 window.addEventListener('DOMContentLoaded', () => {
   if (window.location.hash === '#focus' || window.location.hash === '#webTimer') {
     openFocusMode();
+  }
+  if (document.body.classList.contains('webtimer-standalone-body')) {
+    scheduleShortcutsFade();
   }
 });
 

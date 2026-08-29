@@ -1777,51 +1777,44 @@ a:active {
   padding: 20px 0;
 }
 
-.focus-task-card {
-  width: 100%;
-  display: flex;
+/* Minimalist Zen Task Badge */
+.focus-zen-task {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  background: rgba(22, 26, 37, 0.7);
-  border: 1px solid var(--border-glass-bright);
-  border-radius: 16px;
-  padding: 12px 18px;
-  backdrop-filter: blur(20px);
-}
-
-.focus-task-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex: 1;
-}
-
-.focus-task-emoji {
-  font-size: 18px;
-}
-
-.focus-task-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: #fff;
-}
-
-.focus-task-cycle {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.focus-task-status {
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  background: rgba(255, 89, 71, 0.16);
-  color: var(--pomo-coral);
-  padding: 4px 10px;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-glass);
   border-radius: 20px;
-  border: 1px solid rgba(255, 89, 71, 0.3);
+  padding: 5px 14px;
+  font-size: 13px;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.focus-zen-task:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--border-glass-bright);
+}
+
+.focus-zen-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pomo-coral);
+  box-shadow: 0 0 8px var(--pomo-coral);
+}
+
+.focus-zen-name {
+  font-weight: 600;
+  color: #fff;
+  outline: none;
+  cursor: text;
+}
+
+.focus-zen-count {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
 /* Big Timer Dial */
@@ -1993,6 +1986,21 @@ a:active {
   padding: 6px 16px;
   font-size: 11px;
   color: var(--text-muted);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.focus-shortcuts-pill.faded {
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+}
+
+.focus-footer-bar:hover .focus-shortcuts-pill {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
 }
 
 .focus-shortcuts-pill kbd {
