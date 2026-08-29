@@ -728,10 +728,6 @@
       </a>
 
       <div class="focus-top-actions">
-        <button type="button" class="focus-pill-btn" onclick="shareWebTimerLink(event)" title="Copy direct link to Focus Timer" aria-label="Share Focus Timer Link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          <span>Share Link</span>
-        </button>
         <button type="button" class="focus-icon-btn" onclick="toggleBrowserFullscreen()" title="Toggle Browser Fullscreen (F)" aria-label="Toggle Fullscreen">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
         </button>
@@ -757,9 +753,9 @@
         <button class="phase-pill" role="tab" aria-selected="false" onclick="setDemoPhase('longBreak')">Long Break</button>
       </div>
 
-      <!-- Circular Glowing Canvas Ring -->
+      <!-- Circular Glowing Canvas Ring (Large Focus Dial) -->
       <div class="focus-dial-wrapper">
-        <canvas id="focusTimerCanvas" width="320" height="320" class="focus-dial-canvas" aria-label="Focus Dial Canvas"></canvas>
+        <canvas id="focusTimerCanvas" width="520" height="520" class="focus-dial-canvas" aria-label="Focus Dial Canvas"></canvas>
         <div class="focus-display-overlay">
           <div class="focus-phase-tag" id="focusPhaseTag">FOCUS</div>
           <div class="focus-timer-time" id="focusTimerTime" aria-live="polite">25:00</div>
@@ -775,18 +771,18 @@
       <!-- Play / Pause Controls -->
       <div class="focus-control-row">
         <button class="focus-ctrl-btn focus-sub-btn" onclick="resetDemoTimer()" title="Reset Session (R)" aria-label="Reset Timer">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
         </button>
         <button class="focus-ctrl-btn focus-main-play-btn" id="focusPlayBtn" onclick="toggleDemoTimer()" title="Start / Pause (Space)" aria-label="Start or Pause Timer">
-          <svg id="focusPlayIcon" width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          <svg id="focusPlayIcon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
         </button>
         <button class="focus-ctrl-btn focus-sub-btn" onclick="skipDemoPhase()" title="Skip Phase (S)" aria-label="Skip to Next Phase">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2.5"></line></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2.5"></line></svg>
         </button>
       </div>
 
-      <!-- Ambient Sound Bar -->
-      <div class="focus-ambient-bar glass-card">
+      <!-- Subtle Ambient Sound Bar (Distraction-Free) -->
+      <div class="focus-ambient-bar">
         <div class="ambient-picker">
           <span class="ambient-icon" id="focusAmbientIcon">🌊</span>
           <select id="focusAmbientSelect" onchange="syncAmbientSound(this.value)" aria-label="Select Ambient Soundscape">
