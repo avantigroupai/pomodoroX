@@ -511,9 +511,12 @@ function openFocusMode() {
     document.documentElement.setAttribute('data-phase', currentPhase);
     document.body.style.overflow = 'hidden';
     
-    // Sync UI elements
+    // Sync UI elements & trigger layout canvas repaint
     updateDisplay();
-    scheduleShortcutsFade();
+    requestAnimationFrame(() => {
+      updateDisplay();
+      scheduleShortcutsFade();
+    });
     
     // Update URL hash smoothly to #focus
     if (window.location.hash !== '#focus') {
