@@ -464,27 +464,3 @@ function closeIOSModal(e) {
 // Initial draw
 drawDial(0);
 
-// FAQ Accordion Handler
-function toggleFaq(element) {
-  const item = element.closest('.faq-item');
-  if (!item) return;
-  const isAlreadyActive = item.classList.contains('active');
-
-  // Close all other items
-  document.querySelectorAll('.faq-item').forEach(el => {
-    el.classList.remove('active');
-  });
-
-  if (!isAlreadyActive) {
-    item.classList.add('active');
-  }
-}
-
-// Open first FAQ by default
-document.addEventListener('DOMContentLoaded', () => {
-  const firstFaq = document.querySelector('.faq-item');
-  if (firstFaq) {
-    firstFaq.classList.add('active');
-  }
-});
-
