@@ -464,3 +464,18 @@ function closeIOSModal(e) {
 // Initial draw
 drawDial(0);
 
+// FAQ Accordion Handler
+function toggleFaqCard(card) {
+  const isAlreadyActive = card.classList.contains('active');
+
+  // Close all cards
+  document.querySelectorAll('.faq-card').forEach(el => {
+    el.classList.remove('active');
+  });
+
+  // Toggle current card
+  if (!isAlreadyActive) {
+    card.classList.add('active');
+  }
+}
+

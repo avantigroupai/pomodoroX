@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S8BXCQM92C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-S8BXCQM92C');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -173,10 +183,12 @@
         <span class="logo-text">Pomodoro<span>X</span></span>
       </a>
       <nav class="nav-links" role="navigation" aria-label="Main Navigation">
-        <a href="#features">Features</a>
+        <a href="#why-choose">At A Glance</a>
         <a href="#demo">Live Demo</a>
         <a href="#soundscapes">Soundscapes</a>
-        <a href="#specs">Specs</a>
+        <a href="#features">Features</a>
+        <a href="#comparison">Comparison</a>
+        <a href="#faq">FAQ</a>
       </nav>
       <div class="nav-actions">
         <a href="#download" class="btn btn-primary btn-sm">Get App</a>
@@ -315,7 +327,60 @@
       </div>
     </section>
 
-    <!-- Interactive Soundscapes Playground -->
+    <!-- SECTION 1: AT A GLANCE (BENTO SHOWCASE) -->
+    <section class="bento-summary-section" id="why-choose" aria-labelledby="summary-heading">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">AT A GLANCE</span>
+          <h2 class="section-title" id="summary-heading">Engineered for Frictionless Flow</h2>
+          <p class="section-subtitle">Why creators, software engineers, and researchers make PomodoroX their daily driver.</p>
+        </div>
+
+        <div class="bento-summary-grid">
+          <!-- Card 1: Privacy First -->
+          <div class="bento-sum-card bento-privacy glass-card">
+            <div class="bento-sum-header">
+              <div class="bento-icon-badge glow-coral">🔒</div>
+              <span class="bento-badge-pill">100% On-Device</span>
+            </div>
+            <h3>Zero Telemetry & Absolute Privacy</h3>
+            <p>No logins, tracking pixels, or remote database pings. All tasks, timer presets, and productivity history stay encrypted in your local macOS & iOS storage.</p>
+          </div>
+
+          <!-- Card 2: Swift 6 Metric -->
+          <div class="bento-sum-card bento-perf glass-card">
+            <div class="bento-sum-header">
+              <div class="bento-icon-badge glow-amber">⚡️</div>
+              <span class="bento-badge-pill">&lt; 25MB RAM</span>
+            </div>
+            <h3>Pure Swift 6 Native Speed</h3>
+            <p>Zero Electron bloat. Butter-smooth 120Hz ProMotion animations that use virtually zero CPU and preserve your MacBook battery life.</p>
+          </div>
+
+          <!-- Card 3: DSP Audio -->
+          <div class="bento-sum-card bento-audio glass-card">
+            <div class="bento-sum-header">
+              <div class="bento-icon-badge glow-cyan">🎧</div>
+              <span class="bento-badge-pill">Mathematical DSP</span>
+            </div>
+            <h3>Real-Time Procedural Acoustics</h3>
+            <p>Continuous sound synthesis without repetitive MP3 loops. Blocks background acoustic distractions and prevents ear fatigue during long focus sprints.</p>
+          </div>
+
+          <!-- Card 4: Menu Bar Integration -->
+          <div class="bento-sum-card bento-mac-os glass-card">
+            <div class="bento-sum-header">
+              <div class="bento-icon-badge glow-purple">🖥</div>
+              <span class="bento-badge-pill">MenuBarExtra</span>
+            </div>
+            <h3>macOS Menu Bar & Floating PIP</h3>
+            <p>Glanceable status bar countdown, interactive popover controls, and always-on-top compact Picture-in-Picture window.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: INTERACTIVE SOUNDSCAPES PLAYGROUND -->
     <section class="soundscapes-section" id="soundscapes" aria-labelledby="soundscapes-heading">
       <div class="section-container">
         <div class="soundscape-box glass-card">
@@ -355,7 +420,7 @@
       </div>
     </section>
 
-    <!-- Feature Bento Grid -->
+    <!-- SECTION 3: CORE FEATURES GRID -->
     <section class="features" id="features" aria-labelledby="features-heading">
       <div class="section-container">
         <div class="section-header">
@@ -395,22 +460,95 @@
 
           <!-- Card 5 -->
           <article class="feature-card glass-card">
-            <div class="card-icon glow-amber" aria-hidden="true">🔒</div>
-            <h3>Zero Telemetry & 100% Offline</h3>
-            <p>Zero accounts, zero tracking pixels, and zero remote requests. All timer settings and tasks stay strictly on your local Apple device.</p>
+            <div class="card-icon glow-amber" aria-hidden="true">🎯</div>
+            <h3>Task & Estimation Goals</h3>
+            <p>Assign estimated pomodoros to tasks with visual tomato trackers (<code>🍅 🍅 ⚪️</code>). Categorize into Coding, Work, Writing, Design, and Study.</p>
           </article>
 
           <!-- Card 6 -->
           <article class="feature-card glass-card">
             <div class="card-icon glow-green" aria-hidden="true">⚡️</div>
-            <h3>Swift 6 Native & Shortcuts</h3>
-            <p>Ultra-lightweight (&lt;25MB RAM) with 120Hz ProMotion animations and full keyboard navigation (<code>Space</code>, <code>⌘R</code>, <code>⌘K</code>, <code>⌘N</code>).</p>
+            <h3>Keyboard Power Shortcuts</h3>
+            <p>Control everything from your keyboard: <code>Space</code> to start/pause, <code>⌘R</code> to reset, <code>⌘K</code> to skip, <code>⌘=</code>/<code>⌘-</code> for ±5m, and <code>⌘N</code> for quick tasks.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Specifications Table -->
+    <!-- SECTION 4: COMPARISON MATRIX (LINEAR/RAYCAST STYLE) -->
+    <section class="comparison-section" id="comparison" aria-labelledby="comparison-heading">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">THE NATIVE ADVANTAGE</span>
+          <h2 class="section-title" id="comparison-heading">How PomodoroX Compares</h2>
+          <p class="section-subtitle">Why native Swift 6 engineering outperforms heavy web wrappers and subscription timers.</p>
+        </div>
+
+        <div class="modern-comparison-card glass-card">
+          <div class="comparison-grid-header">
+            <div class="cmp-cell cmp-metric-head">Feature & Benchmark</div>
+            <div class="cmp-cell cmp-hero-head">
+              <span class="cmp-pomodorox-label">🍅 PomodoroX</span>
+              <span class="cmp-hero-sub">Swift 6 Native</span>
+            </div>
+            <div class="cmp-cell cmp-other-head">Traditional Web Timers</div>
+            <div class="cmp-cell cmp-other-head">Electron Timers</div>
+          </div>
+
+          <div class="comparison-grid-body">
+            <!-- Row 1 -->
+            <div class="cmp-row">
+              <div class="cmp-cell cmp-metric-title">Architecture</div>
+              <div class="cmp-cell cmp-hero-cell"><span class="cmp-pill-win">Native Swift 6 & SwiftUI</span></div>
+              <div class="cmp-cell cmp-muted-cell">Browser JavaScript</div>
+              <div class="cmp-cell cmp-muted-cell">Chromium / Node.js</div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="cmp-row">
+              <div class="cmp-cell cmp-metric-title">RAM Footprint</div>
+              <div class="cmp-cell cmp-hero-cell"><span class="cmp-pill-win">&lt; 25 MB</span></div>
+              <div class="cmp-cell cmp-muted-cell">250 – 500 MB</div>
+              <div class="cmp-cell cmp-muted-cell">350 – 800 MB</div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="cmp-row">
+              <div class="cmp-cell cmp-metric-title">Audio Engine</div>
+              <div class="cmp-cell cmp-hero-cell"><span class="cmp-pill-win">Mathematical DSP Synthesis</span></div>
+              <div class="cmp-cell cmp-muted-cell">Repetitive MP3 Loops</div>
+              <div class="cmp-cell cmp-muted-cell">Large Audio Files</div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="cmp-row">
+              <div class="cmp-cell cmp-metric-title">macOS Status Bar</div>
+              <div class="cmp-cell cmp-hero-cell"><span class="cmp-pill-win">MenuBarExtra & Floating PIP</span></div>
+              <div class="cmp-cell cmp-muted-cell"><span class="cmp-cross">✕</span> None</div>
+              <div class="cmp-cell cmp-muted-cell">Limited / Web wrapper</div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="cmp-row">
+              <div class="cmp-cell cmp-metric-title">Privacy & Telemetry</div>
+              <div class="cmp-cell cmp-hero-cell"><span class="cmp-pill-win">100% On-Device (0 Network)</span></div>
+              <div class="cmp-cell cmp-muted-cell">Ads, Cookies & Trackers</div>
+              <div class="cmp-cell cmp-muted-cell">Account Logins & Telemetry</div>
+            </div>
+
+            <!-- Row 6 -->
+            <div class="cmp-row">
+              <div class="cmp-cell cmp-metric-title">Pricing</div>
+              <div class="cmp-cell cmp-hero-cell"><span class="cmp-pill-win">100% Free & Open Source</span></div>
+              <div class="cmp-cell cmp-muted-cell">Freemium / Ads</div>
+              <div class="cmp-cell cmp-muted-cell">$5 – $12/month Subscription</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: TECHNICAL SPECS -->
     <section class="specs-section" id="specs" aria-labelledby="specs-heading">
       <div class="section-container">
         <div class="section-header">
@@ -447,7 +585,75 @@
       </div>
     </section>
 
-    <!-- CTA Bottom -->
+    <!-- SECTION 6: FAQ ACCORDION (APPLE MINIMALIST) -->
+    <section class="faq-section" id="faq" aria-labelledby="faq-heading">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">FREQUENTLY ASKED QUESTIONS</span>
+          <h2 class="section-title" id="faq-heading">Everything You Need to Know</h2>
+          <p class="section-subtitle">Straightforward answers about PomodoroX features, offline privacy, and device support.</p>
+        </div>
+
+        <div class="faq-accordion-container">
+          <!-- FAQ 1 -->
+          <div class="faq-card glass-card active" onclick="toggleFaqCard(this)">
+            <div class="faq-card-header">
+              <span class="faq-card-title">What makes PomodoroX different from web timers?</span>
+              <span class="faq-icon-pill">▾</span>
+            </div>
+            <div class="faq-card-body">
+              <p>PomodoroX is built natively in Swift 6 and SwiftUI. It uses under 25MB of RAM, starts instantly, works 100% offline without accounts, and synthesizes continuous procedural acoustics via digital signal processing rather than repetitive audio files.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-card glass-card" onclick="toggleFaqCard(this)">
+            <div class="faq-card-header">
+              <span class="faq-card-title">Is PomodoroX completely free?</span>
+              <span class="faq-icon-pill">▾</span>
+            </div>
+            <div class="faq-card-body">
+              <p>Yes. PomodoroX is 100% free and open-source under the MIT License. There are zero subscriptions, paywalls, advertisements, or hidden tiers.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-card glass-card" onclick="toggleFaqCard(this)">
+            <div class="faq-card-header">
+              <span class="faq-card-title">How does PomodoroX protect my privacy?</span>
+              <span class="faq-icon-pill">▾</span>
+            </div>
+            <div class="faq-card-body">
+              <p>PomodoroX makes zero network requests. It contains no tracking analytics, telemetry frameworks, or cloud logins. All timer logs, task lists, and focus statistics remain safely on your Mac and iPhone.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-card glass-card" onclick="toggleFaqCard(this)">
+            <div class="faq-card-header">
+              <span class="faq-card-title">How does the procedural ambient audio engine work?</span>
+              <span class="faq-icon-pill">▾</span>
+            </div>
+            <div class="faq-card-body">
+              <p>Instead of looping MP3 audio files, PomodoroX generates Real Rain, Real Ocean Waves, Sacred Om Chanting, and Pink Noise on the fly using mathematical biquad filtering and noise algorithms directly through AVAudioEngine.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-card glass-card" onclick="toggleFaqCard(this)">
+            <div class="faq-card-header">
+              <span class="faq-card-title">What macOS keyboard shortcuts are supported?</span>
+              <span class="faq-icon-pill">▾</span>
+            </div>
+            <div class="faq-card-body">
+              <p>You can control PomodoroX entirely via keyboard: <code>Space</code> (Play/Pause), <code>⌘R</code> (Reset), <code>⌘K</code> (Skip Phase), <code>⌘=</code> / <code>⌘-</code> (±5 minutes), <code>⌘⇧1/2/3</code> (Focus / Breaks), <code>⌘N</code> (New Task), and <code>⌘,</code> (Preferences).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: CTA BOTTOM -->
     <section class="cta-bottom" aria-labelledby="cta-bottom-heading">
       <div class="section-container">
         <div class="cta-card glass-card">
@@ -475,9 +681,12 @@
       </div>
       <div class="footer-right">
         <a href="https://github.com/avantigroupai/pomodoroX" target="_blank" rel="noopener">GitHub</a>
+        <a href="#why-choose">At A Glance</a>
         <a href="#demo">Live Demo</a>
         <a href="#soundscapes">Soundscapes</a>
-        <a href="#specs">Specs</a>
+        <a href="#features">Features</a>
+        <a href="#comparison">Comparison</a>
+        <a href="#faq">FAQ</a>
         <a href="llms.txt" target="_blank" rel="noopener">llms.txt</a>
         <a href="downloads/PomodoroX.dmg" download>macOS (.dmg)</a>
       </div>
