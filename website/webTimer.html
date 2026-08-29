@@ -78,23 +78,18 @@
 
   <!-- Center Focus Stage -->
   <main class="focus-stage" role="main">
-    <!-- Active Task Banner -->
-    <div class="focus-task-card glass-card">
-      <div class="focus-task-info">
-        <span class="focus-task-emoji">💻</span>
-        <div>
-          <div class="focus-task-title" id="activeTaskName" contenteditable="true" spellcheck="false" title="Click to rename task">Deep Focus Sprint</div>
-          <div class="focus-task-cycle">Pomodoros completed: <span id="pomoCount">0</span>/4</div>
-        </div>
-      </div>
-      <span class="focus-task-status">Web Live</span>
+    <!-- Minimal Zen Task Badge -->
+    <div class="focus-zen-task" title="Active Focus Sprint">
+      <span class="focus-zen-dot"></span>
+      <span class="focus-zen-name" id="activeTaskName" contenteditable="true" spellcheck="false" title="Click to rename task">Deep Focus Sprint</span>
+      <span class="focus-zen-count">#<span id="pomoCount">0</span>/4</span>
     </div>
 
     <!-- Phase Selector -->
     <div class="phase-selector" role="tablist" aria-label="Timer Phase Selector">
-      <button class="phase-pill active" role="tab" aria-selected="true" onclick="setDemoPhase('focus')">Focus (25m)</button>
-      <button class="phase-pill" role="tab" aria-selected="false" onclick="setDemoPhase('shortBreak')">Short Break (5m)</button>
-      <button class="phase-pill" role="tab" aria-selected="false" onclick="setDemoPhase('longBreak')">Long Break (15m)</button>
+      <button class="phase-pill active" role="tab" aria-selected="true" onclick="setDemoPhase('focus')">Focus</button>
+      <button class="phase-pill" role="tab" aria-selected="false" onclick="setDemoPhase('shortBreak')">Short Break</button>
+      <button class="phase-pill" role="tab" aria-selected="false" onclick="setDemoPhase('longBreak')">Long Break</button>
     </div>
 
     <!-- Circular Glowing Canvas Ring -->
@@ -110,7 +105,7 @@
       </div>
     </div>
 
-    <div class="focus-cycle-indicator" id="cycleIndicator">Session #1 of 4 • Distraction-Free Flow</div>
+    <div class="focus-cycle-indicator" id="cycleIndicator">Focus #1/4</div>
 
     <!-- Play / Pause Controls -->
     <div class="focus-control-row">

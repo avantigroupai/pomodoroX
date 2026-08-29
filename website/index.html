@@ -258,29 +258,6 @@
 
       <!-- Live Interactive Emulator Preview -->
       <div class="hero-preview" id="demo" aria-label="Live Interactive PomodoroX Web Emulator">
-        <!-- Web Timer Callout / Instant Browser Focus Hint -->
-        <div class="web-timer-callout glass-card">
-          <div class="web-timer-callout-header">
-            <div class="web-timer-callout-badge">
-              <span class="pulse-dot"></span>
-              <span>NO DOWNLOAD NEEDED</span>
-            </div>
-            <a href="webTimer" class="btn-webtimer-link" title="Open permanent WebTimer URL in standalone tab">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              <span>webTimer</span>
-            </a>
-          </div>
-          <p class="web-timer-callout-text">
-            <strong>Use PomodoroX right here in your browser!</strong> No installation required. Run sessions locally with ambient soundscapes or expand into centered full-screen focus.
-          </p>
-          <div class="web-timer-callout-actions">
-            <button type="button" class="btn-focus-launch" onclick="openFocusMode()" aria-label="Launch Full Focus Mode">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-              <span>Launch Full Focus Mode</span>
-            </button>
-          </div>
-        </div>
-
         <div class="glass-device">
           <div class="device-header">
             <div class="window-controls" aria-hidden="true">
@@ -355,6 +332,29 @@
               </div>
               <input type="range" id="ambientVol" min="0" max="1" step="0.05" value="0.5" oninput="setAmbientVolume(this.value)" aria-label="Ambient Sound Volume">
             </div>
+          </div>
+        </div>
+
+        <!-- Web Timer Callout / Instant Browser Focus Hint (Placed below emulator box) -->
+        <div class="web-timer-callout glass-card">
+          <div class="web-timer-callout-header">
+            <div class="web-timer-callout-badge">
+              <span class="pulse-dot"></span>
+              <span>NO DOWNLOAD NEEDED</span>
+            </div>
+            <a href="webTimer" class="btn-webtimer-link" title="Open permanent WebTimer URL in standalone tab">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <span>webTimer</span>
+            </a>
+          </div>
+          <p class="web-timer-callout-text">
+            <strong>Use PomodoroX right here in your browser!</strong> No installation required. Run sessions locally with ambient soundscapes or expand into centered full-screen focus.
+          </p>
+          <div class="web-timer-callout-actions">
+            <button type="button" class="btn-focus-launch" onclick="openFocusMode()" aria-label="Launch Full Focus Mode">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>Launch Full Focus Mode</span>
+            </button>
           </div>
         </div>
       </div>
@@ -766,23 +766,18 @@
 
     <!-- Center Stage -->
     <div class="focus-stage">
-      <!-- Active Task Banner -->
-      <div class="focus-task-card glass-card">
-        <div class="focus-task-info">
-          <span class="focus-task-emoji">💻</span>
-          <div>
-            <div class="focus-task-title">Deep Focus Sprint</div>
-            <div class="focus-task-cycle">Pomodoros: <span id="focusPomoCount">0</span>/4 completed</div>
-          </div>
-        </div>
-        <span class="focus-task-status">Active Session</span>
+      <!-- Minimal Zen Task Badge -->
+      <div class="focus-zen-task" title="Active Focus Sprint">
+        <span class="focus-zen-dot"></span>
+        <span class="focus-zen-name" id="focusActiveTaskName" contenteditable="true" spellcheck="false" title="Click to rename task">Deep Focus Sprint</span>
+        <span class="focus-zen-count">#<span id="focusPomoCount">0</span>/4</span>
       </div>
 
       <!-- Phase Selector -->
       <div class="phase-selector" role="tablist" aria-label="Timer Phase Selector">
-        <button class="phase-pill active" role="tab" aria-selected="true" onclick="setDemoPhase('focus')">Focus (25m)</button>
-        <button class="phase-pill" role="tab" aria-selected="false" onclick="setDemoPhase('shortBreak')">Short Break (5m)</button>
-        <button class="phase-pill" role="tab" aria-selected="false" onclick="setDemoPhase('longBreak')">Long Break (15m)</button>
+        <button class="phase-pill active" role="tab" aria-selected="true" onclick="setDemoPhase('focus')">Focus</button>
+        <button class="phase-pill" role="tab" aria-selected="false" onclick="setDemoPhase('shortBreak')">Short Break</button>
+        <button class="phase-pill" role="tab" aria-selected="false" onclick="setDemoPhase('longBreak')">Long Break</button>
       </div>
 
       <!-- Circular Glowing Canvas Ring -->
@@ -798,7 +793,7 @@
         </div>
       </div>
 
-      <div class="focus-cycle-indicator" id="focusCycleIndicator">Session #1 of 4 • Pure Distraction-Free Flow</div>
+      <div class="focus-cycle-indicator" id="focusCycleIndicator">Focus #1/4</div>
 
       <!-- Play / Pause Controls -->
       <div class="focus-control-row">
