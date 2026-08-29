@@ -11,7 +11,7 @@ if [[ -f "$ROOT/version.env" ]]; then
 else
   APP_NAME="PomodoroX"
   BUNDLE_ID="com.pomodorox.app"
-  MARKETING_VERSION="1.0.0"
+  MARKETING_VERSION="1.0.1"
   BUILD_NUMBER="1"
 fi
 
