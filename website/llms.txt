@@ -9,7 +9,7 @@ PomodoroX is engineered for developers, designers, writers, and knowledge worker
 - [Full Documentation & Specifications](https://avantigroupai.github.io/pomodoroX/llms-full.txt): In-depth architecture, sound synthesis DSP formulas, keyboard shortcuts, and benchmarks.
 - [Live Web Emulator](https://avantigroupai.github.io/pomodoroX/#demo): Browser-based canvas emulator of the timer dial and Web Audio DSP sound engine.
 - [Features Overview](https://avantigroupai.github.io/pomodoroX/#features): Phase-adaptive glow (Focus, Short Break, Long Break), MenuBarExtra integration, and Swift Charts insights.
-- [Soundscapes](https://avantigroupai.github.io/pomodoroX/#soundscapes): 5 mathematical DSP noise & nature generators (Rain, Pink Noise, Brown Noise, Ocean Waves, Stream) plus 528Hz Solfeggio bell chime.
+- [Soundscapes](https://avantigroupai.github.io/pomodoroX/#soundscapes): 4 mathematical DSP noise & nature generators (Ocean Waves, Deep Pink Noise, Brown Noise, Stream) plus 528Hz Solfeggio bell chime.
 - [How to Use](https://avantigroupai.github.io/pomodoroX/#how-it-works): 5-step guide for mastering the Pomodoro Technique with PomodoroX.
 - [Comparison Matrix](https://avantigroupai.github.io/pomodoroX/#comparison): PomodoroX vs traditional web timers vs heavy Electron apps.
 - [Frequently Asked Questions (FAQ)](https://avantigroupai.github.io/pomodoroX/#faq): Answers regarding privacy, shortcuts, macOS Menu Bar mode, and installation.

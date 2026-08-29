@@ -41,7 +41,7 @@ a:focus,
 a:visited,
 a:active {
   color: inherit;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 /* Ambient Backdrops */
@@ -108,19 +108,15 @@ a:active {
   justify-content: space-between;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: var(--text-main);
-}
-
+.logo,
 .logo:hover,
 .logo:focus,
 .logo:visited,
 .logo:active {
-  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none !important;
   color: var(--text-main);
 }
 
@@ -131,10 +127,12 @@ a:active {
   box-shadow: 0 4px 12px rgba(255, 89, 71, 0.3);
 }
 
-.logo-text {
+.logo-text,
+.logo-text span {
   font-size: 20px;
   font-weight: 800;
   letter-spacing: -0.5px;
+  text-decoration: none !important;
 }
 
 .logo-text span {

@@ -15,10 +15,6 @@ public final class AmbientAudioEngine: @unchecked Sendable {
     private var b0: Float = 0, b1: Float = 0, b2: Float = 0, b3: Float = 0, b4: Float = 0, b5: Float = 0, b6: Float = 0
     private var brownLastOut: Float = 0
     private var wavePhase: Float = 0
-    private var omPhase: Float = 0
-    private var breathPhase: Float = 0
-    private var dropletDecay: Float = 0
-    private var dropletFreq: Float = 3200
 
     // Volume Ramping Timer
     private var fadeTimer: Timer?
@@ -98,34 +94,45 @@ public final class AmbientAudioEngine: @unchecked Sendable {
             return
         }
 
-        if fadeDuration > 0 {
-            rampVolume(from: currentVolume, to: 0.0, duration: fadeDuration) { [weak self] in
-                engine.stop()
-                self?.noiseSourceNode = nil
-                self?.audioEngine = nil
-                self?.isPlayingAmbient = false
-            }
-        } else {
+        if fadeDuration <= 0.0 {
+            fadeTimer?.invalidate()
+            fadeTimer = nil
             engine.stop()
-            noiseSourceNode = nil
             audioEngine = nil
+            noiseSourceNode = nil
             isPlayingAmbient = false
+            return
+        }
+
+        rampVolume(from: currentVolume, to: 0.0, duration: fadeDuration) { [weak self] in
+            guard let self = self else { return }
+            self.audioEngine?.stop()
+            self.audioEngine = nil
+            self.noiseSourceNode = nil
+            self.isPlayingAmbient = false
         }
     }
 
     private func rampVolume(from start: Float, to end: Float, duration: TimeInterval, onComplete: (@Sendable () -> Void)? = nil) {
         fadeTimer?.invalidate()
         let steps = 20
-        let stepInterval = duration / Double(steps)
+        let timeStep = duration / Double(steps)
         var step = 0
 
-        fadeTimer = Timer.scheduledTimer(withTimeInterval: stepInterval, repeats: true) { [weak self] timer in
-            guard let self = self else { timer.invalidate(); return }
+        self.currentVolume = start
+        audioEngine?.mainMixerNode.outputVolume = start
+
+        fadeTimer = Timer.scheduledTimer(withTimeInterval: timeStep, repeats: true) { [weak self] timer in
+            guard let self = self else {
+                timer.invalidate()
+                return
+            }
+
             step += 1
             let progress = Float(step) / Float(steps)
-            let vol = start + (end - start) * progress
-            self.currentVolume = vol
-            self.audioEngine?.mainMixerNode.outputVolume = vol
+            let newVol = start + (end - start) * progress
+            self.currentVolume = newVol
+            self.audioEngine?.mainMixerNode.outputVolume = newVol
 
             if step >= steps {
                 timer.invalidate()
@@ -145,24 +152,6 @@ public final class AmbientAudioEngine: @unchecked Sendable {
         switch type {
         case .none:
             return 0
-
-        case .rain:
-            // 🌧 REAL RAIN: Layered diffuse rain bed + randomized Poisson raindrop impacts + soft wind gust
-            // Layer 1: Diffuse background rainfall (low-pass filtered pink noise)
-            b0 = 0.96 * b0 + white * 0.04
-            b1 = 0.92 * b1 + b0 * 0.08
-            let rainBed = (b1 * 1.8) * 0.65
-
-            // Layer 2: Individual raindrop splatter & patter
-            if Float.random(in: 0...1000) > 994.0 {
-                dropletDecay = Float.random(in: 0.4...0.85)
-                dropletFreq = Float.random(in: 2200...4800)
-            } else {
-                dropletDecay *= 0.992
-            }
-            let droplet = dropletDecay > 0.001 ? sin(dropletFreq * dropletDecay) * dropletDecay * 0.45 : 0.0
-
-            return rainBed + droplet
 
         case .oceanWaves:
             // 🌊 REAL OCEAN WAVES: Asymmetric 11-second tidal swell + crashing crest surf + receding foam hiss
@@ -184,37 +173,6 @@ public final class AmbientAudioEngine: @unchecked Sendable {
             let foam = (swell < 0.4) ? (white * (0.4 - swell) * 0.35) : 0.0
 
             return (deepRumble * 0.7) + (crash * 0.25) + (foam * 0.15)
-
-        case .omChant:
-            // 🕉 AUTHENTIC OM CHANTING: Sacred 136.1 Hz fundamental + harmonic throat resonance + meditative 9s breath cycle
-            breathPhase += (2.0 * Float.pi) / (sampleRate * 9.0)
-            if breathPhase > 2.0 * Float.pi { breathPhase -= 2.0 * Float.pi }
-
-            // Meditative breathing envelope (smooth inhale, sustained resonant vocal tone, transcendent decay)
-            let breathEnv = max(0.05, pow((sin(breathPhase) + 1.0) * 0.5, 1.2))
-
-            // Sacred Earth Frequency 136.1 Hz (C#3) with subtle 5.2 Hz vocal vibrato
-            let vibrato = sin(breathPhase * 9.0 * 5.2) * 0.8
-            let f0: Float = 136.1 + vibrato
-            omPhase += (2.0 * Float.pi * f0) / sampleRate
-            if omPhase > 2.0 * Float.pi { omPhase -= 2.0 * Float.pi }
-
-            // Harmonic throat overtone series: fundamental, octave, fifth, double octave, third
-            let h0 = sin(omPhase) * 0.55
-            let h1 = sin(omPhase * 2.0) * 0.25
-            let h2 = sin(omPhase * 3.0) * 0.14
-            let h3 = sin(omPhase * 4.0) * 0.08
-            let h4 = sin(omPhase * 5.0) * 0.04
-
-            // Sub-bass Tibetan singing bowl grounding undertone (68.05 Hz)
-            let subBass = sin(omPhase * 0.5) * 0.20
-
-            // Vocal Formant Filtering for deep "Ooooommmmm" resonance
-            let rawVocal = (h0 + h1 + h2 + h3 + h4 + subBass) * breathEnv
-            b0 = 0.88 * b0 + rawVocal * 0.12
-            b1 = 0.84 * b1 + b0 * 0.16
-
-            return b1 * 1.5
 
         case .deepFocus:
             // Pink Noise (Paul Kellet's algorithm)
@@ -242,17 +200,13 @@ public final class AmbientAudioEngine: @unchecked Sendable {
         }
     }
 
-    // MARK: - Completion Sound Synthesis (528 Hz Chime & Om Vibration)
+    // MARK: - Completion Sound Synthesis (528 Hz Solfeggio Bell Chime)
     public func playCompletionBell() {
-        playCompletionOm()
-    }
-
-    public func playCompletionOm() {
         let engine = AVAudioEngine()
         let sampleRate: Double = 44100
         let format = AVAudioFormat(standardFormatWithSampleRate: sampleRate, channels: 2)!
 
-        let durationSeconds: Double = 4.0
+        let durationSeconds: Double = 3.5
         let totalFrames = AVAudioFrameCount(sampleRate * durationSeconds)
         guard let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: totalFrames) else { return }
         buffer.frameLength = totalFrames
@@ -260,23 +214,21 @@ public final class AmbientAudioEngine: @unchecked Sendable {
         let leftChannel = buffer.floatChannelData?[0]
         let rightChannel = buffer.floatChannelData?[1]
 
-        let f0 = 136.1 // Sacred Earth Om frequency (C#3)
+        let f0: Double = 528.0 // 528 Hz Transformation / Clarity bell chime
+        let harmonics = [f0, f0 * 1.503, f0 * 2.001, f0 * 2.756, f0 * 3.42]
+        let weights = [0.50, 0.25, 0.15, 0.09, 0.04]
+        let decays = [1.2, 1.6, 2.2, 3.0, 3.8]
 
         for i in 0..<Int(totalFrames) {
             let t = Double(i) / sampleRate
-            let decay = exp(-t * 0.75)
+            var sampleAcc: Double = 0.0
 
-            // Vocal vibrato & Formant shaping
-            let vibrato = sin(2.0 * .pi * 5.2 * t) * 0.6
-            let freq = f0 + vibrato
+            for h in 0..<harmonics.count {
+                let decay = exp(-t * decays[h])
+                sampleAcc += sin(2.0 * .pi * harmonics[h] * t) * decay * weights[h]
+            }
 
-            let s0 = sin(2.0 * .pi * freq * t) * decay * 0.55
-            let s1 = sin(2.0 * .pi * (freq * 2.0) * t) * (decay * 0.85) * 0.25
-            let s2 = sin(2.0 * .pi * (freq * 3.0) * t) * (decay * 0.70) * 0.15
-            let s3 = sin(2.0 * .pi * (freq * 4.0) * t) * (decay * 0.55) * 0.08
-            let sub = sin(2.0 * .pi * (freq * 0.5) * t) * decay * 0.20
-
-            let sample = Float((s0 + s1 + s2 + s3 + sub) * 0.75)
+            let sample = Float(sampleAcc * 0.45)
             leftChannel?[i] = sample
             rightChannel?[i] = sample
         }
