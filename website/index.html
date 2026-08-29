@@ -102,44 +102,6 @@
         "inLanguage": "en-US"
       },
       {
-        "@type": "HowTo",
-        "@id": "https://pomodorox.app/#howto",
-        "name": "How to Master Deep Work with PomodoroX and the Pomodoro Technique",
-        "description": "A step-by-step guide to boosting focus and preventing burnout using PomodoroX on macOS and iOS.",
-        "step": [
-          {
-            "@type": "HowToStep",
-            "position": 1,
-            "name": "Define Your Task & Estimate Pomodoros",
-            "text": "Select your highest-priority task and assign an estimated number of 25-minute Pomodoro sessions with visual tomato trackers."
-          },
-          {
-            "@type": "HowToStep",
-            "position": 2,
-            "name": "Ignite a 25-Minute Focus Sprint with DSP Ambient Sound",
-            "text": "Press Space or click Play to start the 25-minute Focus timer. Enable procedural Real Rain, Real Ocean Waves, or Om Chanting to mask background acoustic distractions."
-          },
-          {
-            "@type": "HowToStep",
-            "position": 3,
-            "name": "Recharge with a 5-Minute Short Break",
-            "text": "When the timer signals completion, step away from your desk for 5 minutes as the interface shifts to a soothing Mint Cyan glow."
-          },
-          {
-            "@type": "HowToStep",
-            "position": 4,
-            "name": "Complete 4 Cycles and Take a 15-Minute Long Break",
-            "text": "Repeat the cycle 4 times to earn a 15-minute Long Break bathed in Royal Amethyst glow for mental recovery."
-          },
-          {
-            "@type": "HowToStep",
-            "position": 5,
-            "name": "Track Your Momentum in Swift Charts Insights",
-            "text": "Open the analytics dashboard to review your 7-day focus minutes, daily consistency streak, and completed tasks."
-          }
-        ]
-      },
-      {
         "@type": "FAQPage",
         "@id": "https://pomodorox.app/#faqpage",
         "mainEntity": [
@@ -190,14 +152,6 @@
               "@type": "Answer",
               "text": "PomodoroX supports full keyboard navigation: Space (Play/Pause), ⌘R (Reset), ⌘K (Skip Phase), ⌘= / ⌘+ (+5 minutes), ⌘- (-5 minutes), ⌘⇧1/2/3 (Focus/Short Break/Long Break), ⌘N (New Task), and ⌘, (Preferences)."
             }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I install PomodoroX on macOS and iOS?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "On macOS, download the PomodoroX.dmg disk image, open it, and drag PomodoroX.app to your Applications folder. On iOS, build directly from the open GitHub repository via Xcode or deploy with TestFlight."
-            }
           }
         ]
       }
@@ -222,8 +176,7 @@
         <a href="#features">Features</a>
         <a href="#demo">Live Demo</a>
         <a href="#soundscapes">Soundscapes</a>
-        <a href="#comparison">Comparison</a>
-        <a href="#faq">FAQ</a>
+        <a href="#specs">Specs</a>
       </nav>
       <div class="nav-actions">
         <a href="#download" class="btn btn-primary btn-sm">Get App</a>
@@ -362,51 +315,6 @@
       </div>
     </section>
 
-    <!-- Key Highlights / At A Glance (Card Grid) -->
-    <section class="takeaways-section" aria-labelledby="takeaways-heading">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-tag">AT A GLANCE</span>
-          <h2 id="takeaways-heading" class="section-title">Why Developers & Knowledge Workers Choose PomodoroX</h2>
-          <p class="section-subtitle">Engineered specifically for cognitive endurance and zero distraction.</p>
-        </div>
-
-        <div class="takeaways-grid">
-          <div class="takeaway-card glass-card">
-            <div class="takeaway-icon-box glow-coral">🔒</div>
-            <div class="takeaway-content">
-              <h3>Zero Telemetry & 100% Offline</h3>
-              <p>No logins, tracking pixels, or remote database queries. Your tasks and productivity data stay securely on your Mac and iPhone.</p>
-            </div>
-          </div>
-
-          <div class="takeaway-card glass-card">
-            <div class="takeaway-icon-box glow-amber">⚡️</div>
-            <div class="takeaway-content">
-              <h3>Swift 6 & SwiftUI Native</h3>
-              <p>Zero Electron bloat. Lightweight memory footprint (&lt;25MB RAM) with butter-smooth 120Hz ProMotion dial animations.</p>
-            </div>
-          </div>
-
-          <div class="takeaway-card glass-card">
-            <div class="takeaway-icon-box glow-cyan">🎧</div>
-            <div class="takeaway-content">
-              <h3>Mathematical DSP Audio Synthesis</h3>
-              <p>Continuous procedural audio (Real Rain, Real Ocean Waves, Om Chanting, Pink Noise) without looping sound files or download delays.</p>
-            </div>
-          </div>
-
-          <div class="takeaway-card glass-card">
-            <div class="takeaway-icon-box glow-purple">🖥</div>
-            <div class="takeaway-content">
-              <h3>macOS MenuBarExtra Integration</h3>
-              <p>Status bar live countdown timer, interactive popovers, and floating Picture-in-Picture window for friction-free focus.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Interactive Soundscapes Playground -->
     <section class="soundscapes-section" id="soundscapes" aria-labelledby="soundscapes-heading">
       <div class="section-container">
@@ -447,7 +355,7 @@
       </div>
     </section>
 
-    <!-- Feature Grid -->
+    <!-- Feature Bento Grid -->
     <section class="features" id="features" aria-labelledby="features-heading">
       <div class="section-container">
         <div class="section-header">
@@ -457,109 +365,47 @@
         </div>
 
         <div class="features-grid">
+          <!-- Card 1 -->
           <article class="feature-card glass-card">
             <div class="card-icon glow-coral" aria-hidden="true">🍅</div>
             <h3>Phase-Adaptive Visual Glow</h3>
             <p>Seamless color transitions for Focus (Coral Ember), Short Break (Mint Cyan), and Long Break (Royal Amethyst) with soothing ambient breathing pulses.</p>
           </article>
 
+          <!-- Card 2 -->
           <article class="feature-card glass-card">
             <div class="card-icon glow-cyan" aria-hidden="true">🎧</div>
             <h3>Procedural Soundscapes</h3>
-            <p>Real-time DSP sound generators for Real Rain, Real Ocean Waves, Om Chanting, Pink Noise, and Stream to eliminate distractions.</p>
+            <p>Real-time DSP sound generators for Real Rain, Real Ocean Waves, Om Chanting, and Pink Noise to eliminate background distractions.</p>
           </article>
 
+          <!-- Card 3 -->
           <article class="feature-card glass-card">
             <div class="card-icon glow-purple" aria-hidden="true">🖥</div>
             <h3>macOS MenuBarExtra & PIP</h3>
             <p>Check remaining time right in your macOS status bar without switching windows. Float a compact always-on-top PIP timer for deep work.</p>
           </article>
 
+          <!-- Card 4 -->
           <article class="feature-card glass-card">
             <div class="card-icon glow-blue" aria-hidden="true">📊</div>
             <h3>Swift Charts Insights</h3>
             <p>Interactive 7-day focus breakdown, daily averages, streak counters, and session history logs to track your long-term momentum.</p>
           </article>
 
+          <!-- Card 5 -->
           <article class="feature-card glass-card">
-            <div class="card-icon glow-amber" aria-hidden="true">🎯</div>
-            <h3>Task & Estimation Goals</h3>
-            <p>Assign estimated pomodoros to tasks with visual tomato trackers (<code>🍅 🍅 ⚪️</code>). Categorize into Coding, Work, Writing, Design, and Study.</p>
+            <div class="card-icon glow-amber" aria-hidden="true">🔒</div>
+            <h3>Zero Telemetry & 100% Offline</h3>
+            <p>Zero accounts, zero tracking pixels, and zero remote requests. All timer settings and tasks stay strictly on your local Apple device.</p>
           </article>
 
+          <!-- Card 6 -->
           <article class="feature-card glass-card">
             <div class="card-icon glow-green" aria-hidden="true">⚡️</div>
-            <h3>Keyboard Power Shortcuts</h3>
-            <p>Control everything from your keyboard: <code>Space</code> to start/pause, <code>⌘R</code> to reset, <code>⌘K</code> to skip, <code>⌘=</code>/<code>⌘-</code> for ±5m, and <code>⌘N</code> for quick tasks.</p>
+            <h3>Swift 6 Native & Shortcuts</h3>
+            <p>Ultra-lightweight (&lt;25MB RAM) with 120Hz ProMotion animations and full keyboard navigation (<code>Space</code>, <code>⌘R</code>, <code>⌘K</code>, <code>⌘N</code>).</p>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Comparison Matrix Section -->
-    <section class="comparison-section" id="comparison" aria-labelledby="comparison-heading">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-tag">THE NATIVE ADVANTAGE</span>
-          <h2 class="section-title" id="comparison-heading">How PomodoroX Compares</h2>
-          <p class="section-subtitle">Why a native Swift 6 application outperforms web wrappers and subscription-heavy timers.</p>
-        </div>
-
-        <div class="comparison-table-wrapper glass-card">
-          <table class="comparison-table" role="table" aria-label="Feature comparison between PomodoroX, Web Timers, and Electron Apps">
-            <thead>
-              <tr>
-                <th scope="col">Feature / Benchmark</th>
-                <th scope="col" class="highlight-col">🍅 PomodoroX</th>
-                <th scope="col">Traditional Web Timers</th>
-                <th scope="col">Electron-Based Timers</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Architecture & Engine</th>
-                <td class="highlight-col"><span class="pill-check">Swift 6 & SwiftUI Native</span></td>
-                <td>JavaScript / Browser Tab</td>
-                <td>Chromium / Node.js Runtime</td>
-              </tr>
-              <tr>
-                <th scope="row">RAM Memory Usage</th>
-                <td class="highlight-col"><span class="pill-check">&lt; 25 MB</span></td>
-                <td>250–500 MB</td>
-                <td>350–800 MB</td>
-              </tr>
-              <tr>
-                <th scope="row">Audio Generation</th>
-                <td class="highlight-col"><span class="pill-check">Real-time DSP Synthesis</span></td>
-                <td>Short Looped MP3s</td>
-                <td>Looped Audio Files</td>
-              </tr>
-              <tr>
-                <th scope="row">macOS Menu Bar Extra</th>
-                <td class="highlight-col"><span class="pill-check">Native Status Bar & PIP</span></td>
-                <td><span class="cross">✕</span> None</td>
-                <td>Limited / Non-native</td>
-              </tr>
-              <tr>
-                <th scope="row">Privacy & Telemetry</th>
-                <td class="highlight-col"><span class="pill-check">100% On-Device (0 Network)</span></td>
-                <td>Ads, Trackers & Cookies</td>
-                <td>Analytics & Account Logins</td>
-              </tr>
-              <tr>
-                <th scope="row">Offline Reliability</th>
-                <td class="highlight-col"><span class="pill-check">100% Offline Capable</span></td>
-                <td>Requires Active Connection</td>
-                <td>Varies</td>
-              </tr>
-              <tr>
-                <th scope="row">Price & Licensing</th>
-                <td class="highlight-col"><span class="pill-check">100% Free & Open Source</span></td>
-                <td>Ad-supported or Freemium</td>
-                <td>$5–$12/month Subscriptions</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </section>
@@ -601,89 +447,6 @@
       </div>
     </section>
 
-    <!-- Frequently Asked Questions (Polished Dark Accordion) -->
-    <section class="faq-section" id="faq" aria-labelledby="faq-heading">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-tag">FREQUENTLY ASKED QUESTIONS</span>
-          <h2 class="section-title" id="faq-heading">Everything You Need to Know</h2>
-          <p class="section-subtitle">Direct answers about PomodoroX features, offline privacy, and Apple compatibility.</p>
-        </div>
-
-        <div class="faq-accordion" role="region" aria-label="FAQ Accordion">
-          <div class="faq-item glass-card">
-            <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)">
-              <span>What is PomodoroX?</span>
-              <span class="faq-chevron" aria-hidden="true">▾</span>
-            </div>
-            <div class="faq-answer">
-              <p>PomodoroX is a high-performance, minimalist Pomodoro timer and procedural ambient audio generator engineered natively for macOS 14+ and iOS 17+ using Swift 6, SwiftUI, and AVAudioEngine.</p>
-            </div>
-          </div>
-
-          <div class="faq-item glass-card">
-            <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)">
-              <span>Is PomodoroX free to download and use?</span>
-              <span class="faq-chevron" aria-hidden="true">▾</span>
-            </div>
-            <div class="faq-answer">
-              <p>Yes, PomodoroX is 100% free and open-source. There are no subscriptions, ads, in-app purchases, or paywalled features.</p>
-            </div>
-          </div>
-
-          <div class="faq-item glass-card">
-            <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)">
-              <span>How does PomodoroX guarantee complete user privacy?</span>
-              <span class="faq-chevron" aria-hidden="true">▾</span>
-            </div>
-            <div class="faq-answer">
-              <p>PomodoroX operates 100% offline and on-device. It has zero analytics frameworks, zero telemetry, zero cookies, and makes zero network requests. All timer settings, task lists, and statistics are stored locally on your Apple device.</p>
-            </div>
-          </div>
-
-          <div class="faq-item glass-card">
-            <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)">
-              <span>How does the procedural ambient audio engine work without audio files?</span>
-              <span class="faq-chevron" aria-hidden="true">▾</span>
-            </div>
-            <div class="faq-answer">
-              <p>Unlike standard apps that play repetitive 1-minute MP3 audio loops, PomodoroX synthesizes soundscapes in real time via digital signal processing (DSP) biquad filters and mathematical white/pink/brown noise generators. This eliminates ear fatigue and keeps the app footprint tiny (under 25MB).</p>
-            </div>
-          </div>
-
-          <div class="faq-item glass-card">
-            <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)">
-              <span>Can I use PomodoroX from the macOS Menu Bar?</span>
-              <span class="faq-chevron" aria-hidden="true">▾</span>
-            </div>
-            <div class="faq-answer">
-              <p>Yes. PomodoroX features native macOS MenuBarExtra integration. It displays the live remaining countdown directly in your top menu bar with instant play/pause/skip popover controls and a floating Picture-in-Picture mode.</p>
-            </div>
-          </div>
-
-          <div class="faq-item glass-card">
-            <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)">
-              <span>What keyboard shortcuts are available in PomodoroX for Mac?</span>
-              <span class="faq-chevron" aria-hidden="true">▾</span>
-            </div>
-            <div class="faq-answer">
-              <p>PomodoroX supports full keyboard navigation: <code>Space</code> (Play/Pause), <code>⌘R</code> (Reset), <code>⌘K</code> (Skip Phase), <code>⌘=</code> / <code>⌘+</code> (+5 minutes), <code>⌘-</code> (-5 minutes), <code>⌘⇧1/2/3</code> (Focus/Short Break/Long Break), <code>⌘N</code> (New Task), and <code>⌘,</code> (Preferences).</p>
-            </div>
-          </div>
-
-          <div class="faq-item glass-card">
-            <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)">
-              <span>How do I install PomodoroX on macOS and iOS?</span>
-              <span class="faq-chevron" aria-hidden="true">▾</span>
-            </div>
-            <div class="faq-answer">
-              <p>On macOS, download the PomodoroX.dmg disk image, open it, and drag PomodoroX.app to your Applications folder. On iOS, build directly from the open GitHub repository via Xcode or deploy with TestFlight.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- CTA Bottom -->
     <section class="cta-bottom" aria-labelledby="cta-bottom-heading">
       <div class="section-container">
@@ -714,8 +477,7 @@
         <a href="https://github.com/avantigroupai/pomodoroX" target="_blank" rel="noopener">GitHub</a>
         <a href="#demo">Live Demo</a>
         <a href="#soundscapes">Soundscapes</a>
-        <a href="#comparison">Comparison</a>
-        <a href="#faq">FAQ</a>
+        <a href="#specs">Specs</a>
         <a href="llms.txt" target="_blank" rel="noopener">llms.txt</a>
         <a href="downloads/PomodoroX.dmg" download>macOS (.dmg)</a>
       </div>
