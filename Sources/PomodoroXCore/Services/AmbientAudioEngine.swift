@@ -11,10 +11,14 @@ public final class AmbientAudioEngine: @unchecked Sendable {
     private var targetVolume: Float = 0.5
     private var currentVolume: Float = 0.0
 
-    // State variables for DSP filters
+    // DSP State Variables
     private var b0: Float = 0, b1: Float = 0, b2: Float = 0, b3: Float = 0, b4: Float = 0, b5: Float = 0, b6: Float = 0
     private var brownLastOut: Float = 0
-    private var phase: Float = 0
+    private var wavePhase: Float = 0
+    private var omPhase: Float = 0
+    private var breathPhase: Float = 0
+    private var dropletDecay: Float = 0
+    private var dropletFreq: Float = 3200
 
     // Volume Ramping Timer
     private var fadeTimer: Timer?
@@ -64,7 +68,7 @@ public final class AmbientAudioEngine: @unchecked Sendable {
                 let sample = self.generateSample(for: self.currentType)
                 for buffer in ablPointer {
                     let buf: UnsafeMutableBufferPointer<Float> = UnsafeMutableBufferPointer(buffer)
-                    buf[frame] = sample * 0.15
+                    buf[frame] = sample * 0.22
                 }
             }
             return noErr
@@ -133,19 +137,84 @@ public final class AmbientAudioEngine: @unchecked Sendable {
         }
     }
 
-    // MARK: - DSP Procedural Audio Synthesis
+    // MARK: - Advanced DSP Procedural Audio Synthesis
     private func generateSample(for type: AmbientSoundType) -> Float {
         let white = Float.random(in: -1.0...1.0)
+        let sampleRate: Float = 44100.0
 
         switch type {
         case .none:
             return 0
 
         case .rain:
-            // Multi-pole filtered rain with randomized raindrop impulses
-            b0 = 0.95 * b0 + white * 0.05
-            let droplet = (Float.random(in: 0...100) > 99.65) ? Float.random(in: 0.25...0.65) : 0
-            return (b0 * 0.7) + (droplet * 0.3)
+            // 🌧 REAL RAIN: Layered diffuse rain bed + randomized Poisson raindrop impacts + soft wind gust
+            // Layer 1: Diffuse background rainfall (low-pass filtered pink noise)
+            b0 = 0.96 * b0 + white * 0.04
+            b1 = 0.92 * b1 + b0 * 0.08
+            let rainBed = (b1 * 1.8) * 0.65
+
+            // Layer 2: Individual raindrop splatter & patter
+            if Float.random(in: 0...1000) > 994.0 {
+                dropletDecay = Float.random(in: 0.4...0.85)
+                dropletFreq = Float.random(in: 2200...4800)
+            } else {
+                dropletDecay *= 0.992
+            }
+            let droplet = dropletDecay > 0.001 ? sin(dropletFreq * dropletDecay) * dropletDecay * 0.45 : 0.0
+
+            return rainBed + droplet
+
+        case .oceanWaves:
+            // 🌊 REAL OCEAN WAVES: Asymmetric 11-second tidal swell + crashing crest surf + receding foam hiss
+            wavePhase += (2.0 * Float.pi) / (sampleRate * 11.0)
+            if wavePhase > 2.0 * Float.pi { wavePhase -= 2.0 * Float.pi }
+
+            // Asymmetric wave swell envelope (steep crest rise, slow soothing trough recede)
+            let rawSwell = (sin(wavePhase) + 1.0) * 0.5
+            let swell = pow(rawSwell, 1.8)
+
+            // Deep ocean body rumble (integrated brown noise)
+            brownLastOut = (brownLastOut + (0.02 * white)) / 1.02
+            let deepRumble = brownLastOut * 2.8 * (0.2 + swell * 1.6)
+
+            // Crashing surf whitecap hiss at crest peak
+            let crash = (swell > 0.6) ? (white * (swell - 0.6) * 1.8 * Float.random(in: 0.8...1.2)) : 0.0
+
+            // Receding foam fizz
+            let foam = (swell < 0.4) ? (white * (0.4 - swell) * 0.35) : 0.0
+
+            return (deepRumble * 0.7) + (crash * 0.25) + (foam * 0.15)
+
+        case .omChant:
+            // 🕉 AUTHENTIC OM CHANTING: Sacred 136.1 Hz fundamental + harmonic throat resonance + meditative 9s breath cycle
+            breathPhase += (2.0 * Float.pi) / (sampleRate * 9.0)
+            if breathPhase > 2.0 * Float.pi { breathPhase -= 2.0 * Float.pi }
+
+            // Meditative breathing envelope (smooth inhale, sustained resonant vocal tone, transcendent decay)
+            let breathEnv = max(0.05, pow((sin(breathPhase) + 1.0) * 0.5, 1.2))
+
+            // Sacred Earth Frequency 136.1 Hz (C#3) with subtle 5.2 Hz vocal vibrato
+            let vibrato = sin(breathPhase * 9.0 * 5.2) * 0.8
+            let f0: Float = 136.1 + vibrato
+            omPhase += (2.0 * Float.pi * f0) / sampleRate
+            if omPhase > 2.0 * Float.pi { omPhase -= 2.0 * Float.pi }
+
+            // Harmonic throat overtone series: fundamental, octave, fifth, double octave, third
+            let h0 = sin(omPhase) * 0.55
+            let h1 = sin(omPhase * 2.0) * 0.25
+            let h2 = sin(omPhase * 3.0) * 0.14
+            let h3 = sin(omPhase * 4.0) * 0.08
+            let h4 = sin(omPhase * 5.0) * 0.04
+
+            // Sub-bass Tibetan singing bowl grounding undertone (68.05 Hz)
+            let subBass = sin(omPhase * 0.5) * 0.20
+
+            // Vocal Formant Filtering for deep "Ooooommmmm" resonance
+            let rawVocal = (h0 + h1 + h2 + h3 + h4 + subBass) * breathEnv
+            b0 = 0.88 * b0 + rawVocal * 0.12
+            b1 = 0.84 * b1 + b0 * 0.16
+
+            return b1 * 1.5
 
         case .deepFocus:
             // Pink Noise (Paul Kellet's algorithm)
@@ -157,36 +226,33 @@ public final class AmbientAudioEngine: @unchecked Sendable {
             b5 = -0.7616 * b5 - white * 0.0168980
             let pink = b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362
             b6 = white * 0.115926
-            return pink * 0.11
+            return pink * 0.15
 
         case .brownNoise:
-            // Brown / Red Noise (integrated white noise with damping)
+            // Brown / Red Noise (integrated white noise with low frequency floor)
             brownLastOut = (brownLastOut + (0.02 * white)) / 1.02
-            return brownLastOut * 3.5
-
-        case .oceanWaves:
-            // Pink noise modulated by low frequency sinusoidal surge (0.08 Hz)
-            phase += 0.000065
-            if phase > 2 * Float.pi { phase -= 2 * Float.pi }
-            let lfo = (sin(phase) + 1.0) * 0.5
-            brownLastOut = (brownLastOut + (0.03 * white)) / 1.03
-            return brownLastOut * (0.35 + (lfo * 2.4))
+            return brownLastOut * 3.6
 
         case .softStream:
-            // Stream trickle with dual lowpass resonance
-            b0 = 0.85 * b0 + white * 0.15
-            b1 = 0.90 * b1 + b0 * 0.10
-            return (b1 * 1.2) + (white * 0.03)
+            // Forest Stream water trickle
+            b0 = 0.82 * b0 + white * 0.18
+            b1 = 0.88 * b1 + b0 * 0.12
+            let ripple = sin(wavePhase * 4.0) * 0.04
+            return (b1 * 1.3) + ripple + (white * 0.03)
         }
     }
 
-    // MARK: - Chime & Bell Synthesis (528 Hz Solfeggio Harmonic Resonance)
+    // MARK: - Completion Sound Synthesis (528 Hz Chime & Om Vibration)
     public func playCompletionBell() {
+        playCompletionOm()
+    }
+
+    public func playCompletionOm() {
         let engine = AVAudioEngine()
         let sampleRate: Double = 44100
         let format = AVAudioFormat(standardFormatWithSampleRate: sampleRate, channels: 2)!
 
-        let durationSeconds: Double = 3.5
+        let durationSeconds: Double = 4.0
         let totalFrames = AVAudioFrameCount(sampleRate * durationSeconds)
         guard let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: totalFrames) else { return }
         buffer.frameLength = totalFrames
@@ -194,24 +260,23 @@ public final class AmbientAudioEngine: @unchecked Sendable {
         let leftChannel = buffer.floatChannelData?[0]
         let rightChannel = buffer.floatChannelData?[1]
 
-        let f0 = 528.0
-        let f1 = f0 * 1.503 // Harmonic fifth (793.5 Hz)
-        let f2 = f0 * 2.001 // Octave (1056.5 Hz)
-        let f3 = f0 * 2.756 // Shimmer upper overtone (1455 Hz)
+        let f0 = 136.1 // Sacred Earth Om frequency (C#3)
 
         for i in 0..<Int(totalFrames) {
             let t = Double(i) / sampleRate
-            let decay0 = exp(-t * 1.1)
-            let decay1 = exp(-t * 1.7)
-            let decay2 = exp(-t * 2.3)
-            let decay3 = exp(-t * 3.1)
+            let decay = exp(-t * 0.75)
 
-            let s0 = sin(2.0 * .pi * f0 * t) * decay0 * 0.50
-            let s1 = sin(2.0 * .pi * f1 * t) * decay1 * 0.25
-            let s2 = sin(2.0 * .pi * f2 * t) * decay2 * 0.15
-            let s3 = sin(2.0 * .pi * f3 * t) * decay3 * 0.10
+            // Vocal vibrato & Formant shaping
+            let vibrato = sin(2.0 * .pi * 5.2 * t) * 0.6
+            let freq = f0 + vibrato
 
-            let sample = Float(s0 + s1 + s2 + s3) * 0.65
+            let s0 = sin(2.0 * .pi * freq * t) * decay * 0.55
+            let s1 = sin(2.0 * .pi * (freq * 2.0) * t) * (decay * 0.85) * 0.25
+            let s2 = sin(2.0 * .pi * (freq * 3.0) * t) * (decay * 0.70) * 0.15
+            let s3 = sin(2.0 * .pi * (freq * 4.0) * t) * (decay * 0.55) * 0.08
+            let sub = sin(2.0 * .pi * (freq * 0.5) * t) * decay * 0.20
+
+            let sample = Float((s0 + s1 + s2 + s3 + sub) * 0.75)
             leftChannel?[i] = sample
             rightChannel?[i] = sample
         }
@@ -230,7 +295,7 @@ public final class AmbientAudioEngine: @unchecked Sendable {
                 }
             }
         } catch {
-            print("AmbientAudioEngine: Failed to play bell: \(error)")
+            print("AmbientAudioEngine: Failed to play completion sound: \(error)")
         }
     }
 }

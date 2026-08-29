@@ -42,10 +42,11 @@ public enum TimerPreset: String, Codable, CaseIterable, Identifiable, Sendable {
 
 public enum AmbientSoundType: String, Codable, CaseIterable, Identifiable, Sendable {
     case none = "Off"
-    case rain = "Rain Shower"
+    case rain = "Real Rain"
+    case oceanWaves = "Ocean Waves"
+    case omChant = "Om Chanting"
     case deepFocus = "Deep Pink Noise"
     case brownNoise = "Brown Noise"
-    case oceanWaves = "Ocean Waves"
     case softStream = "Forest Stream"
 
     public var id: String { rawValue }
@@ -54,9 +55,10 @@ public enum AmbientSoundType: String, Codable, CaseIterable, Identifiable, Senda
         switch self {
         case .none: return "speaker.slash.fill"
         case .rain: return "cloud.rain.fill"
+        case .oceanWaves: return "water.waves"
+        case .omChant: return "om"
         case .deepFocus: return "waveform.path"
         case .brownNoise: return "wind"
-        case .oceanWaves: return "water.waves"
         case .softStream: return "leaf.fill"
         }
     }

@@ -12,6 +12,7 @@
 		1D31F70EB110EFD01DFEB36F /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6B7248F62AF644463FF3CB /* StorageService.swift */; };
 		20C802522D6EC3D4A0508F2A /* StreakBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EA374143EA74367E001282 /* StreakBadgeView.swift */; };
 		24027B33CC4E803A06005B23 /* PomodoroXCore-macOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63B3BC57F2652E07DB0F216E /* PomodoroXCore-macOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		24753E4D18E24955D76A5237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B7476B0553CC5749C938CB7 /* Assets.xcassets */; };
 		2816BFE6813B19E3273102CB /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47A8778EC84A98A0D0A28DF /* TaskListView.swift */; };
 		321E850E7D39AEF8B28C31E0 /* PhaseSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB84444899DA5E8711F59F /* PhaseSelectorView.swift */; };
 		3B8770F442DF34E5B425360E /* PomodoroXCore-macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B3BC57F2652E07DB0F216E /* PomodoroXCore-macOS.framework */; };
@@ -46,6 +47,7 @@
 		9042B1221C8E2FDFA415F75E /* PomodoroModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB2A6449F8EDEB96A8EAAC8 /* PomodoroModelTests.swift */; };
 		905FAA719BFCA11CB8742690 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B022AD1BBABAF9452B3C47 /* TimerService.swift */; };
 		95C1A34FE5F2AA5BB2761163 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99418797549B868563606B7B /* MenuBarView.swift */; };
+		9A0828E5233B856F903AF245 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B471B476B3B21A0B6D308564 /* AppIcon.icns */; };
 		9B318AF51A666FC7DAEAA262 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D22ABFAEEBDE8FAFF479BD3 /* TaskRowView.swift */; };
 		A51F7C6EC4B0CBE16ACC68F9 /* AmbientSoundBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAB5336B6684C7AEA17E87 /* AmbientSoundBarView.swift */; };
 		A78747C58DEBDCD0C0093658 /* GlassCardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C11650CAC572D2972BE /* GlassCardModifier.swift */; };
@@ -62,7 +64,9 @@
 		E9CFAB9D39BA2E8FA54E0E11 /* PomodoroTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7564774AB7BCEEFDB0D9EB30 /* PomodoroTask.swift */; };
 		EB7C94B801BED058CB88F4C7 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970DC65984AE021DFEFCAC1 /* NotificationManager.swift */; };
 		EDD1618782BC5F6055A620AB /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEEABD92B15D198F381D557 /* ColorExtensions.swift */; };
+		EF75B46DBA416B9D0C9C8D3A /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B471B476B3B21A0B6D308564 /* AppIcon.icns */; };
 		EF7ED1DB0AB6766BA48BDF07 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3538513BD84060D1B0363128 /* StatsView.swift */; };
+		EFA58D0A313B99CF2E33E79E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B7476B0553CC5749C938CB7 /* Assets.xcassets */; };
 		F0D5F8589BC47B3A77CAD748 /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3360F0554C81E438935D6B /* TasksViewModel.swift */; };
 		F1DB1814B4E7AEFF369DFD38 /* TimerMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF96B1D1BC361B028EE23EC /* TimerMainView.swift */; };
 		F4C834F8C85C15DE12C22741 /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3360F0554C81E438935D6B /* TasksViewModel.swift */; };
@@ -146,6 +150,7 @@
 		57D3906CBD68C0D1B8210E5A /* TimerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerServiceTests.swift; sourceTree = "<group>"; };
 		63B3BC57F2652E07DB0F216E /* PomodoroXCore-macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "PomodoroXCore-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB2A6449F8EDEB96A8EAAC8 /* PomodoroModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroModelTests.swift; sourceTree = "<group>"; };
+		6B7476B0553CC5749C938CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7564774AB7BCEEFDB0D9EB30 /* PomodoroTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTask.swift; sourceTree = "<group>"; };
 		7605ACA6B7730216D1DBFCEA /* PomodoroXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroXApp.swift; sourceTree = "<group>"; };
 		7EA2DB9091B1D3DD29200D3D /* ControlButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButtonsView.swift; sourceTree = "<group>"; };
@@ -156,6 +161,7 @@
 		99418797549B868563606B7B /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		A3EA374143EA74367E001282 /* StreakBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakBadgeView.swift; sourceTree = "<group>"; };
 		A9DC4C11650CAC572D2972BE /* GlassCardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassCardModifier.swift; sourceTree = "<group>"; };
+		B471B476B3B21A0B6D308564 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 		B6727B500AFE5193D688BEDB /* PomodoroXCore-iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "PomodoroXCore-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34CB9D0A7BE335E44E647BA /* AmbientAudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientAudioEngine.swift; sourceTree = "<group>"; };
 		D4FF3D1437105CF9E98A7D4F /* PomodoroX-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PomodoroX-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +272,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		8C5D16E3AB07120017C50152 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B471B476B3B21A0B6D308564 /* AppIcon.icns */,
+				6B7476B0553CC5749C938CB7 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		8EA58CB6DB2D9D49CAACB411 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				6E6760D8BE78EB3D0E2FE519 /* App */,
+				8C5D16E3AB07120017C50152 /* Resources */,
 				B04E7C4F0B8240DAEB2A83BE /* Styles */,
 				863BBB73A81109D9B9FADF8A /* Views */,
 			);
@@ -375,6 +391,7 @@
 			buildConfigurationList = 10F0A322CB31DA1AB1136211 /* Build configuration list for PBXNativeTarget "PomodoroX-macOS" */;
 			buildPhases = (
 				3649718665D5A292CCCC219D /* Sources */,
+				38D324460BA8E88BF4CF26E6 /* Resources */,
 				DF4C464A35659BB3FDE7A17A /* Frameworks */,
 				CE76377CD6F99AEA5FEBFB8C /* Embed Frameworks */,
 			);
@@ -432,6 +449,7 @@
 			buildConfigurationList = 8B996E3C1F4420E926320F79 /* Build configuration list for PBXNativeTarget "PomodoroX-iOS" */;
 			buildPhases = (
 				C535A9C5ED91FC0ED0B8F182 /* Sources */,
+				A03D694839FB6243225D328F /* Resources */,
 				E77047777FF1D45C936C7CFE /* Frameworks */,
 				F7B527BDF577CCA067CD372D /* Embed Frameworks */,
 			);
@@ -497,6 +515,27 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		38D324460BA8E88BF4CF26E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A0828E5233B856F903AF245 /* AppIcon.icns in Resources */,
+				EFA58D0A313B99CF2E33E79E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A03D694839FB6243225D328F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF75B46DBA416B9D0C9C8D3A /* AppIcon.icns in Resources */,
+				24753E4D18E24955D76A5237 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3649718665D5A292CCCC219D /* Sources */ = {
@@ -615,6 +654,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -673,8 +713,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_KEY_CFBundleIconName = AppIcon;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -757,8 +797,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_KEY_CFBundleIconName = AppIcon;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -776,6 +816,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_KEY_CFBundleIconFile = AppIcon;
+				INFOPLIST_KEY_CFBundleIconName = AppIcon;
 				INFOPLIST_KEY_LSUIElement = NO;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 PomodoroX. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -794,6 +836,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_KEY_CFBundleIconFile = AppIcon;
+				INFOPLIST_KEY_CFBundleIconName = AppIcon;
 				INFOPLIST_KEY_LSUIElement = NO;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 PomodoroX. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -876,6 +920,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

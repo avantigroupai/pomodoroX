@@ -77,6 +77,14 @@ APP="$DIST_DIR/${APP_NAME}.app"
 rm -rf "$APP"
 cp -R "$DERIVED_APP_PATH" "$APP"
 
+# Ensure AppIcon is properly copied to Contents/Resources
+mkdir -p "$APP/Contents/Resources"
+if [[ -f "$ROOT/Sources/PomodoroXApp/Resources/AppIcon.icns" ]]; then
+  cp "$ROOT/Sources/PomodoroXApp/Resources/AppIcon.icns" "$APP/Contents/Resources/AppIcon.icns"
+  plutil -replace CFBundleIconFile -string "AppIcon" "$APP/Contents/Info.plist" 2>/dev/null || plutil -insert CFBundleIconFile -string "AppIcon" "$APP/Contents/Info.plist"
+  plutil -replace CFBundleIconName -string "AppIcon" "$APP/Contents/Info.plist" 2>/dev/null || plutil -insert CFBundleIconName -string "AppIcon" "$APP/Contents/Info.plist"
+fi
+
 # Strip extended attributes
 xattr -cr "$APP"
 find "$APP" -name '._*' -delete
