@@ -230,12 +230,30 @@
           <p>Generated dynamically in real-time using mathematical DSP filters. Zero heavy audio assets. Instant, clean, and offline.</p>
           
           <div class="sound-pills">
-            <button class="sound-btn active" onclick="playWebSound('rain')">🌧 Rain Shower</button>
-            <button class="sound-btn" onclick="playWebSound('pinkNoise')">〰️ Deep Pink Noise</button>
-            <button class="sound-btn" onclick="playWebSound('brownNoise')">💨 Brown Noise</button>
-            <button class="sound-btn" onclick="playWebSound('oceanWaves')">🌊 Ocean Waves</button>
-            <button class="sound-btn" onclick="playWebSound('stream')">🍃 Forest Stream</button>
-            <button class="sound-btn" onclick="playBellChime()">🔔 528Hz Zen Chime</button>
+            <button class="sound-btn" data-sound="rain" onclick="toggleSoundButton('rain')">
+              <span class="btn-sound-title">🌧 Rain Shower</span>
+              <span class="eq-bars"><span class="b1"></span><span class="b2"></span><span class="b3"></span></span>
+            </button>
+            <button class="sound-btn" data-sound="pinkNoise" onclick="toggleSoundButton('pinkNoise')">
+              <span class="btn-sound-title">〰️ Deep Pink Noise</span>
+              <span class="eq-bars"><span class="b1"></span><span class="b2"></span><span class="b3"></span></span>
+            </button>
+            <button class="sound-btn" data-sound="brownNoise" onclick="toggleSoundButton('brownNoise')">
+              <span class="btn-sound-title">💨 Brown Noise</span>
+              <span class="eq-bars"><span class="b1"></span><span class="b2"></span><span class="b3"></span></span>
+            </button>
+            <button class="sound-btn" data-sound="oceanWaves" onclick="toggleSoundButton('oceanWaves')">
+              <span class="btn-sound-title">🌊 Ocean Waves</span>
+              <span class="eq-bars"><span class="b1"></span><span class="b2"></span><span class="b3"></span></span>
+            </button>
+            <button class="sound-btn" data-sound="stream" onclick="toggleSoundButton('stream')">
+              <span class="btn-sound-title">🍃 Forest Stream</span>
+              <span class="eq-bars"><span class="b1"></span><span class="b2"></span><span class="b3"></span></span>
+            </button>
+            <button class="sound-btn" id="btn-chime" data-sound="chime" onclick="toggleSoundButton('chime')">
+              <span class="btn-sound-title">🔔 528Hz Zen Chime</span>
+              <span class="chime-indicator">✨</span>
+            </button>
           </div>
         </div>
       </div>

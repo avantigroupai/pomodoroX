@@ -225,10 +225,12 @@ function hexToRgba(hex, alpha) {
 let audioCtx = null;
 let activeNoiseNode = null;
 let gainNode = null;
+let currentPlayingSound = null;
 
 function getAudioContext() {
   if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    audioCtx = new AudioContextClass();
   }
   if (audioCtx.state === 'suspended') {
     audioCtx.resume();
@@ -236,112 +238,171 @@ function getAudioContext() {
   return audioCtx;
 }
 
-function playWebSound(type) {
-  stopWebSound();
-  if (type === 'none') return;
-
-  const ctx = getAudioContext();
-  const bufferSize = 2 * ctx.sampleRate;
-  const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-  const output = noiseBuffer.getChannelData(0);
-
-  let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
-  let lastOut = 0.0;
-
-  for (let i = 0; i < bufferSize; i++) {
-    const white = Math.random() * 2 - 1;
-    if (type === 'rain') {
-      b0 = 0.95 * b0 + white * 0.05;
-      const drop = Math.random() > 0.996 ? Math.random() * 0.4 : 0;
-      output[i] = (b0 * 0.7 + drop * 0.3) * 0.8;
-    } else if (type === 'pinkNoise') {
-      b0 = 0.99886 * b0 + white * 0.0555179;
-      b1 = 0.99332 * b1 + white * 0.0750759;
-      b2 = 0.96900 * b2 + white * 0.1538520;
-      b3 = 0.86650 * b3 + white * 0.3104856;
-      b4 = 0.55000 * b4 + white * 0.5329522;
-      b5 = -0.7616 * b5 - white * 0.0168980;
-      output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.12;
-      b6 = white * 0.115926;
-    } else if (type === 'brownNoise') {
-      lastOut = (lastOut + 0.02 * white) / 1.02;
-      output[i] = lastOut * 3.0;
-    } else if (type === 'oceanWaves') {
-      const lfo = Math.sin((i / ctx.sampleRate) * 0.15 * Math.PI * 2);
-      lastOut = (lastOut + 0.02 * white) / 1.02;
-      output[i] = lastOut * (0.3 + (lfo + 1) * 1.2);
-    } else if (type === 'stream') {
-      b0 = 0.85 * b0 + white * 0.15;
-      b1 = 0.90 * b1 + b0 * 0.10;
-      output[i] = (b1 * 1.2 + white * 0.03) * 0.6;
+function toggleSoundButton(type) {
+  if (type === 'chime') {
+    playBellChime();
+    const chimeBtn = document.getElementById('btn-chime');
+    if (chimeBtn) {
+      chimeBtn.classList.add('pulse-active');
+      setTimeout(() => chimeBtn.classList.remove('pulse-active'), 2500);
     }
+    return;
   }
 
-  const whiteNoise = ctx.createBufferSource();
-  whiteNoise.buffer = noiseBuffer;
-  whiteNoise.loop = true;
+  if (currentPlayingSound === type) {
+    // If already playing this sound, stop it
+    stopWebSound();
+    currentPlayingSound = null;
+    updateSoundButtonUI(null);
+  } else {
+    // Play selected sound
+    playWebSound(type);
+    currentPlayingSound = type;
+    updateSoundButtonUI(type);
+  }
+}
 
-  gainNode = ctx.createGain();
-  const vol = parseFloat(document.getElementById('ambientVol')?.value || 0.5);
-  gainNode.gain.setValueAtTime(0.01, ctx.currentTime);
-  gainNode.gain.linearRampToValueAtTime(vol * 0.35, ctx.currentTime + 0.5);
-
-  whiteNoise.connect(gainNode);
-  gainNode.connect(ctx.destination);
-  whiteNoise.start();
-
-  activeNoiseNode = whiteNoise;
-
-  // Update pills active states
+function updateSoundButtonUI(activeType) {
   document.querySelectorAll('.sound-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent.toLowerCase().includes(type.toLowerCase()));
+    const soundType = btn.getAttribute('data-sound');
+    if (soundType && soundType === activeType) {
+      btn.classList.add('active', 'is-playing');
+    } else {
+      btn.classList.remove('active', 'is-playing');
+    }
   });
+
+  // Sync with emulator dropdown if open
+  const emulatorSelect = document.getElementById('ambientSelect');
+  if (emulatorSelect) {
+    emulatorSelect.value = activeType || 'none';
+  }
+}
+
+function playWebSound(type) {
+  stopWebSound();
+  if (!type || type === 'none') return;
+
+  try {
+    const ctx = getAudioContext();
+    const bufferSize = 4 * ctx.sampleRate; // 4 seconds loop
+    const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+    const output = noiseBuffer.getChannelData(0);
+
+    let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+    let brown = 0.0;
+
+    for (let i = 0; i < bufferSize; i++) {
+      const white = Math.random() * 2 - 1;
+
+      if (type === 'rain') {
+        b0 = 0.96 * b0 + white * 0.04;
+        const drop = Math.random() > 0.995 ? (Math.random() * 2 - 1) * 0.5 : 0;
+        output[i] = (b0 * 1.8 + drop * 0.4) * 0.9;
+      } else if (type === 'pinkNoise') {
+        b0 = 0.99886 * b0 + white * 0.0555179;
+        b1 = 0.99332 * b1 + white * 0.0750759;
+        b2 = 0.96900 * b2 + white * 0.1538520;
+        b3 = 0.86650 * b3 + white * 0.3104856;
+        b4 = 0.55000 * b4 + white * 0.5329522;
+        b5 = -0.7616 * b5 - white * 0.0168980;
+        output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.18;
+        b6 = white * 0.115926;
+      } else if (type === 'brownNoise') {
+        brown = (brown + 0.03 * white) / 1.03;
+        output[i] = brown * 3.5;
+      } else if (type === 'oceanWaves') {
+        const t = i / ctx.sampleRate;
+        const swell = (Math.sin(t * 0.8) + Math.sin(t * 0.25) * 0.5 + 1.5) / 3.0;
+        brown = (brown + 0.025 * white) / 1.025;
+        output[i] = brown * (0.3 + swell * 2.2);
+      } else if (type === 'stream') {
+        b0 = 0.82 * b0 + white * 0.18;
+        b1 = 0.88 * b1 + b0 * 0.12;
+        const ripple = Math.sin(i * 0.02) * 0.05;
+        output[i] = (b1 * 1.4 + ripple + white * 0.04) * 0.7;
+      }
+    }
+
+    const whiteNoise = ctx.createBufferSource();
+    whiteNoise.buffer = noiseBuffer;
+    whiteNoise.loop = true;
+
+    gainNode = ctx.createGain();
+    const vol = parseFloat(document.getElementById('ambientVol')?.value || 0.65);
+    gainNode.gain.setValueAtTime(0.01, ctx.currentTime);
+    gainNode.gain.linearRampToValueAtTime(vol * 0.5, ctx.currentTime + 0.2);
+
+    whiteNoise.connect(gainNode);
+    gainNode.connect(ctx.destination);
+    whiteNoise.start(0);
+
+    activeNoiseNode = whiteNoise;
+    currentPlayingSound = type;
+  } catch (err) {
+    console.error('Audio playback error:', err);
+  }
 }
 
 function stopWebSound() {
   if (activeNoiseNode && gainNode && audioCtx) {
-    gainNode.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
-    setTimeout(() => {
-      try { activeNoiseNode.stop(); } catch(e){}
-      activeNoiseNode = null;
-    }, 300);
+    const prevNode = activeNoiseNode;
+    const prevGain = gainNode;
+    try {
+      prevGain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.2);
+      setTimeout(() => {
+        try { prevNode.stop(); } catch(e){}
+      }, 250);
+    } catch(e) {}
+    activeNoiseNode = null;
   }
 }
 
 function changeAmbientSound(val) {
-  if (timerState === 'running') {
-    if (val === 'none') stopWebSound();
-    else playWebSound(val);
+  if (val === 'none') {
+    stopWebSound();
+    currentPlayingSound = null;
+    updateSoundButtonUI(null);
+  } else {
+    toggleSoundButton(val);
   }
 }
 
 function setAmbientVolume(val) {
   if (gainNode && audioCtx) {
-    gainNode.gain.setValueAtTime(parseFloat(val) * 0.35, audioCtx.currentTime);
+    gainNode.gain.setValueAtTime(parseFloat(val) * 0.5, audioCtx.currentTime);
   }
 }
 
-// 528Hz Harmonic Solfeggio Bell Chime
+// 528Hz Harmonic Solfeggio Tibetan Singing Bowl Chime
 function playBellChime() {
-  const ctx = getAudioContext();
-  const f0 = 528;
-  const harmonics = [f0, f0 * 1.503, f0 * 2.001, f0 * 2.756];
-  const gains = [0.4, 0.2, 0.12, 0.08];
+  try {
+    const ctx = getAudioContext();
+    const f0 = 528;
+    const harmonics = [f0, f0 * 1.503, f0 * 2.001, f0 * 2.756, f0 * 3.42];
+    const gains = [0.5, 0.25, 0.15, 0.09, 0.04];
+    const decays = [3.8, 3.2, 2.5, 1.8, 1.2];
 
-  harmonics.forEach((freq, idx) => {
-    const osc = ctx.createOscillator();
-    const g = ctx.createGain();
+    harmonics.forEach((freq, idx) => {
+      const osc = ctx.createOscillator();
+      const g = ctx.createGain();
 
-    osc.frequency.setValueAtTime(freq, ctx.currentTime);
-    g.gain.setValueAtTime(gains[idx], ctx.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 3.0);
+      osc.type = idx === 0 ? 'sine' : 'triangle';
+      osc.frequency.setValueAtTime(freq, ctx.currentTime);
 
-    osc.connect(g);
-    g.connect(ctx.destination);
+      g.gain.setValueAtTime(0.001, ctx.currentTime);
+      g.gain.linearRampToValueAtTime(gains[idx] * 0.6, ctx.currentTime + 0.015);
+      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + decays[idx]);
 
-    osc.start();
-    osc.stop(ctx.currentTime + 3.2);
-  });
+      osc.connect(g);
+      g.connect(ctx.destination);
+
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + decays[idx] + 0.1);
+    });
+  } catch (err) {
+    console.error('Chime audio error:', err);
+  }
 }
 
 // Modal handling
@@ -355,3 +416,4 @@ function closeIOSModal(e) {
 
 // Initial draw
 drawDial(0);
+
