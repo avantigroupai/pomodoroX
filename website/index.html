@@ -53,7 +53,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=1.0.6">
+  <link rel="stylesheet" href="style.css?v=1.0.7">
   <style>
     a, a:hover, a:focus, a:visited, a:active,
     .logo, .logo:hover, .logo:focus, .logo:visited, .logo:active,
@@ -781,19 +781,28 @@
         </button>
       </div>
 
-      <!-- Subtle Ambient Sound Bar (Distraction-Free) -->
-      <div class="focus-ambient-bar">
-        <div class="ambient-picker">
-          <span class="ambient-icon" id="focusAmbientIcon">🌊</span>
-          <select id="focusAmbientSelect" onchange="syncAmbientSound(this.value)" aria-label="Select Ambient Soundscape">
-            <option value="none">Ambient: Off</option>
-            <option value="oceanWaves">Real Ocean Waves</option>
-            <option value="pinkNoise">Deep Pink Noise</option>
+      <!-- YouTube-style Minimal Audio Bar -->
+      <div class="focus-audio-bar" title="Ambient Soundscape">
+        <div class="yt-audio-select-wrap">
+          <span class="yt-sound-icon" id="focusAmbientIcon">🌊</span>
+          <select id="focusAmbientSelect" class="yt-sound-select" onchange="syncAmbientSound(this.value)" aria-label="Select Soundscape">
+            <option value="none">Off</option>
+            <option value="oceanWaves">Ocean Waves</option>
+            <option value="pinkNoise">Pink Noise</option>
             <option value="brownNoise">Brown Noise</option>
             <option value="stream">Forest Stream</option>
           </select>
         </div>
-        <input type="range" id="focusAmbientVol" min="0" max="1" step="0.05" value="0.5" oninput="syncAmbientVolume(this.value)" aria-label="Ambient Volume">
+
+        <button type="button" class="yt-vol-btn" id="audioToggleBtn" onclick="toggleAudioMute()" title="Mute / Unmute" aria-label="Toggle Mute">
+          <svg id="audioIconSvg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+        </button>
+
+        <input type="range" id="focusAmbientVol" class="yt-vol-slider" min="0" max="1" step="0.05" value="0.5" oninput="syncAmbientVolume(this.value)" aria-label="Volume">
       </div>
 
       <!-- Centered Keyboard Shortcuts Pill -->
@@ -835,6 +844,6 @@
   </div>
 
   <div class="copy-pill" id="copyPill" role="status" aria-live="polite" hidden>Copied</div>
-  <script src="app.js?v=1.0.6"></script>
+  <script src="app.js?v=1.0.7"></script>
 </body>
 </html>
