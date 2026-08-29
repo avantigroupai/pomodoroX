@@ -16,10 +16,9 @@ PomodoroX replaces cluttered, subscription-gated, electron-heavy timer utilities
 
 ## 3. Procedural Soundscape Engine
 Rather than looping lossy audio files that fatigue the human ear or consume hundreds of megabytes of RAM, PomodoroX generates audio continuously in real time using DSP mathematics:
-- **Rain Shower**: Bandpass-filtered white/pink noise combined with stochastic high-frequency impulse drops.
+- **Ocean Waves**: Modulated low-frequency oscillator (LFO) controlling a resonant low-pass filter over brown noise.
 - **Deep Pink Noise**: 1/f spectral density distribution modeled through a multi-pole Voss-McCartney filter algorithm.
 - **Brown Noise**: 1/f^2 integrated Brownian random walk yielding deep, soothing low-end acoustic masking.
-- **Ocean Waves**: Modulated low-frequency oscillator (LFO) controlling a resonant low-pass filter over brown noise.
 - **Forest Stream**: Dual band-passed resonant noise sources mimicking flowing water eddies.
 - **528Hz Solfeggio Zen Chime**: Exponential decay pure sine wave with harmonic second and third partials tuned to the transformative "Miracle" 528 Hz frequency.
 

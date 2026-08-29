@@ -274,8 +274,19 @@ function updateSoundButtonUI(activeType) {
 
   // Sync with emulator dropdown if open
   const emulatorSelect = document.getElementById('ambientSelect');
+  const ambientIcon = document.getElementById('ambientIcon');
   if (emulatorSelect) {
     emulatorSelect.value = activeType || 'none';
+  }
+  if (ambientIcon) {
+    const iconMap = {
+      none: '🔇',
+      oceanWaves: '🌊',
+      pinkNoise: '〰️',
+      brownNoise: '💨',
+      stream: '🍃'
+    };
+    ambientIcon.textContent = iconMap[activeType] || '🌊';
   }
 }
 
@@ -286,36 +297,19 @@ function playWebSound(type) {
   try {
     const ctx = getAudioContext();
     const sampleRate = ctx.sampleRate;
-    const loopDuration = (type === 'oceanWaves') ? 12 : (type === 'omChant' ? 9 : 4);
+    const loopDuration = (type === 'oceanWaves') ? 12 : 4;
     const bufferSize = Math.floor(loopDuration * sampleRate);
     const soundBuffer = ctx.createBuffer(1, bufferSize, sampleRate);
     const output = soundBuffer.getChannelData(0);
 
     let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
     let brown = 0.0;
-    let dropletDecay = 0;
-    let dropletFreq = 3200;
 
     for (let i = 0; i < bufferSize; i++) {
       const white = Math.random() * 2 - 1;
       const t = i / sampleRate;
 
-      if (type === 'rain') {
-        // 🌧 REAL RAIN: Diffuse rainfall bed + Poisson individual raindrop impacts + soft wind swell
-        b0 = 0.96 * b0 + white * 0.04;
-        b1 = 0.92 * b1 + b0 * 0.08;
-        const rainBed = (b1 * 2.0) * 0.7;
-
-        if (Math.random() > 0.995) {
-          dropletDecay = 0.5 + Math.random() * 0.4;
-          dropletFreq = 2400 + Math.random() * 2200;
-        } else {
-          dropletDecay *= 0.992;
-        }
-        const droplet = dropletDecay > 0.001 ? Math.sin(dropletFreq * dropletDecay) * dropletDecay * 0.4 : 0.0;
-        output[i] = rainBed + droplet;
-
-      } else if (type === 'oceanWaves') {
+      if (type === 'oceanWaves') {
         // 🌊 REAL OCEAN WAVES: Asymmetric 12s tidal surge + crashing crest surf + receding foam hiss
         const wavePeriod = 12.0;
         const phase = (t / wavePeriod) * Math.PI * 2;
@@ -328,26 +322,6 @@ function playWebSound(type) {
         const foam = (swell < 0.42) ? (white * (0.42 - swell) * 0.45) : 0.0;
 
         output[i] = (deepBody * 0.7) + (crash * 0.28) + (foam * 0.18);
-
-      } else if (type === 'omChant') {
-        // 🕉 AUTHENTIC OM CHANTING: Sacred 136.1 Hz fundamental + harmonic throat resonance + meditative 9s breath cycle
-        const breathPeriod = 9.0;
-        const breathPhase = (t / breathPeriod) * Math.PI * 2;
-        const breathEnv = Math.max(0.08, Math.pow((Math.sin(breathPhase) + 1.0) * 0.5, 1.25));
-
-        const vibrato = Math.sin(t * 5.2 * Math.PI * 2) * 0.8;
-        const f0 = 136.1 + vibrato;
-
-        const h0 = Math.sin(t * f0 * Math.PI * 2) * 0.55;
-        const h1 = Math.sin(t * f0 * 2.0 * Math.PI * 2) * 0.26;
-        const h2 = Math.sin(t * f0 * 3.0 * Math.PI * 2) * 0.15;
-        const h3 = Math.sin(t * f0 * 4.0 * Math.PI * 2) * 0.08;
-        const subBass = Math.sin(t * (f0 * 0.5) * Math.PI * 2) * 0.22;
-
-        const rawVocal = (h0 + h1 + h2 + h3 + subBass) * breathEnv;
-        b0 = 0.88 * b0 + rawVocal * 0.12;
-        b1 = 0.84 * b1 + b0 * 0.16;
-        output[i] = b1 * 1.6;
 
       } else if (type === 'pinkNoise') {
         b0 = 0.99886 * b0 + white * 0.0555179;

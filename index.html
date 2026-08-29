@@ -32,7 +32,7 @@
   <meta property="og:url" content="https://avantigroupai.github.io/pomodoroX/">
   <meta property="og:site_name" content="PomodoroX">
   <meta property="og:title" content="PomodoroX — Minimalist Pomodoro Timer & Ambient Soundscapes for Mac & iOS">
-  <meta property="og:description" content="Master your flow state with native Swift 6 performance, real-time DSP sound generators (Real Rain, Real Ocean Waves, Om Chanting), macOS MenuBarExtra, and Swift Charts analytics.">
+  <meta property="og:description" content="Master your flow state with native Swift 6 performance, real-time DSP sound generators (Ocean Waves, Deep Pink Noise, Brown Noise, Forest Stream), macOS MenuBarExtra, and Swift Charts analytics.">
   <meta property="og:image" content="https://avantigroupai.github.io/pomodoroX/assets/app_icon.png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
@@ -53,7 +53,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=1.0.2">
+  <style>
+    a, a:hover, a:focus, a:visited, a:active,
+    .logo, .logo:hover, .logo:focus, .logo:visited, .logo:active,
+    .logo-text, .logo-text span {
+      text-decoration: none !important;
+    }
+  </style>
 
   <!-- Structured Data / JSON-LD (SEO, GEO & AEO Schema Graph) -->
   <script type="application/ld+json">
@@ -68,7 +75,7 @@
         "description": "High-performance Pomodoro Timer for macOS and iOS built with Swift 6 and SwiftUI, featuring real-time procedural ambient soundscapes, macOS MenuBarExtra integration, and Swift Charts analytics.",
         "applicationCategory": "ProductivityApplication",
         "operatingSystem": "macOS 14.0+, iOS 17.0+",
-        "softwareVersion": "1.0.0",
+        "softwareVersion": "1.0.2",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -83,7 +90,7 @@
         },
         "featureList": [
           "Phase-adaptive visual breathing glow for Focus, Short Break, and Long Break",
-          "Real-time procedural DSP sound generators for Real Rain, Real Ocean Waves, and Sacred Om Chanting",
+          "Real-time procedural DSP sound generators for Real Ocean Waves, Deep Pink Noise, Brown Noise, and Forest Stream",
           "Native macOS MenuBarExtra status bar timer countdown and quick popover controls",
           "Swift Charts 7-day focus breakdown, streak counters, and session logs",
           "Task manager with visual tomato estimation trackers",
@@ -179,7 +186,7 @@
   <!-- Navigation -->
   <header class="navbar" role="banner">
     <div class="nav-container">
-      <a href="#" class="logo" aria-label="PomodoroX Home">
+      <a href="#" class="logo" style="text-decoration: none !important;" aria-label="PomodoroX Home">
         <img src="assets/app_icon.png" alt="PomodoroX Logo" class="logo-img" width="36" height="36">
         <span class="logo-text">Pomodoro<span>X</span></span>
       </a>
@@ -203,7 +210,7 @@
       <div class="hero-content">
         <div class="badge-pill">
           <span class="badge-dot"></span>
-          <span>Version 1.0.0 • macOS 14+ & iOS 17+ • 100% Free & Open Source</span>
+          <span>Version 1.0.2 • macOS 14+ & iOS 17+ • 100% Free & Open Source</span>
         </div>
         <h1 class="hero-title" id="hero-heading">
           Master Your Flow.<br>
@@ -310,12 +317,10 @@
             <!-- Ambient Sound Bar -->
             <div class="ambient-bar">
               <div class="ambient-picker">
-                <span class="ambient-icon" id="ambientIcon">🌧</span>
+                <span class="ambient-icon" id="ambientIcon">🌊</span>
                 <select id="ambientSelect" onchange="changeAmbientSound(this.value)" aria-label="Select Ambient Soundscape">
                   <option value="none">Ambient: Off</option>
-                  <option value="rain">Real Rain</option>
                   <option value="oceanWaves">Real Ocean Waves</option>
-                  <option value="omChant">Om Chanting</option>
                   <option value="pinkNoise">Deep Pink Noise</option>
                   <option value="brownNoise">Brown Noise</option>
                   <option value="stream">Forest Stream</option>
@@ -391,16 +396,8 @@
             <p>Generated dynamically in real-time using mathematical DSP synthesis. Zero repetitive audio files. 100% offline & seamless.</p>
             
             <div class="sound-pills">
-              <button class="sound-btn" data-sound="rain" onclick="toggleSoundButton('rain')" aria-label="Toggle Real Rain Soundscape">
-                <span class="btn-sound-title">🌧 Real Rain</span>
-                <span class="eq-bars"><span class="b1"></span><span class="b2"></span><span class="b3"></span></span>
-              </button>
               <button class="sound-btn" data-sound="oceanWaves" onclick="toggleSoundButton('oceanWaves')" aria-label="Toggle Real Ocean Waves">
                 <span class="btn-sound-title">🌊 Real Ocean Waves</span>
-                <span class="eq-bars"><span class="b1"></span><span class="b2"></span><span class="b3"></span></span>
-              </button>
-              <button class="sound-btn" data-sound="omChant" onclick="toggleSoundButton('omChant')" aria-label="Toggle Sacred Om Chanting">
-                <span class="btn-sound-title">🕉 Om Chanting</span>
                 <span class="eq-bars"><span class="b1"></span><span class="b2"></span><span class="b3"></span></span>
               </button>
               <button class="sound-btn" data-sound="pinkNoise" onclick="toggleSoundButton('pinkNoise')" aria-label="Toggle Deep Pink Noise">
@@ -442,7 +439,7 @@
           <article class="feature-card glass-card">
             <div class="card-icon glow-cyan" aria-hidden="true">🎧</div>
             <h3>Procedural Soundscapes</h3>
-            <p>Real-time DSP sound generators for Real Rain, Real Ocean Waves, Om Chanting, and Pink Noise to eliminate background distractions.</p>
+            <p>Real-time DSP sound generators for Real Ocean Waves, Deep Pink Noise, Brown Noise, and Forest Stream to eliminate background distractions.</p>
           </article>
 
           <!-- Card 3 -->
@@ -654,7 +651,7 @@
               <span class="faq-icon-pill">▾</span>
             </div>
             <div class="faq-card-body">
-              <p>Instead of looping MP3 audio files, PomodoroX generates Real Rain, Real Ocean Waves, Sacred Om Chanting, and Pink Noise on the fly using mathematical biquad filtering and noise algorithms directly through AVAudioEngine.</p>
+              <p>Instead of looping MP3 audio files, PomodoroX generates Real Ocean Waves, Deep Pink Noise, Brown Noise, and Forest Stream on the fly using mathematical biquad filtering and noise algorithms directly through AVAudioEngine.</p>
             </div>
           </div>
 
@@ -740,6 +737,6 @@
   </div>
 
   <div class="copy-pill" id="copyPill" role="status" aria-live="polite" hidden>Copied</div>
-  <script src="app.js"></script>
+  <script src="app.js?v=1.0.2"></script>
 </body>
 </html>
