@@ -511,9 +511,12 @@ function openFocusMode() {
     document.documentElement.setAttribute('data-phase', currentPhase);
     document.body.style.overflow = 'hidden';
     
-    // Sync UI elements
+    // Sync UI elements & trigger layout canvas repaint
     updateDisplay();
-    scheduleShortcutsFade();
+    requestAnimationFrame(() => {
+      updateDisplay();
+      scheduleShortcutsFade();
+    });
     
     // Update URL hash smoothly to #focus
     if (window.location.hash !== '#focus') {
@@ -594,6 +597,33 @@ window.addEventListener('mousemove', () => {
 }, { passive: true });
 
 // Sync ambient selectors & volume between hero and focus mode
+let lastAudioVolume = 0.5;
+
+function toggleAudioMute() {
+  const focusVol = document.getElementById('focusAmbientVol') || document.getElementById('ambientVol');
+  if (!focusVol) return;
+  const currentVal = parseFloat(focusVol.value);
+  if (currentVal > 0) {
+    lastAudioVolume = currentVal;
+    syncAmbientVolume(0);
+  } else {
+    syncAmbientVolume(lastAudioVolume > 0 ? lastAudioVolume : 0.5);
+  }
+}
+
+function updateAudioIcon(vol) {
+  const icon = document.getElementById('audioIconSvg');
+  if (!icon) return;
+  const v = parseFloat(vol);
+  if (v <= 0) {
+    icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line>';
+  } else if (v < 0.5) {
+    icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>';
+  } else {
+    icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>';
+  }
+}
+
 function syncAmbientSound(val) {
   const heroSelect = document.getElementById('ambientSelect');
   const focusSelect = document.getElementById('focusAmbientSelect');
@@ -607,6 +637,7 @@ function syncAmbientVolume(val) {
   const focusVol = document.getElementById('focusAmbientVol');
   if (heroVol) heroVol.value = val;
   if (focusVol) focusVol.value = val;
+  updateAudioIcon(val);
   setAmbientVolume(val);
 }
 
