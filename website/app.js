@@ -479,3 +479,71 @@ function toggleFaqCard(card) {
   }
 }
 
+(function initCopySurfaces() {
+  const pill = document.getElementById('copyPill');
+  let hideTimer;
+  let hideComplete;
+
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise((resolve, reject) => {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy') ? resolve() : reject(new Error('copy failed'));
+      } catch (err) {
+        reject(err);
+      } finally {
+        document.body.removeChild(ta);
+      }
+    });
+  }
+
+  function showPill(x, y, label) {
+    if (!pill) return;
+    pill.textContent = label;
+    pill.hidden = false;
+    pill.style.left = `${x}px`;
+    pill.style.top = `${y}px`;
+    requestAnimationFrame(() => pill.classList.add('is-on'));
+    clearTimeout(hideTimer);
+    clearTimeout(hideComplete);
+    hideTimer = setTimeout(() => {
+      pill.classList.remove('is-on');
+      hideComplete = setTimeout(() => {
+        pill.hidden = true;
+      }, 200);
+    }, 1000);
+  }
+
+  document.querySelectorAll('[data-copy-surface]').forEach((surface) => {
+    surface.addEventListener('click', async (event) => {
+      const unit = event.target.closest('td, th');
+      if (!unit || event.target.closest('a, button, input, select, textarea')) return;
+      const selection = window.getSelection();
+      if (selection && String(selection).trim()) return;
+      const text = (unit.innerText || '')
+        .split('\n')
+        .map((line) => line.trim())
+        .filter(Boolean)
+        .join('\n');
+      if (!text || text === '—' || text === '-') return;
+      try {
+        await copyText(text);
+        unit.classList.add('copied-flash');
+        setTimeout(() => unit.classList.remove('copied-flash'), 850);
+        showPill(event.clientX, event.clientY, 'Copied');
+      } catch (err) {
+        showPill(event.clientX, event.clientY, 'Copy failed');
+      }
+    });
+  });
+})();
+

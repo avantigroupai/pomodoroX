@@ -476,7 +476,7 @@
       </div>
     </section>
 
-    <!-- SECTION 4: COMPARISON MATRIX (LINEAR/RAYCAST STYLE) -->
+    <!-- SECTION 4: COMPARISON TABLE -->
     <section class="comparison-section" id="comparison" aria-labelledby="comparison-heading">
       <div class="section-container">
         <div class="section-header">
@@ -485,65 +485,72 @@
           <p class="section-subtitle">Why native Swift 6 engineering outperforms heavy web wrappers and subscription timers.</p>
         </div>
 
-        <div class="modern-comparison-card glass-card">
-          <div class="comparison-grid-header">
-            <div class="cmp-cell cmp-metric-head">Feature & Benchmark</div>
-            <div class="cmp-cell cmp-hero-head">
-              <span class="cmp-pomodorox-label">🍅 PomodoroX</span>
-              <span class="cmp-hero-sub">Swift 6 Native</span>
-            </div>
-            <div class="cmp-cell cmp-other-head">Traditional Web Timers</div>
-            <div class="cmp-cell cmp-other-head">Electron Timers</div>
-          </div>
-
-          <div class="comparison-grid-body">
-            <!-- Row 1 -->
-            <div class="cmp-row">
-              <div class="cmp-cell cmp-metric-title">Architecture</div>
-              <div class="cmp-cell cmp-hero-cell"><span class="cmp-pill-win">Native Swift 6 & SwiftUI</span></div>
-              <div class="cmp-cell cmp-muted-cell">Browser JavaScript</div>
-              <div class="cmp-cell cmp-muted-cell">Chromium / Node.js</div>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="cmp-row">
-              <div class="cmp-cell cmp-metric-title">RAM Footprint</div>
-              <div class="cmp-cell cmp-hero-cell"><span class="cmp-pill-win">&lt; 25 MB</span></div>
-              <div class="cmp-cell cmp-muted-cell">250 – 500 MB</div>
-              <div class="cmp-cell cmp-muted-cell">350 – 800 MB</div>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="cmp-row">
-              <div class="cmp-cell cmp-metric-title">Audio Engine</div>
-              <div class="cmp-cell cmp-hero-cell"><span class="cmp-pill-win">Mathematical DSP Synthesis</span></div>
-              <div class="cmp-cell cmp-muted-cell">Repetitive MP3 Loops</div>
-              <div class="cmp-cell cmp-muted-cell">Large Audio Files</div>
-            </div>
-
-            <!-- Row 4 -->
-            <div class="cmp-row">
-              <div class="cmp-cell cmp-metric-title">macOS Status Bar</div>
-              <div class="cmp-cell cmp-hero-cell"><span class="cmp-pill-win">MenuBarExtra & Floating PIP</span></div>
-              <div class="cmp-cell cmp-muted-cell"><span class="cmp-cross">✕</span> None</div>
-              <div class="cmp-cell cmp-muted-cell">Limited / Web wrapper</div>
-            </div>
-
-            <!-- Row 5 -->
-            <div class="cmp-row">
-              <div class="cmp-cell cmp-metric-title">Privacy & Telemetry</div>
-              <div class="cmp-cell cmp-hero-cell"><span class="cmp-pill-win">100% On-Device (0 Network)</span></div>
-              <div class="cmp-cell cmp-muted-cell">Ads, Cookies & Trackers</div>
-              <div class="cmp-cell cmp-muted-cell">Account Logins & Telemetry</div>
-            </div>
-
-            <!-- Row 6 -->
-            <div class="cmp-row">
-              <div class="cmp-cell cmp-metric-title">Pricing</div>
-              <div class="cmp-cell cmp-hero-cell"><span class="cmp-pill-win">100% Free & Open Source</span></div>
-              <div class="cmp-cell cmp-muted-cell">Freemium / Ads</div>
-              <div class="cmp-cell cmp-muted-cell">$5 – $12/month Subscription</div>
-            </div>
+        <div class="comparison-shell glass-card" data-copy-surface>
+          <p class="sheet-hint">Click any cell to copy it.</p>
+          <div class="comparison-scroll">
+            <table class="comparison-table" aria-label="Feature comparison between PomodoroX, traditional web timers, and Electron timers">
+              <colgroup>
+                <col class="col-feature">
+                <col class="col-hero">
+                <col class="col-alt">
+                <col class="col-alt">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">Feature</th>
+                  <th scope="col" class="col-px">
+                    <span class="col-brand">PomodoroX</span>
+                    <span class="col-kicker">Swift 6 native</span>
+                  </th>
+                  <th scope="col">Web timers</th>
+                  <th scope="col">Electron timers</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Architecture</th>
+                  <td class="col-px" data-label="PomodoroX">Native Swift 6 &amp; SwiftUI</td>
+                  <td data-label="Web timers">Browser JavaScript</td>
+                  <td data-label="Electron timers">Chromium / Node.js</td>
+                </tr>
+                <tr>
+                  <th scope="row">RAM footprint</th>
+                  <td class="col-px" data-label="PomodoroX"><span class="cell-mono">&lt; 25 MB</span></td>
+                  <td data-label="Web timers"><span class="cell-mono">250–500 MB</span></td>
+                  <td data-label="Electron timers"><span class="cell-mono">350–800 MB</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Audio engine</th>
+                  <td class="col-px" data-label="PomodoroX">Real-time DSP synthesis</td>
+                  <td data-label="Web timers">Looped MP3 files</td>
+                  <td data-label="Electron timers">Packed audio files</td>
+                </tr>
+                <tr>
+                  <th scope="row">macOS status bar</th>
+                  <td class="col-px" data-label="PomodoroX">MenuBarExtra &amp; floating PIP</td>
+                  <td data-label="Web timers"><span class="cell-absent">—</span></td>
+                  <td data-label="Electron timers">Limited wrapper</td>
+                </tr>
+                <tr>
+                  <th scope="row">Privacy</th>
+                  <td class="col-px" data-label="PomodoroX">On-device, zero network</td>
+                  <td data-label="Web timers">Ads, cookies, trackers</td>
+                  <td data-label="Electron timers">Accounts &amp; telemetry</td>
+                </tr>
+                <tr>
+                  <th scope="row">Offline</th>
+                  <td class="col-px" data-label="PomodoroX">Fully offline</td>
+                  <td data-label="Web timers">Needs a connection</td>
+                  <td data-label="Electron timers">Varies</td>
+                </tr>
+                <tr>
+                  <th scope="row">Price</th>
+                  <td class="col-px" data-label="PomodoroX">Free &amp; open source</td>
+                  <td data-label="Web timers">Freemium / ads</td>
+                  <td data-label="Electron timers"><span class="cell-mono">$5–$12/mo</span></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -557,30 +564,41 @@
           <h2 class="section-title" id="specs-heading">Built with Apple's Modern Toolchain</h2>
         </div>
 
-        <div class="specs-grid">
-          <div class="spec-card glass-card">
-            <div class="spec-label">Language & Runtime</div>
-            <div class="spec-value">Swift 6.0 (Strict Concurrency)</div>
-          </div>
-          <div class="spec-card glass-card">
-            <div class="spec-label">UI Framework</div>
-            <div class="spec-value">SwiftUI 5.0 + Swift Charts</div>
-          </div>
-          <div class="spec-card glass-card">
-            <div class="spec-label">Audio Subsystem</div>
-            <div class="spec-value">AVAudioEngine & DSP Synthesis</div>
-          </div>
-          <div class="spec-card glass-card">
-            <div class="spec-label">macOS Target</div>
-            <div class="spec-value">macOS 14.0+ (Sonoma & Sequoia)</div>
-          </div>
-          <div class="spec-card glass-card">
-            <div class="spec-label">iOS Target</div>
-            <div class="spec-value">iOS 17.0+ (iPhone & iPad)</div>
-          </div>
-          <div class="spec-card glass-card">
-            <div class="spec-label">Data Privacy</div>
-            <div class="spec-value">100% On-Device & Offline</div>
+        <div class="specs-sheet glass-card" data-copy-surface>
+          <p class="sheet-hint">Click any cell to copy it.</p>
+          <div class="specs-columns">
+            <table class="specs-table" aria-label="PomodoroX language, UI, and audio specifications">
+              <tbody>
+                <tr>
+                  <th scope="row">Language &amp; runtime</th>
+                  <td>Swift 6.0 (strict concurrency)</td>
+                </tr>
+                <tr>
+                  <th scope="row">UI framework</th>
+                  <td>SwiftUI 5.0 + Swift Charts</td>
+                </tr>
+                <tr>
+                  <th scope="row">Audio subsystem</th>
+                  <td>AVAudioEngine &amp; DSP synthesis</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="specs-table" aria-label="PomodoroX platform and privacy specifications">
+              <tbody>
+                <tr>
+                  <th scope="row">macOS target</th>
+                  <td>macOS 14.0+ (Sonoma &amp; Sequoia)</td>
+                </tr>
+                <tr>
+                  <th scope="row">iOS target</th>
+                  <td>iOS 17.0+ (iPhone &amp; iPad)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Data privacy</th>
+                  <td>100% on-device &amp; offline</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -721,6 +739,7 @@
     </div>
   </div>
 
+  <div class="copy-pill" id="copyPill" role="status" aria-live="polite" hidden>Copied</div>
   <script src="app.js"></script>
 </body>
 </html>
