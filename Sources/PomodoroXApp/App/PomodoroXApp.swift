@@ -158,6 +158,13 @@ public struct MainContentView: View {
         .sheet(isPresented: $showingSettings) {
             SettingsSheetView(viewModel: environment.pomodoroViewModel)
         }
+        #if os(macOS)
+        .onAppear {
+            if let icon = NSImage(named: "AppIcon") ?? NSImage(contentsOf: Bundle.main.bundleURL.appendingPathComponent("Contents/Resources/AppIcon.icns")) {
+                NSApplication.shared.applicationIconImage = icon
+            }
+        }
+        #endif
     }
 
     // MARK: - Top Header Bar

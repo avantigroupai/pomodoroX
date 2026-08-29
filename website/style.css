@@ -673,26 +673,83 @@ body {
 .sound-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
   justify-content: center;
 }
 
 .sound-btn {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-glass-bright);
   color: #fff;
-  padding: 10px 20px;
+  padding: 12px 22px;
   border-radius: 30px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-.sound-btn:hover, .sound-btn.active {
-  background: var(--gradient-focus);
-  box-shadow: 0 6px 20px rgba(255, 89, 71, 0.4);
+.sound-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.sound-btn.active, .sound-btn.is-playing {
+  background: var(--gradient-focus);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 89, 71, 0.45), 0 0 15px rgba(255, 89, 71, 0.3);
+  transform: translateY(-2px);
+}
+
+.sound-btn.pulse-active {
+  background: linear-gradient(135deg, #ffd700, #ff942e);
+  color: #000;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+  transform: scale(1.05);
+}
+
+/* Equalizer Bars Animation */
+.eq-bars {
+  display: none;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 14px;
+  width: 12px;
+}
+
+.sound-btn.is-playing .eq-bars {
+  display: inline-flex;
+}
+
+.eq-bars span {
+  width: 2.5px;
+  background: #ffffff;
+  border-radius: 2px;
+  height: 100%;
+}
+
+.sound-btn.is-playing .eq-bars .b1 {
+  animation: eq-jump 0.65s ease-in-out infinite alternate;
+}
+
+.sound-btn.is-playing .eq-bars .b2 {
+  animation: eq-jump 0.5s ease-in-out 0.2s infinite alternate;
+}
+
+.sound-btn.is-playing .eq-bars .b3 {
+  animation: eq-jump 0.75s ease-in-out 0.4s infinite alternate;
+}
+
+@keyframes eq-jump {
+  0% { height: 25%; }
+  100% { height: 100%; }
 }
 
 /* Specs Grid */
