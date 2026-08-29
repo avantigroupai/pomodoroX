@@ -1,0 +1,999 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03CF2C33158DBA06C4891666 /* PomodoroSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD94DE9C42081B3702FBF34 /* PomodoroSettings.swift */; };
+		0B0481430034424FD03EA6E9 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E63EC5ABE5CDB6D1E7E3E /* AppEnvironment.swift */; };
+		1D31F70EB110EFD01DFEB36F /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6B7248F62AF644463FF3CB /* StorageService.swift */; };
+		20C802522D6EC3D4A0508F2A /* StreakBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EA374143EA74367E001282 /* StreakBadgeView.swift */; };
+		24027B33CC4E803A06005B23 /* PomodoroXCore-macOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63B3BC57F2652E07DB0F216E /* PomodoroXCore-macOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2816BFE6813B19E3273102CB /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47A8778EC84A98A0D0A28DF /* TaskListView.swift */; };
+		321E850E7D39AEF8B28C31E0 /* PhaseSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB84444899DA5E8711F59F /* PhaseSelectorView.swift */; };
+		3B8770F442DF34E5B425360E /* PomodoroXCore-macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B3BC57F2652E07DB0F216E /* PomodoroXCore-macOS.framework */; };
+		3C9F1171C2B6F6525E4E4B9D /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC5C148799539597B6A4A4 /* HapticsManager.swift */; };
+		437BC5CBA9477FBE31C14175 /* PomodoroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287D96A49003FBE7B4626E82 /* PomodoroViewModel.swift */; };
+		44734B0E4142045E4023E1DB /* PomodoroXCore-macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B3BC57F2652E07DB0F216E /* PomodoroXCore-macOS.framework */; };
+		52AA453CCC0E38EA3B10F094 /* PomodoroSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820CC6096B2C744D6E6EA9D2 /* PomodoroSession.swift */; };
+		54194978E1A28B23083C0A70 /* TimerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D3906CBD68C0D1B8210E5A /* TimerServiceTests.swift */; };
+		54874619BEB55444F4D42E1C /* ControlButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA2DB9091B1D3DD29200D3D /* ControlButtonsView.swift */; };
+		54B46882B3C887B2A946F87B /* PomodoroSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD94DE9C42081B3702FBF34 /* PomodoroSettings.swift */; };
+		592EFDCEC90E072F9B5D68AB /* PomodoroXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605ACA6B7730216D1DBFCEA /* PomodoroXApp.swift */; };
+		631F574FB2A74EE417369740 /* PomodoroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287D96A49003FBE7B4626E82 /* PomodoroViewModel.swift */; };
+		65A45A041D568D24DA149939 /* PomodoroXCore-iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6727B500AFE5193D688BEDB /* PomodoroXCore-iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6798C4737E25D268CCCAD22A /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEEABD92B15D198F381D557 /* ColorExtensions.swift */; };
+		69A47998C7E63C8DE06DA76B /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EA40648408D7A1DCD366B /* StatsViewModel.swift */; };
+		6D6E7B75C27A6F4E073BA6BD /* SettingsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C08552D25463110840E724 /* SettingsSheetView.swift */; };
+		7304D68554B18B6A4B76F739 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B022AD1BBABAF9452B3C47 /* TimerService.swift */; };
+		7561A42E348C9F9625EDF890 /* PomodoroTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7564774AB7BCEEFDB0D9EB30 /* PomodoroTask.swift */; };
+		79C172C184BCE837D2C8CBD6 /* AmbientAudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34CB9D0A7BE335E44E647BA /* AmbientAudioEngine.swift */; };
+		7D1682B37225D0C0F6216B44 /* PomodoroXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605ACA6B7730216D1DBFCEA /* PomodoroXApp.swift */; };
+		7D1C4F2CCB47AF468F70D062 /* TimerMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF96B1D1BC361B028EE23EC /* TimerMainView.swift */; };
+		7D5B5B754F4147DB18C1F928 /* ControlButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA2DB9091B1D3DD29200D3D /* ControlButtonsView.swift */; };
+		7F719F6E6ACF79DFF12F645C /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3538513BD84060D1B0363128 /* StatsView.swift */; };
+		7F74158062B9E3838030D860 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99418797549B868563606B7B /* MenuBarView.swift */; };
+		80752E59678923AA1227A82D /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EA40648408D7A1DCD366B /* StatsViewModel.swift */; };
+		881A1E6A00AE06D6C25A0F5F /* MiniTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968E33F96013DFEDEB186034 /* MiniTimerView.swift */; };
+		895CF6B2E992660DABE3C09B /* AmbientSoundBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAB5336B6684C7AEA17E87 /* AmbientSoundBarView.swift */; };
+		8AB514C8F1DBDD64D755D496 /* MiniTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968E33F96013DFEDEB186034 /* MiniTimerView.swift */; };
+		8B51C64E7C402F667E3D2B91 /* SettingsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C08552D25463110840E724 /* SettingsSheetView.swift */; };
+		8E73F396592A86B01BC249DD /* PomodoroSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820CC6096B2C744D6E6EA9D2 /* PomodoroSession.swift */; };
+		8F9FB293C078C124753FC0C0 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6B7248F62AF644463FF3CB /* StorageService.swift */; };
+		9042B1221C8E2FDFA415F75E /* PomodoroModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB2A6449F8EDEB96A8EAAC8 /* PomodoroModelTests.swift */; };
+		905FAA719BFCA11CB8742690 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B022AD1BBABAF9452B3C47 /* TimerService.swift */; };
+		95C1A34FE5F2AA5BB2761163 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99418797549B868563606B7B /* MenuBarView.swift */; };
+		9B318AF51A666FC7DAEAA262 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D22ABFAEEBDE8FAFF479BD3 /* TaskRowView.swift */; };
+		A51F7C6EC4B0CBE16ACC68F9 /* AmbientSoundBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAB5336B6684C7AEA17E87 /* AmbientSoundBarView.swift */; };
+		A78747C58DEBDCD0C0093658 /* GlassCardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C11650CAC572D2972BE /* GlassCardModifier.swift */; };
+		BF111967FDEDDF5F599F4CBE /* PomodoroXCore-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6727B500AFE5193D688BEDB /* PomodoroXCore-iOS.framework */; };
+		C01AD4142B3B24ED47CD71F0 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47A8778EC84A98A0D0A28DF /* TaskListView.swift */; };
+		C4E01C9E52655DFD3F5B0D85 /* PomodoroXCore-macOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63B3BC57F2652E07DB0F216E /* PomodoroXCore-macOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C88E0D5970D59B82310DBB66 /* GlassCardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC4C11650CAC572D2972BE /* GlassCardModifier.swift */; };
+		CA68C874028C618D97F4A318 /* CircularProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79F1B3B85C670966C19952 /* CircularProgressRing.swift */; };
+		CD0BF5325BF233106825C24F /* AmbientAudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34CB9D0A7BE335E44E647BA /* AmbientAudioEngine.swift */; };
+		D0562524FD6C29BD8D4E6F4D /* StreakBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EA374143EA74367E001282 /* StreakBadgeView.swift */; };
+		D1297F6F9C878BFD49DFA887 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E63EC5ABE5CDB6D1E7E3E /* AppEnvironment.swift */; };
+		DF03124ABFDF8B4893DE712C /* CircularProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79F1B3B85C670966C19952 /* CircularProgressRing.swift */; };
+		E8990BC647E6BCC3F5E314C4 /* PhaseSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EB84444899DA5E8711F59F /* PhaseSelectorView.swift */; };
+		E9CFAB9D39BA2E8FA54E0E11 /* PomodoroTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7564774AB7BCEEFDB0D9EB30 /* PomodoroTask.swift */; };
+		EB7C94B801BED058CB88F4C7 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970DC65984AE021DFEFCAC1 /* NotificationManager.swift */; };
+		EDD1618782BC5F6055A620AB /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEEABD92B15D198F381D557 /* ColorExtensions.swift */; };
+		EF7ED1DB0AB6766BA48BDF07 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3538513BD84060D1B0363128 /* StatsView.swift */; };
+		F0D5F8589BC47B3A77CAD748 /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3360F0554C81E438935D6B /* TasksViewModel.swift */; };
+		F1DB1814B4E7AEFF369DFD38 /* TimerMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF96B1D1BC361B028EE23EC /* TimerMainView.swift */; };
+		F4C834F8C85C15DE12C22741 /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3360F0554C81E438935D6B /* TasksViewModel.swift */; };
+		FA28C3511DA0A66F5E147B52 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC5C148799539597B6A4A4 /* HapticsManager.swift */; };
+		FC94D83A05175BF659D52286 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D22ABFAEEBDE8FAFF479BD3 /* TaskRowView.swift */; };
+		FDC2CE09C6D2C4B95D2878A6 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970DC65984AE021DFEFCAC1 /* NotificationManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		14A6C9A97CF5E3744875FFAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70D876864931A61DF70754E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E04DEECFB4312088C81767B7;
+			remoteInfo = "PomodoroXCore-iOS";
+		};
+		7FDC0673EC87C68109A3CF0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70D876864931A61DF70754E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31A64931C818B89ABC234352;
+			remoteInfo = "PomodoroXCore-macOS";
+		};
+		F47D2DBFD93DB86CC06547C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70D876864931A61DF70754E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31A64931C818B89ABC234352;
+			remoteInfo = "PomodoroXCore-macOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C5F922DFDD3DE4657CCAE7BA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C4E01C9E52655DFD3F5B0D85 /* PomodoroXCore-macOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE76377CD6F99AEA5FEBFB8C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				24027B33CC4E803A06005B23 /* PomodoroXCore-macOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7B527BDF577CCA067CD372D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				65A45A041D568D24DA149939 /* PomodoroXCore-iOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0970DC65984AE021DFEFCAC1 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		0CF96B1D1BC361B028EE23EC /* TimerMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerMainView.swift; sourceTree = "<group>"; };
+		0F6B7248F62AF644463FF3CB /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		10EC5C148799539597B6A4A4 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		19457E7F4962987EBE6C0C87 /* PomodoroXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodoroXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BEEABD92B15D198F381D557 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		1D22ABFAEEBDE8FAFF479BD3 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
+		25C08552D25463110840E724 /* SettingsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheetView.swift; sourceTree = "<group>"; };
+		287D96A49003FBE7B4626E82 /* PomodoroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroViewModel.swift; sourceTree = "<group>"; };
+		3538513BD84060D1B0363128 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		44560417D144AFB08086372E /* PomodoroX-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "PomodoroX-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		57D3906CBD68C0D1B8210E5A /* TimerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerServiceTests.swift; sourceTree = "<group>"; };
+		63B3BC57F2652E07DB0F216E /* PomodoroXCore-macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "PomodoroXCore-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AB2A6449F8EDEB96A8EAAC8 /* PomodoroModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroModelTests.swift; sourceTree = "<group>"; };
+		7564774AB7BCEEFDB0D9EB30 /* PomodoroTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTask.swift; sourceTree = "<group>"; };
+		7605ACA6B7730216D1DBFCEA /* PomodoroXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroXApp.swift; sourceTree = "<group>"; };
+		7EA2DB9091B1D3DD29200D3D /* ControlButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButtonsView.swift; sourceTree = "<group>"; };
+		820CC6096B2C744D6E6EA9D2 /* PomodoroSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroSession.swift; sourceTree = "<group>"; };
+		84FAB5336B6684C7AEA17E87 /* AmbientSoundBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientSoundBarView.swift; sourceTree = "<group>"; };
+		8B0EA40648408D7A1DCD366B /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
+		968E33F96013DFEDEB186034 /* MiniTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniTimerView.swift; sourceTree = "<group>"; };
+		99418797549B868563606B7B /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		A3EA374143EA74367E001282 /* StreakBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakBadgeView.swift; sourceTree = "<group>"; };
+		A9DC4C11650CAC572D2972BE /* GlassCardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassCardModifier.swift; sourceTree = "<group>"; };
+		B6727B500AFE5193D688BEDB /* PomodoroXCore-iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "PomodoroXCore-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D34CB9D0A7BE335E44E647BA /* AmbientAudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientAudioEngine.swift; sourceTree = "<group>"; };
+		D4FF3D1437105CF9E98A7D4F /* PomodoroX-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PomodoroX-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD79F1B3B85C670966C19952 /* CircularProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressRing.swift; sourceTree = "<group>"; };
+		DF3360F0554C81E438935D6B /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
+		E0B022AD1BBABAF9452B3C47 /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
+		EB9E63EC5ABE5CDB6D1E7E3E /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		EFD94DE9C42081B3702FBF34 /* PomodoroSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroSettings.swift; sourceTree = "<group>"; };
+		F1EB84444899DA5E8711F59F /* PhaseSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhaseSelectorView.swift; sourceTree = "<group>"; };
+		F47A8778EC84A98A0D0A28DF /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00AADB611E3EC84CE3B6FDA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B8770F442DF34E5B425360E /* PomodoroXCore-macOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF4C464A35659BB3FDE7A17A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44734B0E4142045E4023E1DB /* PomodoroXCore-macOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E77047777FF1D45C936C7CFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF111967FDEDDF5F599F4CBE /* PomodoroXCore-iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02DB9CF0C3656629C7D61E31 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				99418797549B868563606B7B /* MenuBarView.swift */,
+				968E33F96013DFEDEB186034 /* MiniTimerView.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		23AA2DBE3ED64DBF5A485AA2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				287D96A49003FBE7B4626E82 /* PomodoroViewModel.swift */,
+				8B0EA40648408D7A1DCD366B /* StatsViewModel.swift */,
+				DF3360F0554C81E438935D6B /* TasksViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3517574CFE2FACAA67243F2F /* PomodoroXCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				6AB2A6449F8EDEB96A8EAAC8 /* PomodoroModelTests.swift */,
+				57D3906CBD68C0D1B8210E5A /* TimerServiceTests.swift */,
+			);
+			name = PomodoroXCoreTests;
+			path = Tests/PomodoroXCoreTests;
+			sourceTree = "<group>";
+		};
+		3BA9EE8E93CF1B2292ADC3F3 /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				3538513BD84060D1B0363128 /* StatsView.swift */,
+				A3EA374143EA74367E001282 /* StreakBadgeView.swift */,
+			);
+			path = Stats;
+			sourceTree = "<group>";
+		};
+		5A76EE56CB3D4C1E54158435 = {
+			isa = PBXGroup;
+			children = (
+				A5B89F4A2027C098BFC4D8C6 /* PomodoroXApp */,
+				F7DBAC608E480D509EE13731 /* PomodoroXCore */,
+				3517574CFE2FACAA67243F2F /* PomodoroXCoreTests */,
+				B7E20281F5D0A858F5CF21CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6E6760D8BE78EB3D0E2FE519 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				EB9E63EC5ABE5CDB6D1E7E3E /* AppEnvironment.swift */,
+				7605ACA6B7730216D1DBFCEA /* PomodoroXApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		863BBB73A81109D9B9FADF8A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA007CD122D2817ACE2B555E /* Ambient */,
+				02DB9CF0C3656629C7D61E31 /* macOS */,
+				F510BE854F48122FB6E53997 /* Settings */,
+				3BA9EE8E93CF1B2292ADC3F3 /* Stats */,
+				CB5BC967B826BCEAD36FF723 /* Tasks */,
+				AD504C3AD5EDF51AD17B9295 /* Timer */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8EA58CB6DB2D9D49CAACB411 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D34CB9D0A7BE335E44E647BA /* AmbientAudioEngine.swift */,
+				10EC5C148799539597B6A4A4 /* HapticsManager.swift */,
+				0970DC65984AE021DFEFCAC1 /* NotificationManager.swift */,
+				0F6B7248F62AF644463FF3CB /* StorageService.swift */,
+				E0B022AD1BBABAF9452B3C47 /* TimerService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A5B89F4A2027C098BFC4D8C6 /* PomodoroXApp */ = {
+			isa = PBXGroup;
+			children = (
+				6E6760D8BE78EB3D0E2FE519 /* App */,
+				B04E7C4F0B8240DAEB2A83BE /* Styles */,
+				863BBB73A81109D9B9FADF8A /* Views */,
+			);
+			name = PomodoroXApp;
+			path = Sources/PomodoroXApp;
+			sourceTree = "<group>";
+		};
+		AA007CD122D2817ACE2B555E /* Ambient */ = {
+			isa = PBXGroup;
+			children = (
+				84FAB5336B6684C7AEA17E87 /* AmbientSoundBarView.swift */,
+			);
+			path = Ambient;
+			sourceTree = "<group>";
+		};
+		AD504C3AD5EDF51AD17B9295 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				DD79F1B3B85C670966C19952 /* CircularProgressRing.swift */,
+				7EA2DB9091B1D3DD29200D3D /* ControlButtonsView.swift */,
+				F1EB84444899DA5E8711F59F /* PhaseSelectorView.swift */,
+				0CF96B1D1BC361B028EE23EC /* TimerMainView.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		B04E7C4F0B8240DAEB2A83BE /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				1BEEABD92B15D198F381D557 /* ColorExtensions.swift */,
+				A9DC4C11650CAC572D2972BE /* GlassCardModifier.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		B7E20281F5D0A858F5CF21CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				44560417D144AFB08086372E /* PomodoroX-iOS.app */,
+				D4FF3D1437105CF9E98A7D4F /* PomodoroX-macOS.app */,
+				B6727B500AFE5193D688BEDB /* PomodoroXCore-iOS.framework */,
+				63B3BC57F2652E07DB0F216E /* PomodoroXCore-macOS.framework */,
+				19457E7F4962987EBE6C0C87 /* PomodoroXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB5BC967B826BCEAD36FF723 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				F47A8778EC84A98A0D0A28DF /* TaskListView.swift */,
+				1D22ABFAEEBDE8FAFF479BD3 /* TaskRowView.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		E5923C1EB2D8859A97879F33 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				820CC6096B2C744D6E6EA9D2 /* PomodoroSession.swift */,
+				EFD94DE9C42081B3702FBF34 /* PomodoroSettings.swift */,
+				7564774AB7BCEEFDB0D9EB30 /* PomodoroTask.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F510BE854F48122FB6E53997 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				25C08552D25463110840E724 /* SettingsSheetView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F7DBAC608E480D509EE13731 /* PomodoroXCore */ = {
+			isa = PBXGroup;
+			children = (
+				E5923C1EB2D8859A97879F33 /* Models */,
+				8EA58CB6DB2D9D49CAACB411 /* Services */,
+				23AA2DBE3ED64DBF5A485AA2 /* ViewModels */,
+			);
+			name = PomodoroXCore;
+			path = Sources/PomodoroXCore;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1813CEB2994D52C6F7BFE44F /* PomodoroX-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10F0A322CB31DA1AB1136211 /* Build configuration list for PBXNativeTarget "PomodoroX-macOS" */;
+			buildPhases = (
+				3649718665D5A292CCCC219D /* Sources */,
+				DF4C464A35659BB3FDE7A17A /* Frameworks */,
+				CE76377CD6F99AEA5FEBFB8C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9CE536FF3BC8062BCF44A79A /* PBXTargetDependency */,
+			);
+			name = "PomodoroX-macOS";
+			packageProductDependencies = (
+			);
+			productName = "PomodoroX-macOS";
+			productReference = D4FF3D1437105CF9E98A7D4F /* PomodoroX-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		31A64931C818B89ABC234352 /* PomodoroXCore-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCD502CA342737B68A5A812D /* Build configuration list for PBXNativeTarget "PomodoroXCore-macOS" */;
+			buildPhases = (
+				F8CE10DEB52A201004A24981 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PomodoroXCore-macOS";
+			packageProductDependencies = (
+			);
+			productName = "PomodoroXCore-macOS";
+			productReference = 63B3BC57F2652E07DB0F216E /* PomodoroXCore-macOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		746002DA4B20F0F2355E9A7C /* PomodoroXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C0C35A0D756E78D1EE31BC0 /* Build configuration list for PBXNativeTarget "PomodoroXTests" */;
+			buildPhases = (
+				EB7C0E13ADC6F37457F60B18 /* Sources */,
+				00AADB611E3EC84CE3B6FDA9 /* Frameworks */,
+				C5F922DFDD3DE4657CCAE7BA /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0275227DEFA8DF96F2CD9BB /* PBXTargetDependency */,
+			);
+			name = PomodoroXTests;
+			packageProductDependencies = (
+			);
+			productName = PomodoroXTests;
+			productReference = 19457E7F4962987EBE6C0C87 /* PomodoroXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		78360AE428F702039C562A78 /* PomodoroX-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B996E3C1F4420E926320F79 /* Build configuration list for PBXNativeTarget "PomodoroX-iOS" */;
+			buildPhases = (
+				C535A9C5ED91FC0ED0B8F182 /* Sources */,
+				E77047777FF1D45C936C7CFE /* Frameworks */,
+				F7B527BDF577CCA067CD372D /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6A3DDB55E9A05CB05221699 /* PBXTargetDependency */,
+			);
+			name = "PomodoroX-iOS";
+			packageProductDependencies = (
+			);
+			productName = "PomodoroX-iOS";
+			productReference = 44560417D144AFB08086372E /* PomodoroX-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E04DEECFB4312088C81767B7 /* PomodoroXCore-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D81A9ED1E635958EED83C7C5 /* Build configuration list for PBXNativeTarget "PomodoroXCore-iOS" */;
+			buildPhases = (
+				E3E52E2CFDAF96FF66D674DA /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PomodoroXCore-iOS";
+			packageProductDependencies = (
+			);
+			productName = "PomodoroXCore-iOS";
+			productReference = B6727B500AFE5193D688BEDB /* PomodoroXCore-iOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		70D876864931A61DF70754E0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = EC2E93BFF3E608A97A44D075 /* Build configuration list for PBXProject "PomodoroX" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 5A76EE56CB3D4C1E54158435;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B7E20281F5D0A858F5CF21CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				78360AE428F702039C562A78 /* PomodoroX-iOS */,
+				1813CEB2994D52C6F7BFE44F /* PomodoroX-macOS */,
+				E04DEECFB4312088C81767B7 /* PomodoroXCore-iOS */,
+				31A64931C818B89ABC234352 /* PomodoroXCore-macOS */,
+				746002DA4B20F0F2355E9A7C /* PomodoroXTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3649718665D5A292CCCC219D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A51F7C6EC4B0CBE16ACC68F9 /* AmbientSoundBarView.swift in Sources */,
+				0B0481430034424FD03EA6E9 /* AppEnvironment.swift in Sources */,
+				DF03124ABFDF8B4893DE712C /* CircularProgressRing.swift in Sources */,
+				EDD1618782BC5F6055A620AB /* ColorExtensions.swift in Sources */,
+				7D5B5B754F4147DB18C1F928 /* ControlButtonsView.swift in Sources */,
+				C88E0D5970D59B82310DBB66 /* GlassCardModifier.swift in Sources */,
+				95C1A34FE5F2AA5BB2761163 /* MenuBarView.swift in Sources */,
+				881A1E6A00AE06D6C25A0F5F /* MiniTimerView.swift in Sources */,
+				E8990BC647E6BCC3F5E314C4 /* PhaseSelectorView.swift in Sources */,
+				7D1682B37225D0C0F6216B44 /* PomodoroXApp.swift in Sources */,
+				8B51C64E7C402F667E3D2B91 /* SettingsSheetView.swift in Sources */,
+				EF7ED1DB0AB6766BA48BDF07 /* StatsView.swift in Sources */,
+				D0562524FD6C29BD8D4E6F4D /* StreakBadgeView.swift in Sources */,
+				2816BFE6813B19E3273102CB /* TaskListView.swift in Sources */,
+				9B318AF51A666FC7DAEAA262 /* TaskRowView.swift in Sources */,
+				7D1C4F2CCB47AF468F70D062 /* TimerMainView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C535A9C5ED91FC0ED0B8F182 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				895CF6B2E992660DABE3C09B /* AmbientSoundBarView.swift in Sources */,
+				D1297F6F9C878BFD49DFA887 /* AppEnvironment.swift in Sources */,
+				CA68C874028C618D97F4A318 /* CircularProgressRing.swift in Sources */,
+				6798C4737E25D268CCCAD22A /* ColorExtensions.swift in Sources */,
+				54874619BEB55444F4D42E1C /* ControlButtonsView.swift in Sources */,
+				A78747C58DEBDCD0C0093658 /* GlassCardModifier.swift in Sources */,
+				7F74158062B9E3838030D860 /* MenuBarView.swift in Sources */,
+				8AB514C8F1DBDD64D755D496 /* MiniTimerView.swift in Sources */,
+				321E850E7D39AEF8B28C31E0 /* PhaseSelectorView.swift in Sources */,
+				592EFDCEC90E072F9B5D68AB /* PomodoroXApp.swift in Sources */,
+				6D6E7B75C27A6F4E073BA6BD /* SettingsSheetView.swift in Sources */,
+				7F719F6E6ACF79DFF12F645C /* StatsView.swift in Sources */,
+				20C802522D6EC3D4A0508F2A /* StreakBadgeView.swift in Sources */,
+				C01AD4142B3B24ED47CD71F0 /* TaskListView.swift in Sources */,
+				FC94D83A05175BF659D52286 /* TaskRowView.swift in Sources */,
+				F1DB1814B4E7AEFF369DFD38 /* TimerMainView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3E52E2CFDAF96FF66D674DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79C172C184BCE837D2C8CBD6 /* AmbientAudioEngine.swift in Sources */,
+				FA28C3511DA0A66F5E147B52 /* HapticsManager.swift in Sources */,
+				EB7C94B801BED058CB88F4C7 /* NotificationManager.swift in Sources */,
+				8E73F396592A86B01BC249DD /* PomodoroSession.swift in Sources */,
+				54B46882B3C887B2A946F87B /* PomodoroSettings.swift in Sources */,
+				7561A42E348C9F9625EDF890 /* PomodoroTask.swift in Sources */,
+				437BC5CBA9477FBE31C14175 /* PomodoroViewModel.swift in Sources */,
+				69A47998C7E63C8DE06DA76B /* StatsViewModel.swift in Sources */,
+				1D31F70EB110EFD01DFEB36F /* StorageService.swift in Sources */,
+				F0D5F8589BC47B3A77CAD748 /* TasksViewModel.swift in Sources */,
+				905FAA719BFCA11CB8742690 /* TimerService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB7C0E13ADC6F37457F60B18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9042B1221C8E2FDFA415F75E /* PomodoroModelTests.swift in Sources */,
+				54194978E1A28B23083C0A70 /* TimerServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8CE10DEB52A201004A24981 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0BF5325BF233106825C24F /* AmbientAudioEngine.swift in Sources */,
+				3C9F1171C2B6F6525E4E4B9D /* HapticsManager.swift in Sources */,
+				FDC2CE09C6D2C4B95D2878A6 /* NotificationManager.swift in Sources */,
+				52AA453CCC0E38EA3B10F094 /* PomodoroSession.swift in Sources */,
+				03CF2C33158DBA06C4891666 /* PomodoroSettings.swift in Sources */,
+				E9CFAB9D39BA2E8FA54E0E11 /* PomodoroTask.swift in Sources */,
+				631F574FB2A74EE417369740 /* PomodoroViewModel.swift in Sources */,
+				80752E59678923AA1227A82D /* StatsViewModel.swift in Sources */,
+				8F9FB293C078C124753FC0C0 /* StorageService.swift in Sources */,
+				F4C834F8C85C15DE12C22741 /* TasksViewModel.swift in Sources */,
+				7304D68554B18B6A4B76F739 /* TimerService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9CE536FF3BC8062BCF44A79A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31A64931C818B89ABC234352 /* PomodoroXCore-macOS */;
+			targetProxy = 7FDC0673EC87C68109A3CF0B /* PBXContainerItemProxy */;
+		};
+		D6A3DDB55E9A05CB05221699 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E04DEECFB4312088C81767B7 /* PomodoroXCore-iOS */;
+			targetProxy = 14A6C9A97CF5E3744875FFAA /* PBXContainerItemProxy */;
+		};
+		E0275227DEFA8DF96F2CD9BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31A64931C818B89ABC234352 /* PomodoroXCore-macOS */;
+			targetProxy = F47D2DBFD93DB86CC06547C0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		38A1739ACA6C5FE720225AD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		41022847B3382A6F6CD28EB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pomodorox.ios;
+				PRODUCT_NAME = PomodoroX;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6D4AA07F3B63D5C094118723 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pomodorox.PomodoroXCore-macOS";
+				PRODUCT_MODULE_NAME = PomodoroXCore;
+				PRODUCT_NAME = PomodoroXCore;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		7E79D931E0A9F4FDE115A27C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pomodorox.PomodoroXCore-iOS";
+				PRODUCT_MODULE_NAME = PomodoroXCore;
+				PRODUCT_NAME = PomodoroXCore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		B93EB9E4FD26FD9A029F9016 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pomodorox.PomodoroXTests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CC967CE3B0AA549859DC52C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pomodorox.ios;
+				PRODUCT_NAME = PomodoroX;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D27AE4D6352805D5B8A6380C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_KEY_LSUIElement = NO;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 PomodoroX. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pomodorox.app;
+				PRODUCT_NAME = PomodoroX;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DB2F46E3517E54A881101F5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_KEY_LSUIElement = NO;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 PomodoroX. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pomodorox.app;
+				PRODUCT_NAME = PomodoroX;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DC5F0649CE37BB09669578A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pomodorox.PomodoroXTests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E4B14984C7069FA5444D597F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pomodorox.PomodoroXCore-macOS";
+				PRODUCT_MODULE_NAME = PomodoroXCore;
+				PRODUCT_NAME = PomodoroXCore;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		F3B8BD6B34CB8FB5D4188088 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pomodorox.PomodoroXCore-iOS";
+				PRODUCT_MODULE_NAME = PomodoroXCore;
+				PRODUCT_NAME = PomodoroXCore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		FA2058D27C698985F35BB4D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10F0A322CB31DA1AB1136211 /* Build configuration list for PBXNativeTarget "PomodoroX-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D27AE4D6352805D5B8A6380C /* Debug */,
+				DB2F46E3517E54A881101F5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8B996E3C1F4420E926320F79 /* Build configuration list for PBXNativeTarget "PomodoroX-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41022847B3382A6F6CD28EB6 /* Debug */,
+				CC967CE3B0AA549859DC52C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9C0C35A0D756E78D1EE31BC0 /* Build configuration list for PBXNativeTarget "PomodoroXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC5F0649CE37BB09669578A0 /* Debug */,
+				B93EB9E4FD26FD9A029F9016 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D81A9ED1E635958EED83C7C5 /* Build configuration list for PBXNativeTarget "PomodoroXCore-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3B8BD6B34CB8FB5D4188088 /* Debug */,
+				7E79D931E0A9F4FDE115A27C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DCD502CA342737B68A5A812D /* Build configuration list for PBXNativeTarget "PomodoroXCore-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D4AA07F3B63D5C094118723 /* Debug */,
+				E4B14984C7069FA5444D597F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EC2E93BFF3E608A97A44D075 /* Build configuration list for PBXProject "PomodoroX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA2058D27C698985F35BB4D8 /* Debug */,
+				38A1739ACA6C5FE720225AD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 70D876864931A61DF70754E0 /* Project object */;
+}
