@@ -327,19 +327,27 @@
               </button>
             </div>
 
-            <!-- Ambient Sound Bar -->
-            <div class="ambient-bar">
-              <div class="ambient-picker">
-                <span class="ambient-icon" id="ambientIcon">🌊</span>
-                <select id="ambientSelect" onchange="changeAmbientSound(this.value)" aria-label="Select Ambient Soundscape">
+            <!-- YouTube-style Minimal Audio Bar -->
+            <div class="focus-audio-bar" title="Ambient Soundscape">
+              <div class="yt-audio-select-wrap">
+                <select id="ambientSelect" class="yt-sound-select" onchange="syncAmbientSound(this.value)" aria-label="Select Ambient Soundscape">
                   <option value="none">Ambient: Off</option>
-                  <option value="oceanWaves">Real Ocean Waves</option>
-                  <option value="pinkNoise">Deep Pink Noise</option>
+                  <option value="oceanWaves">Ocean Waves</option>
+                  <option value="pinkNoise">Pink Noise</option>
                   <option value="brownNoise">Brown Noise</option>
                   <option value="stream">Forest Stream</option>
                 </select>
               </div>
-              <input type="range" id="ambientVol" min="0" max="1" step="0.05" value="0.5" oninput="setAmbientVolume(this.value)" aria-label="Ambient Sound Volume">
+
+              <button type="button" class="yt-vol-btn audio-toggle-btn" onclick="toggleAudioMute()" title="Mute / Unmute" aria-label="Toggle Mute">
+                <svg class="audio-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                </svg>
+              </button>
+
+              <input type="range" id="ambientVol" class="yt-vol-slider" min="0" max="1" step="0.05" value="0.5" oninput="syncAmbientVolume(this.value)" aria-label="Ambient Sound Volume">
             </div>
           </div>
         </div>
@@ -803,7 +811,7 @@
         </div>
 
         <button type="button" class="yt-vol-btn" id="audioToggleBtn" onclick="toggleAudioMute()" title="Mute / Unmute" aria-label="Toggle Mute">
-          <svg id="audioIconSvg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <svg class="audio-icon-svg" id="audioIconSvg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>

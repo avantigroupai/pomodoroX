@@ -692,46 +692,7 @@ a:active {
   box-shadow: 0 10px 30px rgba(255, 89, 71, 0.7);
 }
 
-/* Ambient Bar */
-.ambient-bar {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-glass);
-  padding: 8px 14px;
-  border-radius: 16px;
-  gap: 12px;
-}
 
-.ambient-picker {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.ambient-picker select {
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
-  font-family: inherit;
-  outline: none;
-  cursor: pointer;
-}
-
-.ambient-picker select option {
-  background: var(--surface-dark);
-  color: #fff;
-}
-
-#ambientVol {
-  width: 70px;
-  accent-color: var(--pomo-coral);
-  cursor: pointer;
-}
 
 /* Features Section */
 .features, .soundscapes-section, .specs-section, .cta-bottom {

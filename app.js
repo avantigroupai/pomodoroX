@@ -612,16 +612,20 @@ function toggleAudioMute() {
 }
 
 function updateAudioIcon(vol) {
-  const icon = document.getElementById('audioIconSvg');
-  if (!icon) return;
+  const icons = document.querySelectorAll('.audio-icon-svg, #audioIconSvg');
+  if (!icons || icons.length === 0) return;
   const v = parseFloat(vol);
+  let html = '';
   if (v <= 0) {
-    icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line>';
+    html = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line>';
   } else if (v < 0.5) {
-    icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>';
+    html = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>';
   } else {
-    icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>';
+    html = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>';
   }
+  icons.forEach(icon => {
+    icon.innerHTML = html;
+  });
 }
 
 function syncAmbientSound(val) {
